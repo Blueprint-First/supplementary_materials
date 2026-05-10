@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Supplementary Materials — Blueprint First, Model Second (SCA)</title>
+<style>
+  :root {
+    --ink: #1f2933;
+    --ink-soft: #3e4c59;
+    --muted: #7b8794;
+    --rule: #d9dee3;
+    --rule-soft: #e9ecef;
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --code-bg: #f6f7f9;
+
+    --teal: #4a6b5d;
+    --teal-tint: #eaf0ed;
+    --slate: #5d6b85;
+    --slate-tint: #eef0f5;
+    --plum: #6b5d6b;
+    --plum-tint: #f0eaef;
+
+    --ok: #3b6e4a;
+    --warn: #8a6126;
+    --info: #355e7c;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+                 Helvetica, Arial, "Liberation Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--info); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .page { max-width: 1180px; margin: 0 auto; padding: 32px 28px 48px; }
+
+  /* Header */
+  header.doc-header { border-bottom: 1px solid var(--rule); padding-bottom: 20px; margin-bottom: 26px; }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 0.12em;
+    font-size: 11px; color: var(--muted); margin: 0 0 6px;
+  }
+  h1 {
+    margin: 0 0 8px; font-size: 24px; font-weight: 600;
+    letter-spacing: -0.01em; color: var(--ink);
+  }
+  .lede { margin: 8px 0 0; color: var(--ink-soft); font-size: 14px; max-width: 80ch; }
+  .lede code {
+    font-family: "SF Mono", "Menlo", "Consolas", monospace;
+    font-size: 13px; background: var(--code-bg); padding: 1px 5px;
+    border-radius: 3px; border: 1px solid var(--rule-soft);
+  }
+
+  /* Orientation strip */
+  .orient {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 18px 0 28px;
+  }
+  .orient .stat {
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .orient .stat .label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); margin: 0 0 4px;
+  }
+  .orient .stat .value {
+    font-size: 16px; color: var(--ink); font-weight: 600; margin: 0;
+  }
+  .orient .stat .sub {
+    font-size: 12px; color: var(--ink-soft); margin: 2px 0 0;
+  }
+
+  /* Section title */
+  h2.section {
+    font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted);
+    margin: 32px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  /* Card grid */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .card {
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    border-radius: 6px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card .top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 12px;
+  }
+  .card .tag {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted); font-weight: 600;
+  }
+  .card .tag.r1 { color: var(--teal); }
+  .card .tag.r2 { color: var(--slate); }
+  .card .tag.r3 { color: var(--plum); }
+  .card h3 {
+    margin: 4px 0 0;
+    font-size: 16px; font-weight: 600; color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .badge {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 3px 8px; border-radius: 3px; font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge.ready { background: #e6f1ea; color: var(--ok); border: 1px solid #c8dfd0; }
+  .badge.partial { background: #fbf3e3; color: var(--warn); border: 1px solid #ecdcb8; }
+  .badge.plan { background: #e7eff7; color: var(--info); border: 1px solid #c8dae8; }
+
+  .card .summary { color: var(--ink-soft); font-size: 13px; margin: 0; }
+
+  .metric-row {
+    display: flex; flex-wrap: wrap; gap: 6px 10px;
+    padding: 8px 10px;
+    background: var(--code-bg);
+    border-radius: 4px;
+    border: 1px solid var(--rule-soft);
+  }
+  .metric { font-size: 12px; color: var(--ink-soft); }
+  .metric strong { color: var(--ink); font-weight: 600; }
+
+  .card .links {
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+    margin-top: auto; padding-top: 4px;
+    font-size: 13px;
+  }
+  .card .links a::after { content: " →"; color: var(--muted); }
+
+  /* Reviewer map table */
+  .map {
+    margin-top: 28px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--panel);
+    overflow: hidden;
+  }
+  .map h3 {
+    margin: 0; padding: 12px 16px;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted); font-weight: 600;
+    border-bottom: 1px solid var(--rule-soft);
+    background: #fcfcfd;
+  }
+  table.map-tbl { width: 100%; border-collapse: collapse; }
+  table.map-tbl th, table.map-tbl td {
+    text-align: left; padding: 8px 16px; font-size: 13px;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  table.map-tbl th { font-weight: 600; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; background: #fcfcfd; }
+  table.map-tbl tr:last-child td { border-bottom: 0; }
+  table.map-tbl code {
+    font-family: "SF Mono", "Menlo", "Consolas", monospace;
+    font-size: 12px; color: var(--ink-soft);
+  }
+
+  /* Footer */
+  footer.doc-footer {
+    margin-top: 36px; padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  footer .col h4 {
+    margin: 0 0 6px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-soft); font-weight: 600;
+  }
+  footer .col p { margin: 0; line-height: 1.55; }
+  footer code {
+    font-family: "SF Mono", "Menlo", "Consolas", monospace;
+    background: var(--code-bg); padding: 1px 4px; border-radius: 3px;
+    color: var(--ink-soft);
+  }
+
+  /* Responsive */
+  @media (max-width: 980px) {
+    .cards { grid-template-columns: 1fr; }
+    .orient { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    footer.doc-footer { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    .orient { grid-template-columns: 1fr; }
+    .page { padding: 22px 18px 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="doc-header">
+    <p class="eyebrow">ICSME 2026 · Supplementary Materials</p>
+    <h1>Blueprint First, Model Second — A Framework for Deterministic LLM Workflow</h1>
+    <p class="lede">
+      Companion repository for the rebuttal. Each card below maps to one rebuttal claim and
+      links to the underlying data, blueprints, or written analysis. Anonymity is preserved
+      throughout — no author names, internal service names, or proprietary identifiers
+      appear in any artifact.
+    </p>
+  </header>
+
+  <!-- Orientation strip: the headline numbers a reviewer wants to see in 5 seconds -->
+  <div class="orient">
+    <div class="stat">
+      <p class="label">TravelPlanner test (1000)</p>
+      <p class="value">35.56% Final Pass</p>
+      <p class="sub">SCA · vs 18.00% ATLAS</p>
+    </div>
+    <div class="stat">
+      <p class="label">ScienceWorld (30)</p>
+      <p class="value">70.4 ± 1.9% Pass@1</p>
+      <p class="sub">SCA · 3-seed mean</p>
+    </div>
+    <div class="stat">
+      <p class="label">ALFWorld valid_unseen (134)</p>
+      <p class="value">98.4 ± 1.5% SR</p>
+      <p class="sub">SCA · 3-seed mean</p>
+    </div>
+    <div class="stat">
+      <p class="label">Fair-comparison gap</p>
+      <p class="value">+12.7 pts</p>
+      <p class="sub">SCA 37.2% vs ATLAS+constraints 24.5%, 100-task</p>
+    </div>
+  </div>
+
+  <!-- ============================== Top-priority responses ============================== -->
+  <h2 class="section">Top-priority responses</h2>
+
+  <div class="cards">
+
+    <!-- Fair-comparison ablation -->
+    <div class="card">
+      <div class="top">
+        <div>
+          <span class="tag r1">R1 / R3-Q1 · isolate architecture</span>
+          <h3>Fair-Comparison Ablation</h3>
+        </div>
+        <span class="badge ready">Ready</span>
+      </div>
+      <p class="summary">
+        Inject the SCA blueprint's 13 constraints into baselines as system prompts;
+        re-evaluate on a stratified 100-task TravelPlanner subset. The remaining gap
+        isolates the contribution of deterministic execution.
+      </p>
+      <div class="metric-row">
+        <span class="metric"><strong>SCA</strong> 37.2%</span>
+        <span class="metric"><strong>ATLAS+c</strong> 24.5%</span>
+        <span class="metric"><strong>CodeAct+c</strong> 19.0%</span>
+        <span class="metric"><strong>ReAct+c</strong> 17.0%</span>
+        <span class="metric"><strong>Δ</strong> +12.7 pts</span>
+      </div>
+      <div class="links">
+        <a href="ablation/">Open <code>ablation/</code></a>
+        <a href="ablation/methodology.md">Methodology</a>
+        <a href="ablation/results_100task.csv">Per-task CSV</a>
+        <a href="ablation/runs/">Raw runs</a>
+      </div>
+    </div>
+
+    <!-- Generalization -->
+    <div class="card">
+      <div class="top">
+        <div>
+          <span class="tag r1">R1 / R3 · benchmark generalization</span>
+          <h3>Generalization Beyond TravelPlanner</h3>
+        </div>
+        <span class="badge ready">Ready</span>
+      </div>
+      <p class="summary">
+        Same blueprint design applied to two structurally different benchmarks
+        (household action / scientific reasoning). Consistent gains over ReAct,
+        Reflexion, and ReAct+Reflexion.
+      </p>
+      <div class="metric-row">
+        <span class="metric"><strong>ScienceWorld</strong> 70.4 ± 1.9% (Δ +3.0 vs Reflexion)</span>
+        <span class="metric"><strong>ALFWorld</strong> 98.4 ± 1.5% (Δ +2.9 vs Reflexion)</span>
+      </div>
+      <div class="links">
+        <a href="generalization/">Open <code>generalization/</code></a>
+        <a href="generalization/scienceworld/">ScienceWorld</a>
+        <a href="generalization/alfworld/">ALFWorld</a>
+        <a href="generalization/scienceworld/results.json">ScienceWorld JSON</a>
+        <a href="generalization/alfworld/results.json">ALFWorld JSON</a>
+      </div>
+    </div>
+
+    <!-- SE case study -->
+    <div class="card">
+      <div class="top">
+        <div>
+          <span class="tag r2">R1 · venue fit (ICSME)</span>
+          <h3>SE Case Studies</h3>
+        </div>
+        <span class="badge ready">Ready</span>
+      </div>
+      <p class="summary">
+        Two anonymized industrial deployments demonstrating the constraint-governed
+        workflow regime SCA targets. Both blueprints stripped of internal service
+        names, URLs, and authentication paths.
+      </p>
+      <div class="metric-row">
+        <span class="metric"><strong>Java OOM diagnosis</strong> tens of thousands of machines</span>
+        <span class="metric"><strong>Mobile crash diagnosis</strong> tens of millions of DAU</span>
+      </div>
+      <div class="links">
+        <a href="se_case_study/">Open <code>se_case_study/</code></a>
+        <a href="se_case_study/java_oom/trace_example.md">Java OOM trace</a>
+        <a href="se_case_study/mobile_crash/trace_example.md">Mobile crash trace</a>
+        <a href="blueprint_release/se_blueprints/">Blueprints</a>
+      </div>
+    </div>
+
+    <!-- Novelty positioning -->
+    <div class="card">
+      <div class="top">
+        <div>
+          <span class="tag r3">R3-Q3 · novelty vs CodeAct</span>
+          <h3>Novelty Positioning vs CodeAct</h3>
+        </div>
+        <span class="badge ready">Ready</span>
+      </div>
+      <p class="summary">
+        SCA and CodeAct sit at different layers — workflow control vs execution / tool
+        use — and compose. A single-page visual walks through the same task under
+        CodeAct alone, SCA alone, and the SCA + CodeAct hybrid.
+      </p>
+      <div class="links">
+        <a href="positioning/sca_vs_codeact.html"><strong>Visual walkthrough (HTML)</strong></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================== Validation & release ============================== -->
+  <h2 class="section">Validation, release, and revisions</h2>
+
+  <div class="cards">
+
+    <!-- R2 validation -->
+    <div class="card">
+      <div class="top">
+        <div>
+          <span class="tag r2">R2 · variance evidence</span>
+          <h3>Three-Seed Validation + 1000-Task Plan</h3>
+        </div>
+        <span class="badge partial">Partial</span>
+      </div>
+      <p class="summary">
+        Raw SCA plans for three seeds on the 180-task validation split (identical idx
+        coverage), plus the full 1000-task test seed for SCA and SCA+ReAct hybrid.
+        Camera-ready will add seeds 2, 3 of the test set and the McNemar test.
+      </p>
+      <div class="metric-row">
+        <span class="metric"><strong>Validation</strong> 3 seeds × 180 tasks (idx 1–180)</span>
+        <span class="metric"><strong>Test seed 1</strong> 1000 tasks (idx 0–999) ×2 methods</span>
+      </div>
+      <div class="links">
+        <a href="r2_validation/">Open <code>r2_validation/</code></a>
+        <a href="r2_validation/seed_plan.md">Cross-seed protocol</a>
+        <a href="r2_validation/per_seed_summary.json">Per-seed counts</a>
+      </div>
+    </div>
+
+    <!-- Blueprint release -->
+    <div class="card">
+      <div class="top">
+        <div>
+          <span class="tag r3">R3-Q4 · authoring cost &amp; release</span>
+          <h3>Blueprint Code &amp; Generation Agent</h3>
+        </div>
+        <span class="badge partial">Partial</span>
+      </div>
+      <p class="summary">
+        Released now: TravelPlanner blueprint (11-node, runnable), generation agent,
+        three example blueprints. The full execution engine is gated on decoupling
+        from internal infrastructure — see the roadmap.
+      </p>
+      <div class="metric-row">
+        <span class="metric"><strong>Leave request</strong> 87 LoC</span>
+        <span class="metric"><strong>OOM</strong> 332 LoC</span>
+        <span class="metric"><strong>Mobile crash</strong> 290 LoC</span>
+        <span class="metric"><strong>Generation agent</strong> ≤5 rounds for &gt;90% of workflows</span>
+      </div>
+      <div class="links">
+        <a href="blueprint_release/">Open <code>blueprint_release/</code></a>
+        <a href="blueprint_release/travelplanner_blueprint/">TravelPlanner blueprint</a>
+        <a href="blueprint_release/blueprint_generation_agent/">Generation agent</a>
+        <a href="blueprint_release/framework_roadmap.md">Engine release roadmap</a>
+      </div>
+    </div>
+
+    <!-- Long form rebuttal -->
+    <div class="card">
+      <div class="top">
+        <div>
+          <span class="tag">read-along</span>
+          <h3>Long-Form Rebuttal</h3>
+        </div>
+        <span class="badge plan">Reference</span>
+      </div>
+      <p class="summary">
+        The 800-word rebuttal submitted to the venue is authoritative. This document
+        expands each point with the full data tables and methodology details that
+        did not fit in the word limit.
+      </p>
+      <div class="links">
+        <a href="REBUTTAL_DETAILED.md">Read <code>REBUTTAL_DETAILED.md</code></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================== Reviewer quick map ============================== -->
+  <div class="map">
+    <h3>Reviewer quick map — claim → directory</h3>
+    <table class="map-tbl">
+      <thead>
+        <tr>
+          <th style="width: 38%;">Rebuttal claim</th>
+          <th style="width: 32%;">Where in this repo</th>
+          <th style="width: 30%;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Fair-comparison ablation (constraints injected into baselines)</td><td><code><a href="ablation/">ablation/</a></code></td><td>SCA 37.2 vs ATLAS 24.5 / CodeAct 19.0 / ReAct 17.0 on 100-task</td></tr>
+        <tr><td>SE case study (Java OOM, mobile crash)</td><td><code><a href="se_case_study/">se_case_study/</a></code></td><td>Trace examples; blueprints in <code>blueprint_release/se_blueprints/</code></td></tr>
+        <tr><td>Novelty positioning vs CodeAct</td><td><code><a href="positioning/sca_vs_codeact.html">positioning/sca_vs_codeact.html</a></code></td><td>Single-page visual walkthrough</td></tr>
+        <tr><td>Generalization (ScienceWorld, ALFWorld)</td><td><code><a href="generalization/">generalization/</a></code></td><td>3-seed mean reported; single-seed raw data in repo</td></tr>
+        <tr><td>Blueprint authoring cost &amp; framework release</td><td><code><a href="blueprint_release/">blueprint_release/</a></code></td><td>Blueprints + generation agent released; engine roadmap</td></tr>
+        <tr><td>R2 validation seeds + 1000-task cross-seed plan</td><td><code><a href="r2_validation/">r2_validation/</a></code></td><td>3 validation seeds + test seed 1 plans available</td></tr>
+        <tr><td>Long-form rebuttal (read-along)</td><td><code><a href="REBUTTAL_DETAILED.md">REBUTTAL_DETAILED.md</a></code></td><td>Reference document</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="doc-footer">
+    <div class="col">
+      <h4>Backbone &amp; setup</h4>
+      <p>
+        Claude-Sonnet-4, temperature <code>0.7</code> (matches main paper Table I).
+        ScienceWorld and ALFWorld use their official evaluation harnesses with no
+        scoring modification; TravelPlanner numbers come from the official eval script.
+      </p>
+    </div>
+    <div class="col">
+      <h4>Anonymity</h4>
+      <p>
+        Internal identifiers replaced with <code>&lt;ENTERPRISE&gt;</code>,
+        <code>&lt;APP&gt;</code>, etc. If a reviewer spots any leak, please flag it
+        in the rebuttal forum.
+      </p>
+    </div>
+    <div class="col">
+      <h4>Reproducibility</h4>
+      <p>
+        Per-directory READMEs include the exact run commands and
+        configuration. Each baseline run on the full 1000-task TravelPlanner takes
+        ≈ 2 days; the 100-task subset is provided for reviewer-reproducible turnaround.
+      </p>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

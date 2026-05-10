@@ -1,0 +1,79 @@
+{
+  "question_id": 249,
+  "query": "Please help me create a 7-day travel plan for one person, traveling from Providence to visit 3 different cities in New York. The trip is from March 15th to March 21st, 2022, with a budget of $4,400.",
+  "question_details": {
+    "id": 249,
+    "query": "Please help me create a 7-day travel plan for one person, traveling from Providence to visit 3 different cities in New York. The trip is from March 15th to March 21st, 2022, with a budget of $4,400.",
+    "level": "easy",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Providence",
+    "dest": "New York",
+    "budget": 4400,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-15', '2022-03-16', '2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20', '2022-03-21']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T14:02:57+00:00",
+  "duration_seconds": 40.48,
+  "tokens_input": 9709,
+  "tokens_output": 1467,
+  "tool_calls": 19,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Providence to New York\nTransportation: Flight Number: F9999999, from Providence to New York, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Providence\nAttraction: City Botanical Garden, New York\nLunch: Kettle & Fork, New York\nDinner: Kettle & Fork, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 2:\nCurrent City: New York\nTransportation: -\nBreakfast: Maple Diner, New York\nAttraction: City Botanical Garden, New York\nLunch: Stone Hearth Kitchen, New York\nDinner: Sunset Grille, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 3:\nCurrent City: New York\nTransportation: -\nBreakfast: Lantern House, New York\nAttraction: Skyline Observatory, New York\nLunch: Sunset Grille, New York\nDinner: Garden Brasserie, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 4:\nCurrent City: New York\nTransportation: -\nBreakfast: Sunset Grille, New York\nAttraction: Heritage Museum, New York\nLunch: Maple Diner, New York\nDinner: The Olive Tree, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 5:\nCurrent City: New York\nTransportation: -\nBreakfast: Stone Hearth Kitchen, New York\nAttraction: Riverwalk Park, New York\nLunch: The Olive Tree, New York\nDinner: The Olive Tree, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 6:\nCurrent City: New York\nTransportation: -\nBreakfast: Riverside Bistro, New York\nAttraction: Riverwalk Park, New York\nLunch: Kettle & Fork, New York\nDinner: Lantern House, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 7:\nCurrent City: from New York to Providence\nTransportation: Flight Number: F14681323, from New York to Providence, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, New York\nAttraction: -\nLunch: Harbor Cafe, New York\nDinner: Maple Diner, New York\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": true,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    }
+  ]
+}

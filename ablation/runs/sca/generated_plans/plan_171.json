@@ -1,0 +1,56 @@
+{
+  "question_id": 171,
+  "query": "Could you help develop a week-long travel itinerary suitable for a group of 6 people, departing from Baton Rouge and planning to visit 3 different cities in Texas? The travel dates are set from March 17th to March 23rd, 2022. Our travel budget has been adjusted to $14,600. Bearing in mind that we have children under ten years old, our accommodations need to allow young children and we prefer to occupy entire rooms. We also prefer not to self-drive during this trip.",
+  "question_details": {
+    "id": 171,
+    "query": "Could you help develop a week-long travel itinerary suitable for a group of 6 people, departing from Baton Rouge and planning to visit 3 different cities in Texas? The travel dates are set from March 17th to March 23rd, 2022. Our travel budget has been adjusted to $14,600. Bearing in mind that we have children under ten years old, our accommodations need to allow young children and we prefer to occupy entire rooms. We also prefer not to self-drive during this trip.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Baton Rouge",
+    "dest": "Texas",
+    "budget": 14600,
+    "local_constraint": "{'house rule': 'children under 10', 'cuisine': None, 'room type': 'entire room', 'transportation': 'no self-driving'}",
+    "people_number": 6,
+    "date": "['2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20', '2022-03-21', '2022-03-22', '2022-03-23']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T00:28:03+00:00",
+  "duration_seconds": 78.42,
+  "tokens_input": 13996,
+  "tokens_output": 2662,
+  "tool_calls": 19,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Baton Rouge to Houston\",\n        \"transportation\": \"Flight Number: F3924815, from Baton Rouge to Houston, Departure Time: 12:03, Arrival Time: 13:44\",\n        \"breakfast\": \"-\",\n        \"attraction\": \"Downtown Aquarium, Houston;\",\n        \"lunch\": \"Truth Coffee, Houston\",\n        \"dinner\": \"Matchbox, Houston\",\n        \"accommodation\": \"Sunny and Airy near Manhattan in Houston, Houston\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Houston\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Tasty Bite, Houston\",\n        \"attraction\": \"Space Center Houston, Houston;Children's Museum Houston, Houston;\",\n        \"lunch\": \"Earthen Spices, Houston\",\n        \"dinner\": \"Super Bakery, Houston\",\n        \"accommodation\": \"Sunny and Airy near Manhattan in Houston, Houston\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Houston to Austin\",\n        \"transportation\": \"Taxi from Houston to Austin, Distance: 266km, Duration: 2h 31m\",\n        \"breakfast\": \"Moksha, Austin\",\n        \"attraction\": \"Houston Zoo, Houston;Hermann Park, Houston;\",\n        \"lunch\": \"Tandoori Nights, Austin\",\n        \"dinner\": \"Chili's, Austin\",\n        \"accommodation\": \"Gorgeous Zen Home at Crossroads of Nolita and Soho in Austin, Austin\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Austin\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Frontier, Austin\",\n        \"attraction\": \"Austin Aquarium, Austin;Zilker Metropolitan Park, Austin;\",\n        \"lunch\": \"Green Chick Chop, Austin\",\n        \"dinner\": \"Goldy Da Dhaba, Austin\",\n        \"accommodation\": \"Gorgeous Zen Home at Crossroads of Nolita and Soho in Austin, Austin\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Austin to San Antonio\",\n        \"transportation\": \"Taxi from Austin to San Antonio, Distance: 128km, Duration: 1h 19m\",\n        \"breakfast\": \"Super Cake Shop, San Antonio\",\n        \"attraction\": \"Austin Zoo, Austin;Austin Nature & Science Center, Austin;\",\n        \"lunch\": \"Cafe Le Rue @ The Landings, San Antonio\",\n        \"dinner\": \"Cream Stone, San Antonio\",\n        \"accommodation\": \"Private House in Trendy Crown Heights in San Antonio, San Antonio\"\n    },\n    {\n        \"days\": 6,\n        \"current_city\": \"from San Antonio to Houston\",\n        \"transportation\": \"Taxi from San Antonio to Houston, Distance: 317km, Duration: 2h 56m\",\n        \"breakfast\": \"Zaika, Houston\",\n        \"attraction\": \"San Antonio Zoo, San Antonio;San Antonio River Walk, San Antonio;The DoSeum, San Antonio;\",\n        \"lunch\": \"Chawla's', Houston\",\n        \"dinner\": \"Sheetla Dhaba, Houston\",\n        \"accommodation\": \"-\"\n    },\n    {\n        \"days\": 7,\n        \"current_city\": \"from Houston to Baton Rouge\",\n        \"transportation\": \"Flight Number: F3921694, from Houston to Baton Rouge, Departure Time: 16:29, Arrival Time: 17:32\",\n        \"breakfast\": \"Taj Cafe, Houston\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Istanbul Restaurant, Houston\",\n        \"dinner\": \"Royal Mart, Houston\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed"
+}

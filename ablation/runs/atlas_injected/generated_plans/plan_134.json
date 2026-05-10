@@ -1,0 +1,77 @@
+{
+  "question_id": 134,
+  "query": "Can you assist in formulating a 3-day travel plan departing from Columbus and heading to Newark, covering 1 city, from March 25th to March 27th, 2022, for 2 people? We are traveling with children under 10, so our accommodations must be suitable for them. We'd prefer entire rooms and our revised budget is set at $1,200. We're also looking for options where we don't need to self-drive.",
+  "question_details": {
+    "id": 134,
+    "query": "Can you assist in formulating a 3-day travel plan departing from Columbus and heading to Newark, covering 1 city, from March 25th to March 27th, 2022, for 2 people? We are traveling with children under 10, so our accommodations must be suitable for them. We'd prefer entire rooms and our revised budget is set at $1,200. We're also looking for options where we don't need to self-drive.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Columbus",
+    "dest": "Newark",
+    "budget": 1200,
+    "local_constraint": "{'house rule': 'children under 10', 'cuisine': None, 'room type': 'entire room', 'transportation': 'no self-driving'}",
+    "people_number": 2,
+    "date": "['2022-03-25', '2022-03-26', '2022-03-27']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-12T19:43:02+00:00",
+  "duration_seconds": 58.06,
+  "tokens_input": 11838,
+  "tokens_output": 1807,
+  "tool_calls": 15,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Columbus to Newark\nTransportation: Flight Number: F4974501, from Columbus to Newark, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Columbus\nAttraction: City Botanical Garden, Newark\nLunch: Harbor Cafe, Newark\nDinner: Harbor Cafe, Newark\nAccommodation: Boutique Inn at Newark Center, Newark\n\nDay 2:\nCurrent City: Newark\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Newark\nAttraction: Skyline Observatory, Newark\nLunch: Harbor Cafe, Newark\nDinner: Kettle & Fork, Newark\nAccommodation: Boutique Inn at Newark Center, Newark\n\nDay 3:\nCurrent City: from Newark to Columbus\nTransportation: Flight Number: F10243838, from Newark to Columbus, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Maple Diner, Newark\nAttraction: -\nLunch: Lantern House, Newark\nDinner: Lantern House, Newark\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    },
+    {
+      "code": "H3",
+      "kind": "hard",
+      "description": "House-rule compatibility"
+    }
+  ]
+}

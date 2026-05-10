@@ -1,0 +1,76 @@
+{
+  "question_id": 360,
+  "query": "Could you help me construct a travel plan that departs from Peoria and arrives in Las Vegas, with a duration of 3 days from March 18th to March 20th, 2022? This trip is designed for a group of 4 people and we are operating within a budget of $5,900. When booking accommodations, we ask for entire rooms to ourselves.",
+  "question_details": {
+    "id": 360,
+    "query": "Could you help me construct a travel plan that departs from Peoria and arrives in Las Vegas, with a duration of 3 days from March 18th to March 20th, 2022? This trip is designed for a group of 4 people and we are operating within a budget of $5,900. When booking accommodations, we ask for entire rooms to ourselves.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Peoria",
+    "dest": "Las Vegas",
+    "budget": 5900,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'entire room', 'transportation': None}",
+    "people_number": 4,
+    "date": "['2022-03-18', '2022-03-19', '2022-03-20']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T00:18:00+00:00",
+  "duration_seconds": 47.4,
+  "tokens_input": 8035,
+  "tokens_output": 1312,
+  "tool_calls": 11,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Peoria to Las Vegas\nTransportation: Flight Number: F9999999, from Peoria to Las Vegas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Peoria\nAttraction: Liberty Hall, Las Vegas\nLunch: Sunset Grille, Las Vegas\nDinner: Sunset Grille, Las Vegas\nAccommodation: Boutique Inn at Las Vegas Center, Las Vegas\n\nDay 2:\nCurrent City: Las Vegas\nTransportation: -\nBreakfast: The Olive Tree, Las Vegas\nAttraction: City Botanical Garden, Las Vegas\nLunch: Sunset Grille, Las Vegas\nDinner: Maple Diner, Las Vegas\nAccommodation: Boutique Inn at Las Vegas Center, Las Vegas\n\nDay 3:\nCurrent City: from Las Vegas to Peoria\nTransportation: Flight Number: F16464363, from Las Vegas to Peoria, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Harbor Cafe, Las Vegas\nAttraction: -\nLunch: Lantern House, Las Vegas\nDinner: Kettle & Fork, Las Vegas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": true,
+      "C4": true,
+      "C5": true,
+      "C6": false,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.3125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

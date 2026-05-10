@@ -1,0 +1,837 @@
+{
+  "version": "1.0",
+  "source_benchmark": "TravelPlanner",
+  "split": "test",
+  "sampling_seed": 42,
+  "stratification": {
+    "days": [
+      3,
+      5,
+      7
+    ],
+    "level": [
+      "easy",
+      "medium",
+      "hard"
+    ]
+  },
+  "stratum_mapping": {
+    "days": "TravelPlanner `days` field (3 / 5 / 7)",
+    "level": "TravelPlanner `level` field (easy / medium / hard) \u2014 proxy for constraint difficulty"
+  },
+  "stratum_counts": {
+    "3day_easy": 12,
+    "3day_medium": 10,
+    "3day_hard": 8,
+    "5day_easy": 12,
+    "5day_medium": 12,
+    "5day_hard": 12,
+    "7day_easy": 11,
+    "7day_medium": 11,
+    "7day_hard": 12
+  },
+  "task_ids": [
+    4,
+    14,
+    15,
+    18,
+    29,
+    32,
+    36,
+    70,
+    82,
+    87,
+    95,
+    115,
+    134,
+    136,
+    142,
+    143,
+    150,
+    158,
+    166,
+    171,
+    177,
+    212,
+    220,
+    226,
+    244,
+    247,
+    249,
+    251,
+    263,
+    268,
+    276,
+    323,
+    329,
+    337,
+    348,
+    352,
+    353,
+    360,
+    376,
+    378,
+    403,
+    413,
+    420,
+    424,
+    426,
+    458,
+    465,
+    468,
+    486,
+    497,
+    498,
+    511,
+    521,
+    530,
+    546,
+    556,
+    561,
+    587,
+    593,
+    602,
+    612,
+    613,
+    614,
+    615,
+    625,
+    648,
+    652,
+    673,
+    682,
+    707,
+    710,
+    717,
+    735,
+    739,
+    751,
+    757,
+    774,
+    801,
+    810,
+    812,
+    834,
+    837,
+    843,
+    844,
+    870,
+    874,
+    877,
+    882,
+    894,
+    905,
+    906,
+    916,
+    919,
+    953,
+    962,
+    966,
+    967,
+    972,
+    974,
+    978
+  ],
+  "tasks": [
+    {
+      "task_id": 4,
+      "days": 3,
+      "level": "easy",
+      "org": "Jacksonville",
+      "dest": "Norfolk"
+    },
+    {
+      "task_id": 14,
+      "days": 3,
+      "level": "easy",
+      "org": "Bozeman",
+      "dest": "Los Angeles"
+    },
+    {
+      "task_id": 15,
+      "days": 3,
+      "level": "easy",
+      "org": "Atlanta",
+      "dest": "San Diego"
+    },
+    {
+      "task_id": 18,
+      "days": 3,
+      "level": "easy",
+      "org": "Punta Gorda",
+      "dest": "Plattsburgh"
+    },
+    {
+      "task_id": 29,
+      "days": 3,
+      "level": "easy",
+      "org": "Miami",
+      "dest": "Des Moines"
+    },
+    {
+      "task_id": 32,
+      "days": 3,
+      "level": "easy",
+      "org": "Dallas",
+      "dest": "Pensacola"
+    },
+    {
+      "task_id": 36,
+      "days": 3,
+      "level": "easy",
+      "org": "Kansas City",
+      "dest": "Newark"
+    },
+    {
+      "task_id": 70,
+      "days": 3,
+      "level": "easy",
+      "org": "Myrtle Beach",
+      "dest": "Fort Lauderdale"
+    },
+    {
+      "task_id": 82,
+      "days": 3,
+      "level": "easy",
+      "org": "San Luis Obispo",
+      "dest": "Phoenix"
+    },
+    {
+      "task_id": 87,
+      "days": 3,
+      "level": "easy",
+      "org": "Atlantic City",
+      "dest": "Miami"
+    },
+    {
+      "task_id": 95,
+      "days": 3,
+      "level": "easy",
+      "org": "Detroit",
+      "dest": "Mosinee"
+    },
+    {
+      "task_id": 115,
+      "days": 3,
+      "level": "easy",
+      "org": "Charlotte Amalie",
+      "dest": "San Juan"
+    },
+    {
+      "task_id": 134,
+      "days": 5,
+      "level": "easy",
+      "org": "Trenton",
+      "dest": "Florida"
+    },
+    {
+      "task_id": 136,
+      "days": 5,
+      "level": "easy",
+      "org": "Great Falls",
+      "dest": "Washington"
+    },
+    {
+      "task_id": 142,
+      "days": 5,
+      "level": "easy",
+      "org": "Newburgh",
+      "dest": "Florida"
+    },
+    {
+      "task_id": 143,
+      "days": 5,
+      "level": "easy",
+      "org": "Denver",
+      "dest": "Wisconsin"
+    },
+    {
+      "task_id": 150,
+      "days": 5,
+      "level": "easy",
+      "org": "Fort Myers",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 158,
+      "days": 5,
+      "level": "easy",
+      "org": "Lexington",
+      "dest": "Pennsylvania"
+    },
+    {
+      "task_id": 166,
+      "days": 5,
+      "level": "easy",
+      "org": "Detroit",
+      "dest": "Virginia"
+    },
+    {
+      "task_id": 171,
+      "days": 5,
+      "level": "easy",
+      "org": "Kansas City",
+      "dest": "Washington"
+    },
+    {
+      "task_id": 177,
+      "days": 5,
+      "level": "easy",
+      "org": "El Paso",
+      "dest": "Washington"
+    },
+    {
+      "task_id": 212,
+      "days": 5,
+      "level": "easy",
+      "org": "Albuquerque",
+      "dest": "Colorado"
+    },
+    {
+      "task_id": 220,
+      "days": 5,
+      "level": "easy",
+      "org": "Milwaukee",
+      "dest": "Utah"
+    },
+    {
+      "task_id": 226,
+      "days": 5,
+      "level": "easy",
+      "org": "Grand Rapids",
+      "dest": "Illinois"
+    },
+    {
+      "task_id": 244,
+      "days": 7,
+      "level": "easy",
+      "org": "Atlanta",
+      "dest": "Pennsylvania"
+    },
+    {
+      "task_id": 247,
+      "days": 7,
+      "level": "easy",
+      "org": "Fort Lauderdale",
+      "dest": "Pennsylvania"
+    },
+    {
+      "task_id": 249,
+      "days": 7,
+      "level": "easy",
+      "org": "Providence",
+      "dest": "New York"
+    },
+    {
+      "task_id": 251,
+      "days": 7,
+      "level": "easy",
+      "org": "Raleigh",
+      "dest": "California"
+    },
+    {
+      "task_id": 263,
+      "days": 7,
+      "level": "easy",
+      "org": "Baltimore",
+      "dest": "Florida"
+    },
+    {
+      "task_id": 268,
+      "days": 7,
+      "level": "easy",
+      "org": "Detroit",
+      "dest": "Minnesota"
+    },
+    {
+      "task_id": 276,
+      "days": 7,
+      "level": "easy",
+      "org": "Twin Falls",
+      "dest": "Utah"
+    },
+    {
+      "task_id": 323,
+      "days": 7,
+      "level": "easy",
+      "org": "Punta Gorda",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 329,
+      "days": 7,
+      "level": "easy",
+      "org": "Denver",
+      "dest": "Louisiana"
+    },
+    {
+      "task_id": 337,
+      "days": 7,
+      "level": "easy",
+      "org": "Myrtle Beach",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 348,
+      "days": 7,
+      "level": "easy",
+      "org": "White Plains",
+      "dest": "Florida"
+    },
+    {
+      "task_id": 352,
+      "days": 3,
+      "level": "medium",
+      "org": "Orlando",
+      "dest": "Newark"
+    },
+    {
+      "task_id": 353,
+      "days": 3,
+      "level": "medium",
+      "org": "Wilmington",
+      "dest": "Washington"
+    },
+    {
+      "task_id": 360,
+      "days": 3,
+      "level": "medium",
+      "org": "Peoria",
+      "dest": "Las Vegas"
+    },
+    {
+      "task_id": 376,
+      "days": 3,
+      "level": "medium",
+      "org": "Montgomery",
+      "dest": "Dallas"
+    },
+    {
+      "task_id": 378,
+      "days": 3,
+      "level": "medium",
+      "org": "Albuquerque",
+      "dest": "San Diego"
+    },
+    {
+      "task_id": 403,
+      "days": 3,
+      "level": "medium",
+      "org": "Fort Myers",
+      "dest": "Atlantic City"
+    },
+    {
+      "task_id": 413,
+      "days": 3,
+      "level": "medium",
+      "org": "Clarksburg",
+      "dest": "Chicago"
+    },
+    {
+      "task_id": 420,
+      "days": 3,
+      "level": "medium",
+      "org": "Atlanta",
+      "dest": "San Francisco"
+    },
+    {
+      "task_id": 424,
+      "days": 3,
+      "level": "medium",
+      "org": "Phoenix",
+      "dest": "Nashville"
+    },
+    {
+      "task_id": 426,
+      "days": 3,
+      "level": "medium",
+      "org": "Manchester",
+      "dest": "Baltimore"
+    },
+    {
+      "task_id": 458,
+      "days": 5,
+      "level": "medium",
+      "org": "Idaho Falls",
+      "dest": "Colorado"
+    },
+    {
+      "task_id": 465,
+      "days": 5,
+      "level": "medium",
+      "org": "Richmond",
+      "dest": "Michigan"
+    },
+    {
+      "task_id": 468,
+      "days": 5,
+      "level": "medium",
+      "org": "Peoria",
+      "dest": "Tennessee"
+    },
+    {
+      "task_id": 486,
+      "days": 5,
+      "level": "medium",
+      "org": "Philadelphia",
+      "dest": "Missouri"
+    },
+    {
+      "task_id": 497,
+      "days": 5,
+      "level": "medium",
+      "org": "Oakland",
+      "dest": "Washington"
+    },
+    {
+      "task_id": 498,
+      "days": 5,
+      "level": "medium",
+      "org": "Fresno",
+      "dest": "Arizona"
+    },
+    {
+      "task_id": 511,
+      "days": 5,
+      "level": "medium",
+      "org": "Bloomington",
+      "dest": "Georgia"
+    },
+    {
+      "task_id": 521,
+      "days": 5,
+      "level": "medium",
+      "org": "New York",
+      "dest": "Michigan"
+    },
+    {
+      "task_id": 530,
+      "days": 5,
+      "level": "medium",
+      "org": "Charlotte",
+      "dest": "New York"
+    },
+    {
+      "task_id": 546,
+      "days": 5,
+      "level": "medium",
+      "org": "San Antonio",
+      "dest": "Michigan"
+    },
+    {
+      "task_id": 556,
+      "days": 5,
+      "level": "medium",
+      "org": "Portland",
+      "dest": "California"
+    },
+    {
+      "task_id": 561,
+      "days": 5,
+      "level": "medium",
+      "org": "Tucson",
+      "dest": "California"
+    },
+    {
+      "task_id": 587,
+      "days": 7,
+      "level": "medium",
+      "org": "Great Falls",
+      "dest": "Washington"
+    },
+    {
+      "task_id": 593,
+      "days": 7,
+      "level": "medium",
+      "org": "Buffalo",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 602,
+      "days": 7,
+      "level": "medium",
+      "org": "Boston",
+      "dest": "Pennsylvania"
+    },
+    {
+      "task_id": 612,
+      "days": 7,
+      "level": "medium",
+      "org": "Grand Rapids",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 613,
+      "days": 7,
+      "level": "medium",
+      "org": "Cincinnati",
+      "dest": "Pennsylvania"
+    },
+    {
+      "task_id": 614,
+      "days": 7,
+      "level": "medium",
+      "org": "San Jose",
+      "dest": "Washington"
+    },
+    {
+      "task_id": 615,
+      "days": 7,
+      "level": "medium",
+      "org": "Nashville",
+      "dest": "Pennsylvania"
+    },
+    {
+      "task_id": 625,
+      "days": 7,
+      "level": "medium",
+      "org": "Madison",
+      "dest": "Illinois"
+    },
+    {
+      "task_id": 648,
+      "days": 7,
+      "level": "medium",
+      "org": "Indianapolis",
+      "dest": "North Carolina"
+    },
+    {
+      "task_id": 652,
+      "days": 7,
+      "level": "medium",
+      "org": "Green Bay",
+      "dest": "Michigan"
+    },
+    {
+      "task_id": 673,
+      "days": 7,
+      "level": "medium",
+      "org": "Sacramento",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 682,
+      "days": 3,
+      "level": "hard",
+      "org": "Seattle",
+      "dest": "San Francisco"
+    },
+    {
+      "task_id": 707,
+      "days": 3,
+      "level": "hard",
+      "org": "St. Louis",
+      "dest": "Baltimore"
+    },
+    {
+      "task_id": 710,
+      "days": 3,
+      "level": "hard",
+      "org": "San Diego",
+      "dest": "Austin"
+    },
+    {
+      "task_id": 717,
+      "days": 3,
+      "level": "hard",
+      "org": "Boston",
+      "dest": "New Orleans"
+    },
+    {
+      "task_id": 735,
+      "days": 3,
+      "level": "hard",
+      "org": "Charlotte",
+      "dest": "Charlottesville"
+    },
+    {
+      "task_id": 739,
+      "days": 3,
+      "level": "hard",
+      "org": "Minneapolis",
+      "dest": "St. Louis"
+    },
+    {
+      "task_id": 751,
+      "days": 3,
+      "level": "hard",
+      "org": "Baton Rouge",
+      "dest": "Houston"
+    },
+    {
+      "task_id": 757,
+      "days": 3,
+      "level": "hard",
+      "org": "Honolulu",
+      "dest": "Los Angeles"
+    },
+    {
+      "task_id": 774,
+      "days": 5,
+      "level": "hard",
+      "org": "Tampa",
+      "dest": "Indiana"
+    },
+    {
+      "task_id": 801,
+      "days": 5,
+      "level": "hard",
+      "org": "Washington",
+      "dest": "North Carolina"
+    },
+    {
+      "task_id": 810,
+      "days": 5,
+      "level": "hard",
+      "org": "Seattle",
+      "dest": "Utah"
+    },
+    {
+      "task_id": 812,
+      "days": 5,
+      "level": "hard",
+      "org": "Wilmington",
+      "dest": "Pennsylvania"
+    },
+    {
+      "task_id": 834,
+      "days": 5,
+      "level": "hard",
+      "org": "Houston",
+      "dest": "Florida"
+    },
+    {
+      "task_id": 837,
+      "days": 5,
+      "level": "hard",
+      "org": "Shreveport",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 843,
+      "days": 5,
+      "level": "hard",
+      "org": "El Paso",
+      "dest": "California"
+    },
+    {
+      "task_id": 844,
+      "days": 5,
+      "level": "hard",
+      "org": "Charlotte",
+      "dest": "New York"
+    },
+    {
+      "task_id": 870,
+      "days": 5,
+      "level": "hard",
+      "org": "Bozeman",
+      "dest": "California"
+    },
+    {
+      "task_id": 874,
+      "days": 5,
+      "level": "hard",
+      "org": "Bozeman",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 877,
+      "days": 5,
+      "level": "hard",
+      "org": "Pittsburgh",
+      "dest": "Florida"
+    },
+    {
+      "task_id": 882,
+      "days": 5,
+      "level": "hard",
+      "org": "Gainesville",
+      "dest": "Georgia"
+    },
+    {
+      "task_id": 894,
+      "days": 7,
+      "level": "hard",
+      "org": "Santa Ana",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 905,
+      "days": 7,
+      "level": "hard",
+      "org": "Tallahassee",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 906,
+      "days": 7,
+      "level": "hard",
+      "org": "Little Rock",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 916,
+      "days": 7,
+      "level": "hard",
+      "org": "El Paso",
+      "dest": "Colorado"
+    },
+    {
+      "task_id": 919,
+      "days": 7,
+      "level": "hard",
+      "org": "Reno",
+      "dest": "Washington"
+    },
+    {
+      "task_id": 953,
+      "days": 7,
+      "level": "hard",
+      "org": "Sun Valley",
+      "dest": "Utah"
+    },
+    {
+      "task_id": 962,
+      "days": 7,
+      "level": "hard",
+      "org": "Las Vegas",
+      "dest": "Florida"
+    },
+    {
+      "task_id": 966,
+      "days": 7,
+      "level": "hard",
+      "org": "Los Angeles",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 967,
+      "days": 7,
+      "level": "hard",
+      "org": "Palm Springs",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 972,
+      "days": 7,
+      "level": "hard",
+      "org": "Memphis",
+      "dest": "Texas"
+    },
+    {
+      "task_id": 974,
+      "days": 7,
+      "level": "hard",
+      "org": "Elmira",
+      "dest": "Florida"
+    },
+    {
+      "task_id": 978,
+      "days": 7,
+      "level": "hard",
+      "org": "Kansas City",
+      "dest": "Texas"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "question_id": 15,
+  "query": "Please arrange a 3-day trip for me departing from St. Louis and visiting Las Vegas from March 29th to March 31st, 2022. My budget for this journey is $1,300.",
+  "question_details": {
+    "id": 15,
+    "query": "Please arrange a 3-day trip for me departing from St. Louis and visiting Las Vegas from March 29th to March 31st, 2022. My budget for this journey is $1,300.",
+    "level": "easy",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "St. Louis",
+    "dest": "Las Vegas",
+    "budget": 1300,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-29', '2022-03-30', '2022-03-31']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T21:18:15+00:00",
+  "duration_seconds": 45.45,
+  "tokens_input": 10070,
+  "tokens_output": 1607,
+  "tool_calls": 10,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from St. Louis to Las Vegas\",\n        \"transportation\": \"Flight Number: F3612533, from St. Louis to Las Vegas, Departure Time: 20:20, Arrival Time: 21:52\",\n        \"breakfast\": \"The Latitude - Radisson Blu, St. Louis\",\n        \"attraction\": \"Fremont Street Experience, Las Vegas;Vegas Vic - Famous Neon Cowboy Sign, Las Vegas;\",\n        \"lunch\": \"Mandarin Trail, St. Louis\",\n        \"dinner\": \"Letz Roll, Las Vegas\",\n        \"accommodation\": \"Cozy modern stay in Las Vegas, Las Vegas\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Las Vegas\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Big Brewsky, Las Vegas\",\n        \"attraction\": \"Welcome to Fabulous Las Vegas Sign, Las Vegas;The Neon Museum Las Vegas, Las Vegas;The Mob Museum, Las Vegas;High Roller, Las Vegas;Lake of Dreams, Las Vegas;\",\n        \"lunch\": \"Ethos Vegan Kitchen, Las Vegas\",\n        \"dinner\": \"Portneuf Valley Brewing, Las Vegas\",\n        \"accommodation\": \"Cozy modern stay in Las Vegas, Las Vegas\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Las Vegas to St. Louis\",\n        \"transportation\": \"Flight Number: F3570705, from Las Vegas to St. Louis, Departure Time: 00:43, Arrival Time: 05:50\",\n        \"breakfast\": \"Papa Pizza, Las Vegas\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Johnny Rockets, Las Vegas\",\n        \"dinner\": \"New York Slice - Express, Las Vegas\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": true
+    },
+    "composite_score": 0.8125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

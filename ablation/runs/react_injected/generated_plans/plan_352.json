@@ -1,0 +1,86 @@
+{
+  "question_id": 352,
+  "query": "Could you create a 3-day travel itinerary for a group of 5 people departing from Orlando and heading to Newark, covering the period from March 4th to March 6th, 2022? Our budget is around $6,900. We would prefer to have private rooms for our accommodations.",
+  "question_details": {
+    "id": 352,
+    "query": "Could you create a 3-day travel itinerary for a group of 5 people departing from Orlando and heading to Newark, covering the period from March 4th to March 6th, 2022? Our budget is around $6,900. We would prefer to have private rooms for our accommodations.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Orlando",
+    "dest": "Newark",
+    "budget": 6900,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'private room', 'transportation': None}",
+    "people_number": 5,
+    "date": "['2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T16:08:16+00:00",
+  "duration_seconds": 20.35,
+  "tokens_input": 4835,
+  "tokens_output": 614,
+  "tool_calls": 7,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Orlando to Newark\nTransportation: Flight Number: F9999999, from Orlando to Newark, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Orlando\nAttraction: Skyline Observatory, Newark\nLunch: Kettle & Fork, Newark\nDinner: Kettle & Fork, Newark\nAccommodation: Boutique Inn at Newark Center, Newark\n\nDay 2:\nCurrent City: Newark\nTransportation: -\nBreakfast: Harbor Cafe, Newark\nAttraction: Old Town Square, Newark\nLunch: Garden Brasserie, Newark\nDinner: Riverside Bistro, Newark\nAccommodation: Boutique Inn at Newark Center, Newark\n\nDay 3:\nCurrent City: from Newark to Orlando\nTransportation: Flight Number: F8587345, from Newark to Orlando, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Newark\nAttraction: -\nLunch: Lantern House, Newark\nDinner: Sunset Grille, Newark\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    },
+    {
+      "code": "H4",
+      "kind": "hard",
+      "description": "Room-type match"
+    }
+  ]
+}

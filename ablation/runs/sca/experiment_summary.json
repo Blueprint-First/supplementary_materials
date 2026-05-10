@@ -1,0 +1,50 @@
+{
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "subset": "ablation/100task_subset.json",
+  "n_tasks": 100,
+  "headline": {
+    "composite_score_mean": 0.3727,
+    "composite_score_pct": "37.27%",
+    "final_pass_rate": 0.04,
+    "final_pass_pct": "4.0%"
+  },
+  "constraint_pass_rate": {
+    "C1": 0.31,
+    "C2": 0.76,
+    "C3": 0.66,
+    "C4": 0.33,
+    "C5": 0.27,
+    "C6": 0.69,
+    "C7": 0.33,
+    "C8": 0.3,
+    "H1": 0.2,
+    "H2": 0.34,
+    "H3": 0.2321,
+    "H4": 0.2241,
+    "H5": 0.3667
+  },
+  "library_stats": {
+    "total_sops": 16,
+    "used_sops": 16,
+    "total_usage": 2190,
+    "avg_usage": 136.875,
+    "utilization_rate": 1.0
+  },
+  "monitor_summary": {
+    "total_tasks": 100,
+    "completed_tasks": 100,
+    "avg_duration_seconds": 96.33,
+    "avg_tokens_input": 19186,
+    "avg_tokens_output": 3034,
+    "avg_tool_calls": 22.21
+  }
+}

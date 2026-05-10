@@ -1,0 +1,7 @@
+subtask,n_tasks,n_success,success_rate
+Put,24,24,1.000
+Clean,31,30,0.968
+Heat,23,23,1.000
+Cool,21,20,0.952
+Examine,18,18,1.000
+Put Two,17,15,0.882

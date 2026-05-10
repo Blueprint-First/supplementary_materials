@@ -1,0 +1,54 @@
+{
+  "question_id": 95,
+  "query": "Could you create a travel plan for a party of 8 departing from Fayetteville and heading to New York for 5 days, which will cover 2 cities between March 25th and March 29th, 2022? We have a maximum budget of $6,900. We are particularly interested in experiencing American and Mexican cuisines during our stay.",
+  "question_details": {
+    "id": 95,
+    "query": "Could you create a travel plan for a party of 8 departing from Fayetteville and heading to New York for 5 days, which will cover 2 cities between March 25th and March 29th, 2022? We have a maximum budget of $6,900. We are particularly interested in experiencing American and Mexican cuisines during our stay.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Fayetteville",
+    "dest": "New York",
+    "budget": 6900,
+    "local_constraint": "{'house rule': None, 'cuisine': ['American', 'Mexican'], 'room type': None, 'transportation': None}",
+    "people_number": 8,
+    "date": "['2022-03-25', '2022-03-26', '2022-03-27', '2022-03-28', '2022-03-29']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T22:55:35+00:00",
+  "duration_seconds": 52.0,
+  "tokens_input": 8324,
+  "tokens_output": 1375,
+  "tool_calls": 12,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Fayetteville to New York\",\n        \"transportation\": \"Self-Driving from Fayetteville to New York, Distance: 873km, Duration: 8h 19mins, Cost: 86\",\n        \"breakfast\": \"Aryan's Rajasthani Pyaz Ki Kachori, New York\",\n        \"attraction\": \"Times Square, New York;\",\n        \"lunch\": \"Green Chick Chop, New York\",\n        \"dinner\": \"Seasons 52 Fresh Grill, New York\",\n        \"accommodation\": \"Sunny + Spacious Master Bedroom with Outdoor Deck, New York\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"New York\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Kamal Chat Bhandar, New York\",\n        \"attraction\": \"Central Park, New York;The High Line, New York;Brooklyn Bridge, New York;\",\n        \"lunch\": \"Garam Masala Food Corner, New York\",\n        \"dinner\": \"Gurgaon Hights, New York\",\n        \"accommodation\": \"Sunny + Spacious Master Bedroom with Outdoor Deck, New York\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"New York\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Baltazar, New York\",\n        \"attraction\": \"Statue of Liberty, New York;The Battery, New York;\",\n        \"lunch\": \"Golooji's Chat Waat, New York\",\n        \"dinner\": \"Sugary Affairs, New York\",\n        \"accommodation\": \"Sunny + Spacious Master Bedroom with Outdoor Deck, New York\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Buffalo\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Lutyens Cocktail House, Buffalo\",\n        \"attraction\": \"Canalside, Buffalo;Delaware Park, Buffalo;\",\n        \"lunch\": \"Chopsticks, Buffalo\",\n        \"dinner\": \"Red Mango, Buffalo\",\n        \"accommodation\": \"Beautiful Light Filled Apartment in New York City!, Buffalo\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Buffalo to Fayetteville\",\n        \"transportation\": \"Self-Driving from Buffalo to Fayetteville, Distance: 873km, Duration: 8h 19mins, Cost: 86\",\n        \"breakfast\": \"A'k Kahve, Buffalo\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Chily Hut, Buffalo\",\n        \"dinner\": \"Punjab Grill, Buffalo\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": true,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": true
+    },
+    "composite_score": 0.5625,
+    "final_pass": false
+  },
+  "status": "completed"
+}

@@ -1,0 +1,53 @@
+{
+  "question_id": 18,
+  "query": "Could you design a 3-day travel itinerary from Denver to Palm Springs for 1 person? The travel should span from March 27th to March 29th, 2022. The travel budget is set at $2,200. No specific local constraints are given.",
+  "question_details": {
+    "id": 18,
+    "query": "Could you design a 3-day travel itinerary from Denver to Palm Springs for 1 person? The travel should span from March 27th to March 29th, 2022. The travel budget is set at $2,200. No specific local constraints are given.",
+    "level": "easy",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Denver",
+    "dest": "Palm Springs",
+    "budget": 2200,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-27', '2022-03-28', '2022-03-29']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T21:21:54+00:00",
+  "duration_seconds": 52.02,
+  "tokens_input": 10681,
+  "tokens_output": 1646,
+  "tool_calls": 11,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Denver to Palm Springs\",\n        \"transportation\": \"Self-Driving from Denver to Palm Springs, Distance: 1,651km, Duration: 15h 3mins, Cost: 82\",\n        \"breakfast\": \"TBH - The Big House Cafe, Denver\",\n        \"attraction\": \"Palm Springs Welcome Sign, Palm Springs;\",\n        \"lunch\": \"The Urban Socialite, Denver\",\n        \"dinner\": \"Hao Ming, Palm Springs\",\n        \"accommodation\": \"Prospect gardens in Palm Springs, Palm Springs\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Palm Springs\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Boombox Cafe, Palm Springs\",\n        \"attraction\": \"Palm Springs Aerial Tramway, Palm Springs;Palm Springs Art Museum, Palm Springs;Walk of the Stars Palm Springs, Palm Springs;Moorten Botanical Garden, Palm Springs;\",\n        \"lunch\": \"Midnight Espresso, Palm Springs\",\n        \"dinner\": \"Houndstooth Grill & Tavern, Palm Springs\",\n        \"accommodation\": \"Prospect gardens in Palm Springs, Palm Springs\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Palm Springs to Denver\",\n        \"transportation\": \"Self-Driving from Palm Springs to Denver, Distance: 1,651km, Duration: 15h 3mins, Cost: 82\",\n        \"breakfast\": \"Food Express, Palm Springs\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Sugar & Spice - Le Marche, Palm Springs\",\n        \"dinner\": \"Al Yousuf, Denver\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": true,
+      "C6": true,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.375,
+    "final_pass": false
+  },
+  "status": "completed"
+}

@@ -1,0 +1,79 @@
+{
+  "question_id": 276,
+  "query": "I need to plan a 7-day solo trip, departing from Twin Falls and visiting 3 different cities in Utah. The trip will span from March 23rd to March 29th, 2022. My budget for this trip is $3,400. Could you assist in planning this trip?",
+  "question_details": {
+    "id": 276,
+    "query": "I need to plan a 7-day solo trip, departing from Twin Falls and visiting 3 different cities in Utah. The trip will span from March 23rd to March 29th, 2022. My budget for this trip is $3,400. Could you assist in planning this trip?",
+    "level": "easy",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Twin Falls",
+    "dest": "Utah",
+    "budget": 3400,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-23', '2022-03-24', '2022-03-25', '2022-03-26', '2022-03-27', '2022-03-28', '2022-03-29']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T18:35:48+00:00",
+  "duration_seconds": 48.45,
+  "tokens_input": 9650,
+  "tokens_output": 1550,
+  "tool_calls": 13,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Twin Falls to Utah\nTransportation: Flight Number: F9999999, from Twin Falls to Utah, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Twin Falls\nAttraction: City Botanical Garden, Utah\nLunch: Riverside Bistro, Utah\nDinner: Riverside Bistro, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 2:\nCurrent City: Utah\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Utah\nAttraction: Liberty Hall, Utah\nLunch: The Olive Tree, Utah\nDinner: Garden Brasserie, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 3:\nCurrent City: Utah\nTransportation: -\nBreakfast: Riverside Bistro, Utah\nAttraction: Heritage Museum, Utah\nLunch: Harbor Cafe, Utah\nDinner: Kettle & Fork, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 4:\nCurrent City: Utah\nTransportation: -\nBreakfast: Lantern House, Utah\nAttraction: Old Town Square, Utah\nLunch: Sunset Grille, Utah\nDinner: Stone Hearth Kitchen, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 5:\nCurrent City: Utah\nTransportation: -\nBreakfast: Garden Brasserie, Utah\nAttraction: Riverwalk Park, Utah\nLunch: Harbor Cafe, Utah\nDinner: Lantern House, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 6:\nCurrent City: Utah\nTransportation: -\nBreakfast: Riverside Bistro, Utah\nAttraction: Liberty Hall, Utah\nLunch: Sunset Grille, Utah\nDinner: Garden Brasserie, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 7:\nCurrent City: from Utah to Twin Falls\nTransportation: Flight Number: F7987379, from Utah to Twin Falls, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Utah\nAttraction: -\nLunch: Sunset Grille, Utah\nDinner: Riverside Bistro, Utah\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    }
+  ]
+}

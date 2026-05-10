@@ -1,0 +1,77 @@
+{
+  "question_id": 870,
+  "query": "Could you provide a 5-day travel plan for 2 people beginning in Bozeman and visiting 2 cities in California from March 17th to March 21st, 2022? Our budget is set at $3,900. We require accommodations that are not shared and allow smoking. For our meals, we love Indian, Mexican, American, and Mediterranean cuisines.",
+  "question_details": {
+    "id": 870,
+    "query": "Could you provide a 5-day travel plan for 2 people beginning in Bozeman and visiting 2 cities in California from March 17th to March 21st, 2022? Our budget is set at $3,900. We require accommodations that are not shared and allow smoking. For our meals, we love Indian, Mexican, American, and Mediterranean cuisines.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Bozeman",
+    "dest": "California",
+    "budget": 3900,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': ['Mexican', 'Indian', 'American', 'Mediterranean'], 'room type': None, 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20', '2022-03-21']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-13T02:38:30+00:00",
+  "duration_seconds": 45.47,
+  "tokens_input": 8895,
+  "tokens_output": 1428,
+  "tool_calls": 19,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Bozeman to California\nTransportation: Flight Number: F9999999, from Bozeman to California, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Bozeman\nAttraction: Skyline Observatory, California\nLunch: Kettle & Fork, California\nDinner: Riverside Bistro, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 2:\nCurrent City: California\nTransportation: -\nBreakfast: Kettle & Fork, California\nAttraction: Skyline Observatory, California\nLunch: The Olive Tree, California\nDinner: Lantern House, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 3:\nCurrent City: California\nTransportation: -\nBreakfast: Harbor Cafe, California\nAttraction: Riverwalk Park, California\nLunch: Sunset Grille, California\nDinner: Riverside Bistro, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 4:\nCurrent City: California\nTransportation: -\nBreakfast: Riverside Bistro, California\nAttraction: Old Town Square, California\nLunch: Kettle & Fork, California\nDinner: Lantern House, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 5:\nCurrent City: from California to Bozeman\nTransportation: Flight Number: F12388496, from California to Bozeman, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, California\nAttraction: -\nLunch: Lantern House, California\nDinner: Kettle & Fork, California\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": false,
+      "C4": true,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": true,
+      "H2": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.3125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "question_id": 158,
+  "query": "Can you assist in preparing a 5-day travel plan for two individuals, departing from Fort Lauderdale and visiting 2 cities in Texas? The travel dates should be from March 5th to March 9th, 2022, with a budget cap of $4,200. We're open to variety when it comes to food, preferring Indian, Italian, Chinese, or Mediterranean cuisines. It's important to note that we'd like accommodations allowing parties since we're planning to host them. Kindly note that we aren't intending to drive ourselves during the trip.",
+  "question_details": {
+    "id": 158,
+    "query": "Can you assist in preparing a 5-day travel plan for two individuals, departing from Fort Lauderdale and visiting 2 cities in Texas? The travel dates should be from March 5th to March 9th, 2022, with a budget cap of $4,200. We're open to variety when it comes to food, preferring Indian, Italian, Chinese, or Mediterranean cuisines. It's important to note that we'd like accommodations allowing parties since we're planning to host them. Kindly note that we aren't intending to drive ourselves during the trip.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Fort Lauderdale",
+    "dest": "Texas",
+    "budget": 4200,
+    "local_constraint": "{'house rule': 'parties', 'cuisine': ['Indian', 'Italian', 'Chinese', 'Mediterranean'], 'room type': None, 'transportation': 'no self-driving'}",
+    "people_number": 2,
+    "date": "['2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T16:12:14+00:00",
+  "duration_seconds": 38.79,
+  "tokens_input": 8255,
+  "tokens_output": 987,
+  "tool_calls": 10,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Fort Lauderdale to Texas\nTransportation: Flight Number: F9999999, from Fort Lauderdale to Texas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Fort Lauderdale\nAttraction: Riverwalk Park, Texas\nLunch: The Olive Tree, Texas\nDinner: Lantern House, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 2:\nCurrent City: Texas\nTransportation: -\nBreakfast: Garden Brasserie, Texas\nAttraction: Riverwalk Park, Texas\nLunch: Garden Brasserie, Texas\nDinner: Harbor Cafe, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 3:\nCurrent City: Texas\nTransportation: -\nBreakfast: The Olive Tree, Texas\nAttraction: Old Town Square, Texas\nLunch: Lantern House, Texas\nDinner: Lantern House, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 4:\nCurrent City: Texas\nTransportation: -\nBreakfast: Riverside Bistro, Texas\nAttraction: Old Town Square, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Riverside Bistro, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 5:\nCurrent City: from Texas to Fort Lauderdale\nTransportation: Flight Number: F8973174, from Texas to Fort Lauderdale, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Lantern House, Texas\nAttraction: -\nLunch: Maple Diner, Texas\nDinner: Stone Hearth Kitchen, Texas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H5",
+      "kind": "hard",
+      "description": "Transportation restriction (no flight / no self-driving)"
+    }
+  ]
+}

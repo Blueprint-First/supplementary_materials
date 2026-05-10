@@ -1,0 +1,90 @@
+{
+  "question_id": 95,
+  "query": "Could you create a travel plan for a party of 8 departing from Fayetteville and heading to New York for 5 days, which will cover 2 cities between March 25th and March 29th, 2022? We have a maximum budget of $6,900. We are particularly interested in experiencing American and Mexican cuisines during our stay.",
+  "question_details": {
+    "id": 95,
+    "query": "Could you create a travel plan for a party of 8 departing from Fayetteville and heading to New York for 5 days, which will cover 2 cities between March 25th and March 29th, 2022? We have a maximum budget of $6,900. We are particularly interested in experiencing American and Mexican cuisines during our stay.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Fayetteville",
+    "dest": "New York",
+    "budget": 6900,
+    "local_constraint": "{'house rule': None, 'cuisine': ['American', 'Mexican'], 'room type': None, 'transportation': None}",
+    "people_number": 8,
+    "date": "['2022-03-25', '2022-03-26', '2022-03-27', '2022-03-28', '2022-03-29']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T10:55:35+00:00",
+  "duration_seconds": 18.11,
+  "tokens_input": 4320,
+  "tokens_output": 486,
+  "tool_calls": 6,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Fayetteville to New York\nTransportation: Flight Number: F9999999, from Fayetteville to New York, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Fayetteville\nAttraction: Heritage Museum, New York\nLunch: Stone Hearth Kitchen, New York\nDinner: Stone Hearth Kitchen, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 2:\nCurrent City: New York\nTransportation: -\nBreakfast: Stone Hearth Kitchen, New York\nAttraction: City Botanical Garden, New York\nLunch: The Olive Tree, New York\nDinner: Kettle & Fork, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 3:\nCurrent City: New York\nTransportation: -\nBreakfast: Riverside Bistro, New York\nAttraction: Skyline Observatory, New York\nLunch: Lantern House, New York\nDinner: Garden Brasserie, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 4:\nCurrent City: New York\nTransportation: -\nBreakfast: Kettle & Fork, New York\nAttraction: Heritage Museum, New York\nLunch: Maple Diner, New York\nDinner: Garden Brasserie, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 5:\nCurrent City: from New York to Fayetteville\nTransportation: Flight Number: F11616538, from New York to Fayetteville, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, New York\nAttraction: -\nLunch: Harbor Cafe, New York\nDinner: Harbor Cafe, New York\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

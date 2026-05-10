@@ -1,0 +1,79 @@
+{
+  "question_id": 247,
+  "query": "Can you create a travel itinerary for a 7-day trip, starting on March 12th, 2022 and ending on March 18th, 2022? The journey begins in Fort Lauderdale and encompasses visits to 3 different cities in Pennsylvania, all within a budget of $8,300.",
+  "question_details": {
+    "id": 247,
+    "query": "Can you create a travel itinerary for a 7-day trip, starting on March 12th, 2022 and ending on March 18th, 2022? The journey begins in Fort Lauderdale and encompasses visits to 3 different cities in Pennsylvania, all within a budget of $8,300.",
+    "level": "easy",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Fort Lauderdale",
+    "dest": "Pennsylvania",
+    "budget": 8300,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-12', '2022-03-13', '2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17', '2022-03-18']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T18:00:31+00:00",
+  "duration_seconds": 54.57,
+  "tokens_input": 12077,
+  "tokens_output": 1790,
+  "tool_calls": 12,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Fort Lauderdale to Pennsylvania\nTransportation: Flight Number: F9999999, from Fort Lauderdale to Pennsylvania, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Fort Lauderdale\nAttraction: Liberty Hall, Pennsylvania\nLunch: Stone Hearth Kitchen, Pennsylvania\nDinner: Stone Hearth Kitchen, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 2:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Harbor Cafe, Pennsylvania\nAttraction: Liberty Hall, Pennsylvania\nLunch: The Olive Tree, Pennsylvania\nDinner: Sunset Grille, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 3:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Harbor Cafe, Pennsylvania\nAttraction: City Botanical Garden, Pennsylvania\nLunch: Maple Diner, Pennsylvania\nDinner: Garden Brasserie, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 4:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Kettle & Fork, Pennsylvania\nAttraction: Old Town Square, Pennsylvania\nLunch: Garden Brasserie, Pennsylvania\nDinner: Lantern House, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 5:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Sunset Grille, Pennsylvania\nAttraction: Heritage Museum, Pennsylvania\nLunch: Riverside Bistro, Pennsylvania\nDinner: Sunset Grille, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 6:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Kettle & Fork, Pennsylvania\nAttraction: Old Town Square, Pennsylvania\nLunch: Maple Diner, Pennsylvania\nDinner: Kettle & Fork, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 7:\nCurrent City: from Pennsylvania to Fort Lauderdale\nTransportation: Flight Number: F9344923, from Pennsylvania to Fort Lauderdale, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Lantern House, Pennsylvania\nAttraction: -\nLunch: Stone Hearth Kitchen, Pennsylvania\nDinner: Lantern House, Pennsylvania\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": true,
+      "C5": true,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.1875,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

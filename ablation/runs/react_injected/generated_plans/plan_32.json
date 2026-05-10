@@ -1,0 +1,69 @@
+{
+  "question_id": 32,
+  "query": "Can you assist in creating a 5-day long itinerary? I am planning to leave Omaha on March 2nd, 2022, visit 2 different cities in Washington, and return by March 6th, 2022. I will be traveling alone with a budget set to $5,000.",
+  "question_details": {
+    "id": 32,
+    "query": "Can you assist in creating a 5-day long itinerary? I am planning to leave Omaha on March 2nd, 2022, visit 2 different cities in Washington, and return by March 6th, 2022. I will be traveling alone with a budget set to $5,000.",
+    "level": "easy",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Omaha",
+    "dest": "Washington",
+    "budget": 5000,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T09:38:56+00:00",
+  "duration_seconds": 17.7,
+  "tokens_input": 4350,
+  "tokens_output": 568,
+  "tool_calls": 7,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Omaha to Washington\nTransportation: Flight Number: F99999992, from Omaha to Washington, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Omaha\nAttraction: Riverwalk Park, Washington\nLunch: Lantern House, Washington\nDinner: Lantern House, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 2:\nCurrent City: Washington\nTransportation: -\nBreakfast: The Olive Tree, Washington\nAttraction: City Botanical Garden, Washington\nLunch: Lantern House, Washington\nDinner: Riverside Bistro, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 3:\nCurrent City: Washington\nTransportation: -\nBreakfast: Harbor Cafe, Washington\nAttraction: Heritage Museum, Washington\nLunch: Sunset Grille, Washington\nDinner: Harbor Cafe, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 4:\nCurrent City: Washington\nTransportation: -\nBreakfast: Garden Brasserie, Washington\nAttraction: Skyline Observatory, Washington\nLunch: Maple Diner, Washington\nDinner: Lantern House, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 5:\nCurrent City: from Washington to Omaha\nTransportation: Flight Number: F0548482, from Washington to Omaha, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, Washington\nAttraction: -\nLunch: Harbor Cafe, Washington\nDinner: Maple Diner, Washington\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": true
+    },
+    "composite_score": 0.875,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    }
+  ]
+}

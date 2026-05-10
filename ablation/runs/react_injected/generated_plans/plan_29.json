@@ -1,0 +1,79 @@
+{
+  "question_id": 29,
+  "query": "Can you assist in crafting a travel schedule departing from Richmond and traveling to 2 cities in Tennessee? The journey will last 5 days, starting on March 5th and concluding on March 9th, 2022. The travel budget is set at $2,600.",
+  "question_details": {
+    "id": 29,
+    "query": "Can you assist in crafting a travel schedule departing from Richmond and traveling to 2 cities in Tennessee? The journey will last 5 days, starting on March 5th and concluding on March 9th, 2022. The travel budget is set at $2,600.",
+    "level": "easy",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Richmond",
+    "dest": "Tennessee",
+    "budget": 2600,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T09:35:17+00:00",
+  "duration_seconds": 16.81,
+  "tokens_input": 3728,
+  "tokens_output": 592,
+  "tool_calls": 6,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Richmond to Tennessee\nTransportation: Flight Number: F9999999, from Richmond to Tennessee, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Richmond\nAttraction: Heritage Museum, Tennessee\nLunch: The Olive Tree, Tennessee\nDinner: The Olive Tree, Tennessee\nAccommodation: Boutique Inn at Tennessee Center, Tennessee\n\nDay 2:\nCurrent City: Tennessee\nTransportation: -\nBreakfast: Maple Diner, Tennessee\nAttraction: Heritage Museum, Tennessee\nLunch: Kettle & Fork, Tennessee\nDinner: Riverside Bistro, Tennessee\nAccommodation: Boutique Inn at Tennessee Center, Tennessee\n\nDay 3:\nCurrent City: Tennessee\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Tennessee\nAttraction: Liberty Hall, Tennessee\nLunch: Sunset Grille, Tennessee\nDinner: Stone Hearth Kitchen, Tennessee\nAccommodation: Boutique Inn at Tennessee Center, Tennessee\n\nDay 4:\nCurrent City: Tennessee\nTransportation: -\nBreakfast: Harbor Cafe, Tennessee\nAttraction: Old Town Square, Tennessee\nLunch: Kettle & Fork, Tennessee\nDinner: Garden Brasserie, Tennessee\nAccommodation: Boutique Inn at Tennessee Center, Tennessee\n\nDay 5:\nCurrent City: from Tennessee to Richmond\nTransportation: Flight Number: F12874526, from Tennessee to Richmond, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Garden Brasserie, Tennessee\nAttraction: -\nLunch: Kettle & Fork, Tennessee\nDinner: Maple Diner, Tennessee\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

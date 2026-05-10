@@ -1,0 +1,82 @@
+{
+  "question_id": 877,
+  "query": "Could you help create a 5-day travel plan for a party of two setting off from Pittsburgh and heading to Florida from March 1st to March 5th, 2022? We intend to visit 2 cities in Florida. We've set aside a budget of $3,800 for this trip and require private rooms as our accommodations. As for transportation, we would prefer not to drive ourselves. Please ensure to note that we are smokers, hence would need accommodations that allow smoking.",
+  "question_details": {
+    "id": 877,
+    "query": "Could you help create a 5-day travel plan for a party of two setting off from Pittsburgh and heading to Florida from March 1st to March 5th, 2022? We intend to visit 2 cities in Florida. We've set aside a budget of $3,800 for this trip and require private rooms as our accommodations. As for transportation, we would prefer not to drive ourselves. Please ensure to note that we are smokers, hence would need accommodations that allow smoking.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Pittsburgh",
+    "dest": "Florida",
+    "budget": 3800,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': None, 'room type': 'private room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-01', '2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T10:47:01+00:00",
+  "duration_seconds": 80.37,
+  "tokens_input": 16026,
+  "tokens_output": 2460,
+  "tool_calls": 23,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Pittsburgh to Florida\nTransportation: Flight Number: F9999999, from Pittsburgh to Florida, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Pittsburgh\nAttraction: Heritage Museum, Florida\nLunch: Garden Brasserie, Florida\nDinner: Riverside Bistro, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 2:\nCurrent City: Florida\nTransportation: -\nBreakfast: Garden Brasserie, Florida\nAttraction: Heritage Museum, Florida\nLunch: Kettle & Fork, Florida\nDinner: Kettle & Fork, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 3:\nCurrent City: Florida\nTransportation: -\nBreakfast: Sunset Grille, Florida\nAttraction: Skyline Observatory, Florida\nLunch: Maple Diner, Florida\nDinner: The Olive Tree, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 4:\nCurrent City: Florida\nTransportation: -\nBreakfast: The Olive Tree, Florida\nAttraction: Liberty Hall, Florida\nLunch: Sunset Grille, Florida\nDinner: Sunset Grille, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 5:\nCurrent City: from Florida to Pittsburgh\nTransportation: Flight Number: F6714556, from Florida to Pittsburgh, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, Florida\nAttraction: -\nLunch: Stone Hearth Kitchen, Florida\nDinner: Stone Hearth Kitchen, Florida\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H2",
+      "kind": "hard",
+      "description": "Cuisine coverage at destination"
+    }
+  ]
+}

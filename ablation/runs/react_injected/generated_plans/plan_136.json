@@ -1,0 +1,102 @@
+{
+  "question_id": 136,
+  "query": "Could you help create a 3-day travel plan for two people? We're traveling from West Palm Beach to White Plains, visiting only one city from March 5th to March 7th, 2022. We have a budget of $2,600. For our accommodations, we'd like rooms that are not shared. We are not planning on self-driving and will be reliant on public transportation. Cuisines we are interested in trying include Mexican, Chinese, Mediterranean, and American.",
+  "question_details": {
+    "id": 136,
+    "query": "Could you help create a 3-day travel plan for two people? We're traveling from West Palm Beach to White Plains, visiting only one city from March 5th to March 7th, 2022. We have a budget of $2,600. For our accommodations, we'd like rooms that are not shared. We are not planning on self-driving and will be reliant on public transportation. Cuisines we are interested in trying include Mexican, Chinese, Mediterranean, and American.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "West Palm Beach",
+    "dest": "White Plains",
+    "budget": 2600,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Mexican', 'Chinese', 'Mediterranean', 'American'], 'room type': 'not shared room', 'transportation': 'no self-driving'}",
+    "people_number": 2,
+    "date": "['2022-03-05', '2022-03-06', '2022-03-07']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T11:45:28+00:00",
+  "duration_seconds": 36.77,
+  "tokens_input": 6107,
+  "tokens_output": 1016,
+  "tool_calls": 11,
+  "parsed_plan_text": "Day 1:\nCurrent City: from West Palm Beach to White Plains\nTransportation: Flight Number: F99999996, from West Palm Beach to White Plains, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, West Palm Beach\nAttraction: Old Town Square, White Plains\nLunch: Lantern House, White Plains\nDinner: Lantern House, White Plains\nAccommodation: Boutique Inn at White Plains Center, White Plains\n\nDay 2:\nCurrent City: White Plains\nTransportation: -\nBreakfast: Stone Hearth Kitchen, White Plains\nAttraction: Old Town Square, White Plains\nLunch: The Olive Tree, White Plains\nDinner: The Olive Tree, White Plains\nAccommodation: Boutique Inn at White Plains Center, White Plains\n\nDay 3:\nCurrent City: from White Plains to West Palm Beach\nTransportation: Flight Number: F0978507, from White Plains to West Palm Beach, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Harbor Cafe, White Plains\nAttraction: -\nLunch: Kettle & Fork, White Plains\nDinner: Kettle & Fork, White Plains\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H2",
+      "kind": "hard",
+      "description": "Cuisine coverage at destination"
+    },
+    {
+      "code": "H4",
+      "kind": "hard",
+      "description": "Room-type match"
+    },
+    {
+      "code": "H5",
+      "kind": "hard",
+      "description": "Transportation restriction (no flight / no self-driving)"
+    }
+  ]
+}

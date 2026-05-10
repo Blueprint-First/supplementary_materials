@@ -1,0 +1,92 @@
+{
+  "question_id": 974,
+  "query": "We are planning a 7-day journey for 2 individuals from Elmira to explore 3 different cities in Florida, from March 12th to March 18th, 2022, on a budget of $6,800. We require accommodations that allow smoking and we would enjoy Mediterranean, Chinese, American, and Indian cuisines during our trip. The types of rooms we need are non-shared rooms.",
+  "question_details": {
+    "id": 974,
+    "query": "We are planning a 7-day journey for 2 individuals from Elmira to explore 3 different cities in Florida, from March 12th to March 18th, 2022, on a budget of $6,800. We require accommodations that allow smoking and we would enjoy Mediterranean, Chinese, American, and Indian cuisines during our trip. The types of rooms we need are non-shared rooms.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Elmira",
+    "dest": "Florida",
+    "budget": 6800,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': ['Chinese', 'Indian', 'American', 'Mediterranean'], 'room type': 'shared room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-12', '2022-03-13', '2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17', '2022-03-18']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T12:45:02+00:00",
+  "duration_seconds": 136.96,
+  "tokens_input": 21849,
+  "tokens_output": 3328,
+  "tool_calls": 31,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Elmira to Florida\nTransportation: Flight Number: F9999999, from Elmira to Florida, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Elmira\nAttraction: Old Town Square, Florida\nLunch: Garden Brasserie, Florida\nDinner: Garden Brasserie, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 2:\nCurrent City: Florida\nTransportation: -\nBreakfast: Riverside Bistro, Florida\nAttraction: City Botanical Garden, Florida\nLunch: The Olive Tree, Florida\nDinner: Riverside Bistro, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 3:\nCurrent City: Florida\nTransportation: -\nBreakfast: Maple Diner, Florida\nAttraction: Skyline Observatory, Florida\nLunch: Maple Diner, Florida\nDinner: Garden Brasserie, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 4:\nCurrent City: Florida\nTransportation: -\nBreakfast: Sunset Grille, Florida\nAttraction: Heritage Museum, Florida\nLunch: Garden Brasserie, Florida\nDinner: The Olive Tree, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 5:\nCurrent City: Florida\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Florida\nAttraction: Skyline Observatory, Florida\nLunch: Kettle & Fork, Florida\nDinner: Maple Diner, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 6:\nCurrent City: Florida\nTransportation: -\nBreakfast: Harbor Cafe, Florida\nAttraction: Old Town Square, Florida\nLunch: Lantern House, Florida\nDinner: Garden Brasserie, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 7:\nCurrent City: from Florida to Elmira\nTransportation: Flight Number: F8264050, from Florida to Elmira, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Maple Diner, Florida\nAttraction: -\nLunch: Maple Diner, Florida\nDinner: Maple Diner, Florida\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": true,
+      "H2": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.25,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H2",
+      "kind": "hard",
+      "description": "Cuisine coverage at destination"
+    },
+    {
+      "code": "H3",
+      "kind": "hard",
+      "description": "House-rule compatibility"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "question_id": 171,
+  "query": "Could you help develop a week-long travel itinerary suitable for a group of 6 people, departing from Baton Rouge and planning to visit 3 different cities in Texas? The travel dates are set from March 17th to March 23rd, 2022. Our travel budget has been adjusted to $14,600. Bearing in mind that we have children under ten years old, our accommodations need to allow young children and we prefer to occupy entire rooms. We also prefer not to self-drive during this trip.",
+  "question_details": {
+    "id": 171,
+    "query": "Could you help develop a week-long travel itinerary suitable for a group of 6 people, departing from Baton Rouge and planning to visit 3 different cities in Texas? The travel dates are set from March 17th to March 23rd, 2022. Our travel budget has been adjusted to $14,600. Bearing in mind that we have children under ten years old, our accommodations need to allow young children and we prefer to occupy entire rooms. We also prefer not to self-drive during this trip.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Baton Rouge",
+    "dest": "Texas",
+    "budget": 14600,
+    "local_constraint": "{'house rule': 'children under 10', 'cuisine': None, 'room type': 'entire room', 'transportation': 'no self-driving'}",
+    "people_number": 6,
+    "date": "['2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20', '2022-03-21', '2022-03-22', '2022-03-23']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T16:28:03+00:00",
+  "duration_seconds": 36.12,
+  "tokens_input": 7073,
+  "tokens_output": 1125,
+  "tool_calls": 8,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Baton Rouge to Texas\nTransportation: Flight Number: F9999999, from Baton Rouge to Texas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Baton Rouge\nAttraction: Riverwalk Park, Texas\nLunch: The Olive Tree, Texas\nDinner: The Olive Tree, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 2:\nCurrent City: Texas\nTransportation: -\nBreakfast: Sunset Grille, Texas\nAttraction: Riverwalk Park, Texas\nLunch: The Olive Tree, Texas\nDinner: Stone Hearth Kitchen, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 3:\nCurrent City: Texas\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Texas\nAttraction: Old Town Square, Texas\nLunch: Harbor Cafe, Texas\nDinner: Maple Diner, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 4:\nCurrent City: Texas\nTransportation: -\nBreakfast: Sunset Grille, Texas\nAttraction: City Botanical Garden, Texas\nLunch: Lantern House, Texas\nDinner: Harbor Cafe, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 5:\nCurrent City: Texas\nTransportation: -\nBreakfast: Maple Diner, Texas\nAttraction: Skyline Observatory, Texas\nLunch: Garden Brasserie, Texas\nDinner: Kettle & Fork, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 6:\nCurrent City: Texas\nTransportation: -\nBreakfast: Riverside Bistro, Texas\nAttraction: Skyline Observatory, Texas\nLunch: The Olive Tree, Texas\nDinner: Sunset Grille, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 7:\nCurrent City: from Texas to Baton Rouge\nTransportation: Flight Number: F14835136, from Texas to Baton Rouge, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Garden Brasserie, Texas\nAttraction: -\nLunch: Sunset Grille, Texas\nDinner: Kettle & Fork, Texas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

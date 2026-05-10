@@ -1,0 +1,76 @@
+{
+  "question_id": 458,
+  "query": "Can you design a 5-day travel itinerary for two persons, from Idaho Falls to two cities in Colorado, starting from March 3rd to 7th, 2022? The budget for this trip is $2,700. We are open to all types of accommodations and transportation, and we are especially interested in trying American and Mexican cuisines.",
+  "question_details": {
+    "id": 458,
+    "query": "Can you design a 5-day travel itinerary for two persons, from Idaho Falls to two cities in Colorado, starting from March 3rd to 7th, 2022? The budget for this trip is $2,700. We are open to all types of accommodations and transportation, and we are especially interested in trying American and Mexican cuisines.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Idaho Falls",
+    "dest": "Colorado",
+    "budget": 2700,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Mexican', 'American'], 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T22:17:14+00:00",
+  "duration_seconds": 44.4,
+  "tokens_input": 7989,
+  "tokens_output": 1501,
+  "tool_calls": 9,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Idaho Falls to Colorado\nTransportation: Flight Number: F5842428, from Idaho Falls to Colorado, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Idaho Falls\nAttraction: Heritage Museum, Colorado\nLunch: Stone Hearth Kitchen, Colorado\nDinner: Stone Hearth Kitchen, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 2:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Garden Brasserie, Colorado\nAttraction: Heritage Museum, Colorado\nLunch: Sunset Grille, Colorado\nDinner: Garden Brasserie, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 3:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Riverside Bistro, Colorado\nAttraction: Skyline Observatory, Colorado\nLunch: The Olive Tree, Colorado\nDinner: Stone Hearth Kitchen, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 4:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Sunset Grille, Colorado\nAttraction: Liberty Hall, Colorado\nLunch: The Olive Tree, Colorado\nDinner: Kettle & Fork, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 5:\nCurrent City: from Colorado to Idaho Falls\nTransportation: Flight Number: F11111765, from Colorado to Idaho Falls, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Garden Brasserie, Colorado\nAttraction: -\nLunch: Riverside Bistro, Colorado\nDinner: Riverside Bistro, Colorado\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    }
+  ]
+}

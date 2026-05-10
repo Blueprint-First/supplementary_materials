@@ -1,0 +1,56 @@
+{
+  "question_id": 177,
+  "query": "Can you help devise a 7-day travel itinerary for 2 people, beginning in Salt Lake City and includes visiting 3 unique cities in Montana from March 16th to 22nd, 2022? We have a planned budget of $7,200. In terms of accommodations, we would like places where parties are permitted. Throughout our stay, we'd wish to enjoy various cuisines, including American, Mediterranean, Indian, and Chinese. Lastly, we prefer not to drive ourselves throughout this journey.",
+  "question_details": {
+    "id": 177,
+    "query": "Can you help devise a 7-day travel itinerary for 2 people, beginning in Salt Lake City and includes visiting 3 unique cities in Montana from March 16th to 22nd, 2022? We have a planned budget of $7,200. In terms of accommodations, we would like places where parties are permitted. Throughout our stay, we'd wish to enjoy various cuisines, including American, Mediterranean, Indian, and Chinese. Lastly, we prefer not to drive ourselves throughout this journey.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Salt Lake City",
+    "dest": "Montana",
+    "budget": 7200,
+    "local_constraint": "{'house rule': 'parties', 'cuisine': ['American', 'Mediterranean', 'Indian', 'Chinese'], 'room type': None, 'transportation': 'no self-driving'}",
+    "people_number": 2,
+    "date": "['2022-03-16', '2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20', '2022-03-21', '2022-03-22']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T00:35:21+00:00",
+  "duration_seconds": 83.01,
+  "tokens_input": 14652,
+  "tokens_output": 2462,
+  "tool_calls": 16,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Salt Lake City to Bozeman\",\n        \"transportation\": \"Flight Number: F3552002, from Salt Lake City to Bozeman, Departure Time: 23:00, Arrival Time: 00:07\",\n        \"breakfast\": \"Al-Sameer, Salt Lake City\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Badri Prasad Ramesh Kumar Caterers, Salt Lake City\",\n        \"dinner\": \"-\",\n        \"accommodation\": \"Lovely 3 bedroom Townhouse in BK Historic District, Bozeman\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Bozeman\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Side Wok, Bozeman\",\n        \"attraction\": \"Gallatin History Museum, Bozeman;Bozeman Sculpture Park, Bozeman;College 'M', Bozeman;\",\n        \"lunch\": \"Adyar Ananda Bhavan, Bozeman\",\n        \"dinner\": \"Saravana Bhavan, Bozeman\",\n        \"accommodation\": \"Lovely 3 bedroom Townhouse in BK Historic District, Bozeman\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Bozeman to Billings\",\n        \"transportation\": \"Taxi from Bozeman to Billings, Distance: 227km, Duration: 2h 6m\",\n        \"breakfast\": \"Behrouz Biryani, Bozeman\",\n        \"attraction\": \"-\",\n        \"lunch\": \"L'Angoor, Billings\",\n        \"dinner\": \"Chakhnaa Wala, Billings\",\n        \"accommodation\": \"Private room with Central Park view, Billings\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Billings\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Aggarwal Confectionary, Billings\",\n        \"attraction\": \"Yellowstone Art Museum, Billings;Riverfront Park, Billings;Pioneer Park, Billings;\",\n        \"lunch\": \"Golden Tandoor, Billings\",\n        \"dinner\": \"Hostess Tasty Bites, Billings\",\n        \"accommodation\": \"Private room with Central Park view, Billings\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Billings to Missoula\",\n        \"transportation\": \"Taxi from Billings to Missoula, Distance: 555km, Duration: 4h 58m\",\n        \"breakfast\": \"The Kitchen, Billings\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Doon Darbar, Missoula\",\n        \"dinner\": \"Lazeez Restaurant, Missoula\",\n        \"accommodation\": \"East Village - Beautiful 1 Bedroom, Missoula\"\n    },\n    {\n        \"days\": 6,\n        \"current_city\": \"Missoula\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Anand Chicken & Fast Food, Missoula\",\n        \"attraction\": \"Missoula Art Museum, Missoula;A Carousel for Missoula, Missoula;Caras Park, Missoula;\",\n        \"lunch\": \"Le Fairway Restaurant & Bar, Missoula\",\n        \"dinner\": \"Govinda's Restaurant, Missoula\",\n        \"accommodation\": \"East Village - Beautiful 1 Bedroom, Missoula\"\n    },\n    {\n        \"days\": 7,\n        \"current_city\": \"from Missoula to Salt Lake City\",\n        \"transportation\": \"Flight Number: F3494291, from Missoula to Salt Lake City, Departure Time: 05:37, Arrival Time: 06:54\",\n        \"breakfast\": \"Giani, Missoula\",\n        \"attraction\": \"-\",\n        \"lunch\": \"-\",\n        \"dinner\": \"-\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H5": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

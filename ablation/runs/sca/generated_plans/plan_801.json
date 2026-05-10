@@ -1,0 +1,56 @@
+{
+  "question_id": 801,
+  "query": "Can you help me formulate a 5-day travel plan for two, starting from Washington and visiting 2 cities in North Carolina, from March 6th to March 10th, 2022? Our budget is $2,800. We would prefer accommodations that allow parties and have non-shared rooms. Moreover, we don't want to include any flights in our travel plan.",
+  "question_details": {
+    "id": 801,
+    "query": "Can you help me formulate a 5-day travel plan for two, starting from Washington and visiting 2 cities in North Carolina, from March 6th to March 10th, 2022? Our budget is $2,800. We would prefer accommodations that allow parties and have non-shared rooms. Moreover, we don't want to include any flights in our travel plan.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Washington",
+    "dest": "North Carolina",
+    "budget": 2800,
+    "local_constraint": "{'house rule': 'parties', 'cuisine': None, 'room type': 'shared room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09', '2022-03-10']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T13:14:33+00:00",
+  "duration_seconds": 124.52,
+  "tokens_input": 22053,
+  "tokens_output": 3671,
+  "tool_calls": 30,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Washington to North Carolina\nTransportation: Flight Number: F11994855, from Washington to North Carolina, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Washington\nAttraction: Riverwalk Park, North Carolina\nLunch: Kettle & Fork, North Carolina\nDinner: Stone Hearth Kitchen, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 2:\nCurrent City: North Carolina\nTransportation: -\nBreakfast: Kettle & Fork, North Carolina\nAttraction: Heritage Museum, North Carolina\nLunch: Sunset Grille, North Carolina\nDinner: Sunset Grille, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 3:\nCurrent City: North Carolina\nTransportation: -\nBreakfast: Lantern House, North Carolina\nAttraction: Old Town Square, North Carolina\nLunch: Kettle & Fork, North Carolina\nDinner: Sunset Grille, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 4:\nCurrent City: North Carolina\nTransportation: -\nBreakfast: Garden Brasserie, North Carolina\nAttraction: Old Town Square, North Carolina\nLunch: Stone Hearth Kitchen, North Carolina\nDinner: The Olive Tree, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 5:\nCurrent City: from North Carolina to Washington\nTransportation: Flight Number: F0486976, from North Carolina to Washington, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Maple Diner, North Carolina\nAttraction: -\nLunch: Riverside Bistro, North Carolina\nDinner: Sunset Grille, North Carolina\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": true,
+      "H3": true,
+      "H4": true,
+      "H5": false
+    },
+    "composite_score": 0.75,
+    "final_pass": false
+  },
+  "status": "completed"
+}

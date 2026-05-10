@@ -1,0 +1,58 @@
+[INJECTED CONSTRAINTS — extracted verbatim from the SCA TravelPlanner blueprint]
+
+You MUST satisfy every rule below when producing the final travel plan.
+Each rule corresponds to a constraint enforced by the official TravelPlanner
+scorer (commonsense_constraint.py + hard_constraint.py).
+
+— Commonsense constraints (always enforced) —
+C1. Reasonable visiting city. Day 1 MUST depart from `org`. The trip MUST be
+    a closed loop ending in `org`. Each intermediate city MUST appear on
+    consecutive days (a city cannot be re-entered after leaving). For trips
+    longer than 3 days, every visited city MUST lie inside the destination
+    state. Every city name MUST exist in citySet_with_states.txt.
+C2. No restaurant repetition. Across the entire itinerary (all meals, all
+    days) the same restaurant MUST NOT appear more than once. Cuisine
+    repetition is allowed; restaurant repetition is not.
+C3. No attraction repetition. Across the entire itinerary, the same
+    attraction MUST NOT appear more than once.
+C4. Transportation consistency. Day 1 MUST have a non-empty transportation
+    field. Within a trip, `Self-driving` MUST NOT co-occur with `Flight`,
+    and `Self-driving` MUST NOT co-occur with `Taxi`. Allowed combinations:
+    Flight only / Self-driving only / Taxi only / Flight + Taxi.
+C5. Information localized to the current city. On a stay day, restaurants
+    and attractions MUST be in the day's current city. On a travel day
+    (current_city = "from A to B"), accommodation MUST be in B; meals on
+    the way may belong to A or B; transportation cities MUST match the
+    current_city tuple.
+C6. Database existence (anti-hallucination). Every flight number, drive /
+    taxi route, restaurant, attraction, and accommodation referenced in the
+    plan MUST be retrievable from the TravelPlanner sandbox database.
+    Hallucinated names cause immediate failure.
+C7. Accommodation minimum-nights rule. Consecutive nights at the same
+    accommodation MUST be ≥ that accommodation's `minimum nights`.
+C8. Information completeness. Every day MUST populate the required fields:
+    on a stay day at minimum `current_city`, `attraction`, one of
+    {breakfast, lunch, dinner}, and `accommodation`; on a travel day at
+    minimum `current_city` and `transportation` (meals/attraction may be
+    `-`); the last day omits `accommodation`. Overall non-`-` field ratio
+    MUST be ≥ 50%.
+
+— Hard constraints (enforced when the user query specifies them) —
+H1. Budget cap. Total cost MUST be ≤ the user-specified budget. Cost =
+    transportation + meals + lodging, with transportation cost scaled by
+    ⌈people / 5⌉ for self-driving and ⌈people / 4⌉ for taxi, meal cost =
+    average_cost × people, and lodging cost = price_per_night ×
+    ⌈people / maximum_occupancy⌉ per night.
+H2. Cuisine coverage. If the query lists required cuisines, every cuisine
+    MUST be tasted at the destination city (departure-city meals do not
+    count).
+H3. Room rule. If the query lists a house_rule (smoking / parties /
+    children under 10 / visitors / pets), the chosen accommodation MUST
+    NOT prohibit it.
+H4. Room type. If the query specifies a room_type (shared / not shared /
+    private / entire), the chosen accommodation MUST match it exactly.
+H5. Transportation restriction. If the query says `no flight`, no day may
+    use Flight. If it says `no self-driving`, no day may use Self-driving.
+
+These rules are MANDATORY. Failure on any one rule causes the plan to be
+scored as a failure by the official TravelPlanner evaluator.

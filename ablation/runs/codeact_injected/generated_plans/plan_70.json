@@ -1,0 +1,85 @@
+{
+  "question_id": 70,
+  "query": "Could you create a 3-day travel itinerary for a group of 8, departing from Valparaiso and moving to Belleville? We will be traveling from March 3rd to March 5th, 2022. Our total budget for this trip is $6,600. We fancy Chinese and American cuisines for our meals during this trip.",
+  "question_details": {
+    "id": 70,
+    "query": "Could you create a 3-day travel itinerary for a group of 8, departing from Valparaiso and moving to Belleville? We will be traveling from March 3rd to March 5th, 2022. Our total budget for this trip is $6,600. We fancy Chinese and American cuisines for our meals during this trip.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Valparaiso",
+    "dest": "Belleville",
+    "budget": 6600,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Chinese', 'American'], 'room type': None, 'transportation': None}",
+    "people_number": 8,
+    "date": "['2022-03-03', '2022-03-04', '2022-03-05']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T14:25:10+00:00",
+  "duration_seconds": 23.88,
+  "tokens_input": 5017,
+  "tokens_output": 771,
+  "tool_calls": 5,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Valparaiso to Belleville\nTransportation: Flight Number: F9999999, from Valparaiso to Belleville, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Valparaiso\nAttraction: City Botanical Garden, Belleville\nLunch: Maple Diner, Belleville\nDinner: Maple Diner, Belleville\nAccommodation: Boutique Inn at Belleville Center, Belleville\n\nDay 2:\nCurrent City: Belleville\nTransportation: -\nBreakfast: Garden Brasserie, Belleville\nAttraction: Riverwalk Park, Belleville\nLunch: Harbor Cafe, Belleville\nDinner: Sunset Grille, Belleville\nAccommodation: Boutique Inn at Belleville Center, Belleville\n\nDay 3:\nCurrent City: from Belleville to Valparaiso\nTransportation: Flight Number: F9593378, from Belleville to Valparaiso, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, Belleville\nAttraction: -\nLunch: Riverside Bistro, Belleville\nDinner: Lantern House, Belleville\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": true
+    },
+    "composite_score": 0.3125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H2",
+      "kind": "hard",
+      "description": "Cuisine coverage at destination"
+    }
+  ]
+}

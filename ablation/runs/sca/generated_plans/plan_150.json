@@ -1,0 +1,56 @@
+{
+  "question_id": 150,
+  "query": "Could you arrange a 5-day travel plan for two individuals, leaving from Cedar Rapids and visiting two cities in Texas from March 11th until March 15th, 2022? Our budget is set at $2,400. Our accommodations must allow visitors. Regarding dining, we enjoy Mediterranean, Indian, Italian, and Chinese cuisines. And please ensure that our travels do not involve any flights, as we prefer other modes of transportation.",
+  "question_details": {
+    "id": 150,
+    "query": "Could you arrange a 5-day travel plan for two individuals, leaving from Cedar Rapids and visiting two cities in Texas from March 11th until March 15th, 2022? Our budget is set at $2,400. Our accommodations must allow visitors. Regarding dining, we enjoy Mediterranean, Indian, Italian, and Chinese cuisines. And please ensure that our travels do not involve any flights, as we prefer other modes of transportation.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Cedar Rapids",
+    "dest": "Texas",
+    "budget": 2400,
+    "local_constraint": "{'house rule': 'visitors', 'cuisine': ['Mediterranean', 'Indian', 'Italian', 'Chinese'], 'room type': None, 'transportation': 'no flight'}",
+    "people_number": 2,
+    "date": "['2022-03-11', '2022-03-12', '2022-03-13', '2022-03-14', '2022-03-15']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T00:02:30+00:00",
+  "duration_seconds": 89.51,
+  "tokens_input": 17813,
+  "tokens_output": 2611,
+  "tool_calls": 21,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Cedar Rapids to Dallas\",\n        \"transportation\": \"Self-Driving from Cedar Rapids to Dallas, Distance: 1,324km, Duration: 12h 26mins, Cost: 66\",\n        \"breakfast\": \"Cafe Yolo, Cedar Rapids\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Coconuts Fish Cafe, Dallas\",\n        \"dinner\": \"Cafe Gatherings, Dallas\",\n        \"accommodation\": \"Spacious cozy apartment, Dallas\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Dallas\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Bikaner Sweets, Dallas\",\n        \"attraction\": \"Dallas Museum of Art, Dallas;Klyde Warren Park, Dallas;Pioneer Plaza, Dallas;\",\n        \"lunch\": \"Delhicacy, Dallas\",\n        \"dinner\": \"Firefly India, Dallas\",\n        \"accommodation\": \"Spacious cozy apartment, Dallas\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Dallas to Austin\",\n        \"transportation\": \"Self-Driving from Dallas to Austin, Distance: 314km, Duration: 2h 53mins, Cost: 15\",\n        \"breakfast\": \"Lodhi Knights, Dallas\",\n        \"attraction\": \"The Sixth Floor Museum at Dealey Plaza, Dallas;Texas Capitol, Austin;\",\n        \"lunch\": \"Tandoori Nights, Austin\",\n        \"dinner\": \"Chin Pokli, Austin\",\n        \"accommodation\": \"Spacious Williamsburg 1 bedroom!, Austin\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Austin\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Moksha, Austin\",\n        \"attraction\": \"Zilker Metropolitan Park, Austin;Bullock Texas State History Museum, Austin;Statesman Bat Observation Center, Austin;\",\n        \"lunch\": \"Chef Joint, Austin\",\n        \"dinner\": \"The Blue Door Cafe, Austin\",\n        \"accommodation\": \"Spacious Williamsburg 1 bedroom!, Austin\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Austin to Cedar Rapids\",\n        \"transportation\": \"Self-Driving from Austin to Cedar Rapids, Distance: 1,695km, Duration: 15h 5mins, Cost: 84\",\n        \"breakfast\": \"Frontier, Austin\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Captain Curry, Cedar Rapids\",\n        \"dinner\": \"Millionaire - Powered by Wrapss, Cedar Rapids\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": false,
+      "H2": true,
+      "H3": false,
+      "H5": false
+    },
+    "composite_score": 0.5625,
+    "final_pass": false
+  },
+  "status": "completed"
+}

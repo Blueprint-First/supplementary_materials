@@ -1,0 +1,863 @@
+{
+  "benchmark": "ALFWorld",
+  "split": "valid_unseen",
+  "backbone": "claude-sonnet-4",
+  "temperature": 0.7,
+  "n_tasks": 134,
+  "method": "SCA (ours)",
+  "headline_3seed_mean": {
+    "success_rate": 0.984,
+    "success_rate_std": 0.015,
+    "avg_steps_success_final": 12.8,
+    "avg_steps_success_final_std": 0.8,
+    "n_seeds": 3,
+    "note": "3-seed mean reported as the headline. Single-seed raw run below."
+  },
+  "single_seed": {
+    "seed_label": "autorefine+sonnet4",
+    "success": 130,
+    "failed": 4,
+    "success_rate": 0.9701492537313433,
+    "avg_steps_all": 16.78,
+    "avg_steps_success": 15.75,
+    "avg_steps_failure": 50.0,
+    "per_subtask": {
+      "Put": {
+        "success": 24,
+        "total": 24,
+        "rate": 1.0
+      },
+      "Clean": {
+        "success": 30,
+        "total": 31,
+        "rate": 0.968
+      },
+      "Heat": {
+        "success": 23,
+        "total": 23,
+        "rate": 1.0
+      },
+      "Cool": {
+        "success": 20,
+        "total": 21,
+        "rate": 0.952
+      },
+      "Examine": {
+        "success": 18,
+        "total": 18,
+        "rate": 1.0
+      },
+      "Put Two": {
+        "success": 15,
+        "total": 17,
+        "rate": 0.882
+      }
+    }
+  },
+  "per_task": [
+    {
+      "task_id": "pick_and_place_simple-SaltShaker-None-Cabinet-10/trial_T20190906_191501_563086",
+      "subtask": "Put",
+      "success": true,
+      "steps": 5
+    },
+    {
+      "task_id": "pick_and_place_simple-SoapBottle-None-Toilet-424/trial_T20190907_004404_604165",
+      "subtask": "Put",
+      "success": true,
+      "steps": 6
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Potato-None-Microwave-10/trial_T20190907_033306_962974",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 10
+    },
+    {
+      "task_id": "pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064309_357168",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 21
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Lettuce-None-CounterTop-10/trial_T20190909_123133_763972",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 29
+    },
+    {
+      "task_id": "look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222933_607649",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 11
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_183807_477267",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 12
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Knife-None-CounterTop-10/trial_T20190909_110445_675754",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 22
+    },
+    {
+      "task_id": "pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205204_244321",
+      "subtask": "Put",
+      "success": true,
+      "steps": 31
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_021100_341887",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 12
+    },
+    {
+      "task_id": "pick_and_place_simple-SaltShaker-None-Drawer-10/trial_T20190909_021650_880235",
+      "subtask": "Put",
+      "success": true,
+      "steps": 8
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Lettuce-None-CounterTop-10/trial_T20190909_174807_646433",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 19
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Tomato-None-GarbageCan-10/trial_T20190908_225453_272533",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 13
+    },
+    {
+      "task_id": "look_at_obj_in_light-Book-None-DeskLamp-308/trial_T20190908_020029_636862",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 20
+    },
+    {
+      "task_id": "pick_two_obj_and_place-SoapBar-None-Cabinet-424/trial_T20190909_081720_491733",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 26
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091811_414150",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 28
+    },
+    {
+      "task_id": "pick_and_place_simple-Pencil-None-Shelf-308/trial_T20190908_122024_052056",
+      "subtask": "Put",
+      "success": true,
+      "steps": 4
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-SoapBar-None-Cabinet-424/trial_T20190908_214946_567644",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_and_place_simple-SoapBottle-None-Toilet-424/trial_T20190907_004351_281384",
+      "subtask": "Put",
+      "success": true,
+      "steps": 4
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_114545_244903",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 31
+    },
+    {
+      "task_id": "pick_and_place_simple-PepperShaker-None-Drawer-10/trial_T20190906_184021_215264",
+      "subtask": "Put",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_171933_349922",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 24
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061232_368489",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 19
+    },
+    {
+      "task_id": "pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064221_368939",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 15
+    },
+    {
+      "task_id": "pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051013_060265",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 21
+    },
+    {
+      "task_id": "look_at_obj_in_light-Bowl-None-DeskLamp-308/trial_T20190907_133953_562557",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 11
+    },
+    {
+      "task_id": "pick_and_place_simple-SaltShaker-None-Drawer-10/trial_T20190909_021613_077537",
+      "subtask": "Put",
+      "success": true,
+      "steps": 10
+    },
+    {
+      "task_id": "pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_051056_585414",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 16
+    },
+    {
+      "task_id": "pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163408_914117",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 37
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Plate-None-CounterTop-10/trial_T20190908_213420_728917",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 6
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Egg-None-Microwave-10/trial_T20190909_120712_273910",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 8
+    },
+    {
+      "task_id": "pick_and_place_simple-SaltShaker-None-Cabinet-10/trial_T20190906_191429_743650",
+      "subtask": "Put",
+      "success": true,
+      "steps": 24
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Potato-None-GarbageCan-10/trial_T20190907_161745_664033",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 18
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Apple-None-GarbageCan-10/trial_T20190908_145356_918528",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 34
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Cloth-None-Cabinet-424/trial_T20190908_022321_380927",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 44
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_221300_362511",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 9
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_171850_960211",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 15
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_221355_558505",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 14
+    },
+    {
+      "task_id": "look_at_obj_in_light-CD-None-DeskLamp-308/trial_T20190908_142046_281296",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 3
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Egg-None-Microwave-10/trial_T20190909_120632_691361",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 17
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061130_844814",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 8
+    },
+    {
+      "task_id": "pick_and_place_simple-Pencil-None-Shelf-308/trial_T20190908_121952_610012",
+      "subtask": "Put",
+      "success": true,
+      "steps": 4
+    },
+    {
+      "task_id": "pick_and_place_simple-PepperShaker-None-Drawer-10/trial_T20190918_154424_844749",
+      "subtask": "Put",
+      "success": true,
+      "steps": 5
+    },
+    {
+      "task_id": "look_at_obj_in_light-Mug-None-DeskLamp-308/trial_T20190908_201444_037645",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 10
+    },
+    {
+      "task_id": "pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221016_460197",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 13
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Cloth-None-Cabinet-424/trial_T20190908_022436_073995",
+      "subtask": "Clean",
+      "success": false,
+      "steps": 50
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Spatula-None-Drawer-10/trial_T20190907_080800_275989",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 9
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091835_825830",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 25
+    },
+    {
+      "task_id": "look_at_obj_in_light-CD-None-DeskLamp-308/trial_T20190908_141958_463362",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 6
+    },
+    {
+      "task_id": "pick_and_place_simple-SoapBottle-None-Toilet-424/trial_T20190907_004321_405868",
+      "subtask": "Put",
+      "success": true,
+      "steps": 4
+    },
+    {
+      "task_id": "pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_050942_897916",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 20
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Cloth-None-CounterTop-424/trial_T20190908_114340_674467",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "look_at_obj_in_light-Pencil-None-DeskLamp-308/trial_T20190908_220656_510400",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 5
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_171806_406231",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 14
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Egg-None-GarbageCan-10/trial_T20190908_113432_673307",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 21
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Tomato-None-GarbageCan-10/trial_T20190908_225359_617900",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 19
+    },
+    {
+      "task_id": "pick_and_place_simple-Mug-None-Desk-308/trial_T20190909_210238_431966",
+      "subtask": "Put",
+      "success": true,
+      "steps": 10
+    },
+    {
+      "task_id": "pick_and_place_simple-Watch-None-Safe-219/trial_T20190907_074556_124850",
+      "subtask": "Put",
+      "success": true,
+      "steps": 6
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_114622_738670",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182435_622538",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 23
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-SoapBar-None-Cabinet-424/trial_T20190908_214926_337906",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Egg-None-GarbageCan-10/trial_T20190908_113610_425142",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 12
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-SoapBar-None-CounterTop-424/trial_T20190907_074124_966890",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 14
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_032518_891433",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 33
+    },
+    {
+      "task_id": "pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163327_486300",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 39
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Potato-None-GarbageCan-10/trial_T20190907_161853_945788",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Cloth-None-CounterTop-424/trial_T20190908_100632_546757",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_121710_650938",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Tomato-None-Microwave-10/trial_T20190909_102710_795182",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 10
+    },
+    {
+      "task_id": "pick_and_place_simple-SaltShaker-None-Drawer-10/trial_T20190909_021728_339782",
+      "subtask": "Put",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "look_at_obj_in_light-Pencil-None-DeskLamp-308/trial_T20190908_220604_010430",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 3
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-SoapBar-None-CounterTop-424/trial_T20190907_074106_050405",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 13
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Knife-None-CounterTop-10/trial_T20190909_110347_624008",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 22
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Cup-None-Cabinet-10/trial_T20190907_083507_594820",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 33
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Tomato-None-Microwave-10/trial_T20190909_102608_318800",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 38
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_183853_958104",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 10
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Plate-None-CounterTop-10/trial_T20190908_213533_897289",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 13
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-SoapBar-None-Cabinet-424/trial_T20190908_215019_162873",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 20
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Bowl-None-Cabinet-10/trial_T20190909_061158_110530",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 9
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_032434_013084",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 32
+    },
+    {
+      "task_id": "pick_two_obj_and_place-SoapBar-None-Cabinet-424/trial_T20190909_081746_857594",
+      "subtask": "Put Two",
+      "success": false,
+      "steps": 50
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Potato-None-Microwave-10/trial_T20190907_033157_424297",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Tomato-None-Microwave-10/trial_T20190909_102644_926781",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 11
+    },
+    {
+      "task_id": "look_at_obj_in_light-Bowl-None-DeskLamp-308/trial_T20190907_133919_856963",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 17
+    },
+    {
+      "task_id": "pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221141_608117",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 15
+    },
+    {
+      "task_id": "look_at_obj_in_light-Bowl-None-DeskLamp-308/trial_T20190907_133935_066606",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 12
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182353_418140",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 13
+    },
+    {
+      "task_id": "pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163240_345855",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 39
+    },
+    {
+      "task_id": "pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205221_748352",
+      "subtask": "Put",
+      "success": true,
+      "steps": 22
+    },
+    {
+      "task_id": "look_at_obj_in_light-Book-None-DeskLamp-308/trial_T20190908_020048_814402",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 19
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_114656_768805",
+      "subtask": "Cool",
+      "success": false,
+      "steps": 50
+    },
+    {
+      "task_id": "pick_and_place_simple-Watch-None-Safe-219/trial_T20190907_074643_810052",
+      "subtask": "Put",
+      "success": true,
+      "steps": 14
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Spatula-None-Drawer-10/trial_T20190907_080730_211959",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 9
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Egg-None-GarbageCan-10/trial_T20190908_113523_123938",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 50
+    },
+    {
+      "task_id": "pick_and_place_simple-Mug-None-Desk-308/trial_T20190909_203041_433487",
+      "subtask": "Put",
+      "success": true,
+      "steps": 8
+    },
+    {
+      "task_id": "pick_two_obj_and_place-KeyChain-None-Safe-219/trial_T20190909_012027_782483",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 28
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Lettuce-None-CounterTop-10/trial_T20190909_174840_771703",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 26
+    },
+    {
+      "task_id": "look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222951_616606",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 3
+    },
+    {
+      "task_id": "pick_two_obj_and_place-KeyChain-None-Safe-219/trial_T20190909_011803_423115",
+      "subtask": "Put Two",
+      "success": false,
+      "steps": 50
+    },
+    {
+      "task_id": "look_at_obj_in_light-Book-None-DeskLamp-308/trial_T20190908_144951_587345",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 22
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_121559_082363",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Cup-None-Cabinet-10/trial_T20190907_083346_800823",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 17
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_221208_560499",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 11
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-SoapBar-None-CounterTop-424/trial_T20190907_074045_109439",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 14
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Bread-None-CounterTop-10/trial_T20190908_091747_866951",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 25
+    },
+    {
+      "task_id": "pick_and_place_simple-Mug-None-Desk-308/trial_T20190908_125200_737896",
+      "subtask": "Put",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "look_at_obj_in_light-AlarmClock-None-DeskLamp-308/trial_T20190908_222917_366542",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 10
+    },
+    {
+      "task_id": "pick_and_place_simple-Watch-None-Safe-219/trial_T20190907_074524_006355",
+      "subtask": "Put",
+      "success": true,
+      "steps": 21
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Cup-None-Cabinet-10/trial_T20190907_083429_887065",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 31
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Pan-None-CounterTop-10/trial_T20190908_032543_712058",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 21
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Tomato-None-GarbageCan-10/trial_T20190908_225046_020282",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 14
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Knife-None-CounterTop-10/trial_T20190909_110531_148235",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 23
+    },
+    {
+      "task_id": "pick_and_place_simple-SaltShaker-None-Cabinet-10/trial_T20190906_191445_723170",
+      "subtask": "Put",
+      "success": true,
+      "steps": 23
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Apple-None-GarbageCan-10/trial_T20190908_145143_820541",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 14
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Apple-None-Fridge-10/trial_T20190906_182259_116320",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 35
+    },
+    {
+      "task_id": "look_at_obj_in_light-Mug-None-DeskLamp-308/trial_T20190908_161733_213242",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 11
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Apple-None-GarbageCan-10/trial_T20190908_145050_918567",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 21
+    },
+    {
+      "task_id": "look_at_obj_in_light-Mug-None-DeskLamp-308/trial_T20190908_201421_021646",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 3
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_021200_669381",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 33
+    },
+    {
+      "task_id": "pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205246_776817",
+      "subtask": "Put",
+      "success": true,
+      "steps": 11
+    },
+    {
+      "task_id": "look_at_obj_in_light-CD-None-DeskLamp-308/trial_T20190908_141942_810052",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 23
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_121635_622676",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 7
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Egg-None-Microwave-10/trial_T20190909_120554_888709",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 8
+    },
+    {
+      "task_id": "pick_two_obj_and_place-ToiletPaper-None-Cabinet-424/trial_T20190906_202926_527010",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 34
+    },
+    {
+      "task_id": "pick_and_place_simple-PepperShaker-None-Drawer-10/trial_T20190918_154326_823501",
+      "subtask": "Put",
+      "success": true,
+      "steps": 5
+    },
+    {
+      "task_id": "pick_and_place_simple-Pencil-None-Shelf-308/trial_T20190908_122154_042763",
+      "subtask": "Put",
+      "success": true,
+      "steps": 6
+    },
+    {
+      "task_id": "pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190908_010306_215435",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 14
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Spatula-None-Drawer-10/trial_T20190907_080825_222432",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 8
+    },
+    {
+      "task_id": "pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064053_839817",
+      "subtask": "Put Two",
+      "success": true,
+      "steps": 16
+    },
+    {
+      "task_id": "look_at_obj_in_light-Pencil-None-DeskLamp-308/trial_T20190908_220545_153480",
+      "subtask": "Examine",
+      "success": true,
+      "steps": 5
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Potato-None-Microwave-10/trial_T20190907_033228_194678",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 8
+    },
+    {
+      "task_id": "pick_cool_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_183715_299073",
+      "subtask": "Cool",
+      "success": true,
+      "steps": 12
+    },
+    {
+      "task_id": "pick_clean_then_place_in_recep-Plate-None-CounterTop-10/trial_T20190908_213356_017769",
+      "subtask": "Clean",
+      "success": true,
+      "steps": 6
+    },
+    {
+      "task_id": "pick_heat_then_place_in_recep-Mug-None-Cabinet-10/trial_T20190909_021247_306737",
+      "subtask": "Heat",
+      "success": true,
+      "steps": 6
+    }
+  ]
+}

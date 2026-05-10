@@ -1,0 +1,69 @@
+{
+  "question_id": 36,
+  "query": "Could you please create a 5-day travel plan for me, starting from Los Angeles and visiting 2 cities in Colorado between March 13th and March 17th, 2022? My budget for the trip is $4,700.",
+  "question_details": {
+    "id": 36,
+    "query": "Could you please create a 5-day travel plan for me, starting from Los Angeles and visiting 2 cities in Colorado between March 13th and March 17th, 2022? My budget for the trip is $4,700.",
+    "level": "easy",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Los Angeles",
+    "dest": "Colorado",
+    "budget": 4700,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-13', '2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-12T17:43:48+00:00",
+  "duration_seconds": 40.98,
+  "tokens_input": 7469,
+  "tokens_output": 930,
+  "tool_calls": 8,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Los Angeles to Colorado\nTransportation: Flight Number: F9999999, from Los Angeles to Colorado, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Los Angeles\nAttraction: Riverwalk Park, Colorado\nLunch: Sunset Grille, Colorado\nDinner: Maple Diner, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 2:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Colorado\nAttraction: Riverwalk Park, Colorado\nLunch: Sunset Grille, Colorado\nDinner: Garden Brasserie, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 3:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Sunset Grille, Colorado\nAttraction: Old Town Square, Colorado\nLunch: Garden Brasserie, Colorado\nDinner: Stone Hearth Kitchen, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 4:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Maple Diner, Colorado\nAttraction: Heritage Museum, Colorado\nLunch: Harbor Cafe, Colorado\nDinner: Lantern House, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 5:\nCurrent City: from Colorado to Los Angeles\nTransportation: Flight Number: F8050143, from Colorado to Los Angeles, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Colorado\nAttraction: -\nLunch: Maple Diner, Colorado\nDinner: Harbor Cafe, Colorado\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    }
+  ]
+}

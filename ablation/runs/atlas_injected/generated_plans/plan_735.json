@@ -1,0 +1,82 @@
+{
+  "question_id": 735,
+  "query": "Please prepare a travel itinerary from Charlotte to Charlottesville for 2 people, spanning 3 days from March 20th to March 22nd, 2022, within a budget of $600. Our preferred accommodations are private rooms, and we will be bringing our pets along, so pet-friendly lodgings are a must. Please note that no flights are required for this journey.",
+  "question_details": {
+    "id": 735,
+    "query": "Please prepare a travel itinerary from Charlotte to Charlottesville for 2 people, spanning 3 days from March 20th to March 22nd, 2022, within a budget of $600. Our preferred accommodations are private rooms, and we will be bringing our pets along, so pet-friendly lodgings are a must. Please note that no flights are required for this journey.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Charlotte",
+    "dest": "Charlottesville",
+    "budget": 600,
+    "local_constraint": "{'house rule': 'pets', 'cuisine': None, 'room type': 'private room', 'transportation': 'no flight'}",
+    "people_number": 2,
+    "date": "['2022-03-20', '2022-03-21', '2022-03-22']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T07:54:15+00:00",
+  "duration_seconds": 52.27,
+  "tokens_input": 9365,
+  "tokens_output": 1497,
+  "tool_calls": 13,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Charlotte to Charlottesville\nTransportation: Flight Number: F9999999, from Charlotte to Charlottesville, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Charlotte\nAttraction: City Botanical Garden, Charlottesville\nLunch: Garden Brasserie, Charlottesville\nDinner: Garden Brasserie, Charlottesville\nAccommodation: Boutique Inn at Charlottesville Center, Charlottesville\n\nDay 2:\nCurrent City: Charlottesville\nTransportation: -\nBreakfast: Riverside Bistro, Charlottesville\nAttraction: City Botanical Garden, Charlottesville\nLunch: Garden Brasserie, Charlottesville\nDinner: Kettle & Fork, Charlottesville\nAccommodation: Boutique Inn at Charlottesville Center, Charlottesville\n\nDay 3:\nCurrent City: from Charlottesville to Charlotte\nTransportation: Flight Number: F12768275, from Charlottesville to Charlotte, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Maple Diner, Charlottesville\nAttraction: -\nLunch: Stone Hearth Kitchen, Charlottesville\nDinner: Stone Hearth Kitchen, Charlottesville\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    }
+  ]
+}

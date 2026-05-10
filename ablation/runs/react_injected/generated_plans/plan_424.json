@@ -1,0 +1,81 @@
+{
+  "question_id": 424,
+  "query": "Could you help design a 3-day travel itinerary for a group of 6 people, departing from Phoenix and heading to Nashville to visit one city from March 27th to March 29th, 2022? Our budget is now set at $10,100, and we require accommodations with entire rooms.",
+  "question_details": {
+    "id": 424,
+    "query": "Could you help design a 3-day travel itinerary for a group of 6 people, departing from Phoenix and heading to Nashville to visit one city from March 27th to March 29th, 2022? Our budget is now set at $10,100, and we require accommodations with entire rooms.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Phoenix",
+    "dest": "Nashville",
+    "budget": 10100,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'entire room', 'transportation': None}",
+    "people_number": 6,
+    "date": "['2022-03-27', '2022-03-28', '2022-03-29']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T17:35:52+00:00",
+  "duration_seconds": 19.73,
+  "tokens_input": 5231,
+  "tokens_output": 636,
+  "tool_calls": 7,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Phoenix to Nashville\nTransportation: Flight Number: F9399481, from Phoenix to Nashville, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Phoenix\nAttraction: Liberty Hall, Nashville\nLunch: Garden Brasserie, Nashville\nDinner: Garden Brasserie, Nashville\nAccommodation: Boutique Inn at Nashville Center, Nashville\n\nDay 2:\nCurrent City: Nashville\nTransportation: -\nBreakfast: Garden Brasserie, Nashville\nAttraction: Liberty Hall, Nashville\nLunch: Kettle & Fork, Nashville\nDinner: Sunset Grille, Nashville\nAccommodation: Boutique Inn at Nashville Center, Nashville\n\nDay 3:\nCurrent City: from Nashville to Phoenix\nTransportation: Flight Number: F14668818, from Nashville to Phoenix, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Harbor Cafe, Nashville\nAttraction: -\nLunch: Garden Brasserie, Nashville\nDinner: Stone Hearth Kitchen, Nashville\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": false,
+      "C4": true,
+      "C5": true,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H4": true
+    },
+    "composite_score": 0.4792,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

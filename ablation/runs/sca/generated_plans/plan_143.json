@@ -1,0 +1,56 @@
+{
+  "question_id": 143,
+  "query": "Could you help me plan a 5-day journey for a group of 6, departing from Cleveland and visiting 2 cities in Florida from March 2nd to March 6th, 2022? Our budget is now $13,900, and we require pet-friendly accommodations that should ideally be entire rooms. We are planning on bringing our pets along, so the need for pet-friendly accommodations is crucial. We would also prefer not to self-drive.",
+  "question_details": {
+    "id": 143,
+    "query": "Could you help me plan a 5-day journey for a group of 6, departing from Cleveland and visiting 2 cities in Florida from March 2nd to March 6th, 2022? Our budget is now $13,900, and we require pet-friendly accommodations that should ideally be entire rooms. We are planning on bringing our pets along, so the need for pet-friendly accommodations is crucial. We would also prefer not to self-drive.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Cleveland",
+    "dest": "Florida",
+    "budget": 13900,
+    "local_constraint": "{'house rule': 'pets', 'cuisine': None, 'room type': 'entire room', 'transportation': 'no self-driving'}",
+    "people_number": 6,
+    "date": "['2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T23:53:59+00:00",
+  "duration_seconds": 79.64,
+  "tokens_input": 15315,
+  "tokens_output": 2694,
+  "tool_calls": 17,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Cleveland to Orlando\",\n        \"transportation\": \"Flight Number: F3915180, from Cleveland to Orlando, Departure Time: 18:59, Arrival Time: 21:10\",\n        \"breakfast\": \"-\",\n        \"attraction\": \"Harry P Leu Gardens, Orlando;\",\n        \"lunch\": \"Hotel New Tamil Nadu, Orlando\",\n        \"dinner\": \"Milan Food, Orlando\",\n        \"accommodation\": \"Private room in Jackson Heights Apartment 2+, Orlando\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Orlando\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Fun Bytes, Orlando\",\n        \"attraction\": \"Orlando Science Center, Orlando;Gatorland, Orlando;\",\n        \"lunch\": \"Spice Hut, Orlando\",\n        \"dinner\": \"Dhabha 27, Orlando\",\n        \"accommodation\": \"Private room in Jackson Heights Apartment 2+, Orlando\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Orlando to Miami\",\n        \"transportation\": \"Flight Number: F3679551, from Orlando to Miami, Departure Time: 06:06, Arrival Time: 07:06\",\n        \"breakfast\": \"South Indian Corner, Miami\",\n        \"attraction\": \"Universal Orlando Resort, Orlando;\",\n        \"lunch\": \"Baskin Robbins, Miami\",\n        \"dinner\": \"Parrot's, Miami\",\n        \"accommodation\": \"Bushwick Duplex 1, Miami\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Miami\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Gopala, Miami\",\n        \"attraction\": \"Bayfront Park, Miami;Wynwood Walls, Miami;Bayside Marketplace, Miami;\",\n        \"lunch\": \"Papouli's Mediterranean Cafe & Market, Miami\",\n        \"dinner\": \"L'Opera, Miami\",\n        \"accommodation\": \"Bushwick Duplex 1, Miami\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Miami to Cleveland\",\n        \"transportation\": \"Flight Number: F3559995, from Miami to Cleveland, Departure Time: 14:46, Arrival Time: 17:50\",\n        \"breakfast\": \"Spices & Sauces, Miami\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Delhi 6 Cafe, Miami\",\n        \"dinner\": \"Moju Juice Bar, Miami\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed"
+}

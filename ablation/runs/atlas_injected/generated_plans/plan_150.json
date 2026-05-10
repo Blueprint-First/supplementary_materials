@@ -1,0 +1,92 @@
+{
+  "question_id": 150,
+  "query": "Could you arrange a 5-day travel plan for two individuals, leaving from Cedar Rapids and visiting two cities in Texas from March 11th until March 15th, 2022? Our budget is set at $2,400. Our accommodations must allow visitors. Regarding dining, we enjoy Mediterranean, Indian, Italian, and Chinese cuisines. And please ensure that our travels do not involve any flights, as we prefer other modes of transportation.",
+  "question_details": {
+    "id": 150,
+    "query": "Could you arrange a 5-day travel plan for two individuals, leaving from Cedar Rapids and visiting two cities in Texas from March 11th until March 15th, 2022? Our budget is set at $2,400. Our accommodations must allow visitors. Regarding dining, we enjoy Mediterranean, Indian, Italian, and Chinese cuisines. And please ensure that our travels do not involve any flights, as we prefer other modes of transportation.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Cedar Rapids",
+    "dest": "Texas",
+    "budget": 2400,
+    "local_constraint": "{'house rule': 'visitors', 'cuisine': ['Mediterranean', 'Indian', 'Italian', 'Chinese'], 'room type': None, 'transportation': 'no flight'}",
+    "people_number": 2,
+    "date": "['2022-03-11', '2022-03-12', '2022-03-13', '2022-03-14', '2022-03-15']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-12T20:02:30+00:00",
+  "duration_seconds": 51.98,
+  "tokens_input": 12869,
+  "tokens_output": 1631,
+  "tool_calls": 14,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Cedar Rapids to Texas\nTransportation: Flight Number: F99999996, from Cedar Rapids to Texas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Cedar Rapids\nAttraction: City Botanical Garden, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Stone Hearth Kitchen, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 2:\nCurrent City: Texas\nTransportation: -\nBreakfast: Harbor Cafe, Texas\nAttraction: City Botanical Garden, Texas\nLunch: The Olive Tree, Texas\nDinner: Lantern House, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 3:\nCurrent City: Texas\nTransportation: -\nBreakfast: The Olive Tree, Texas\nAttraction: Liberty Hall, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Sunset Grille, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 4:\nCurrent City: Texas\nTransportation: -\nBreakfast: Lantern House, Texas\nAttraction: Riverwalk Park, Texas\nLunch: Garden Brasserie, Texas\nDinner: Maple Diner, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 5:\nCurrent City: from Texas to Cedar Rapids\nTransportation: Flight Number: F1838117, from Texas to Cedar Rapids, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Lantern House, Texas\nAttraction: -\nLunch: Harbor Cafe, Texas\nDinner: Sunset Grille, Texas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": false,
+      "C4": true,
+      "C5": true,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": true,
+      "H2": true,
+      "H3": true,
+      "H5": false
+    },
+    "composite_score": 0.6875,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H2",
+      "kind": "hard",
+      "description": "Cuisine coverage at destination"
+    }
+  ]
+}

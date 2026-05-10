@@ -1,0 +1,43 @@
+{
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "subset": "ablation/100task_subset.json",
+  "n_tasks": 100,
+  "headline": {
+    "composite_score_mean": 0.1685,
+    "composite_score_pct": "16.85%",
+    "final_pass_rate": 0.0,
+    "final_pass_pct": "0.0%"
+  },
+  "constraint_pass_rate": {
+    "C1": 0.21,
+    "C2": 0.09,
+    "C3": 0.13,
+    "C4": 0.25,
+    "C5": 0.26,
+    "C6": 0.16,
+    "C7": 0.21,
+    "C8": 0.16,
+    "H1": 0.1,
+    "H2": 0.16,
+    "H3": 0.2143,
+    "H4": 0.1034,
+    "H5": 0.2333
+  },
+  "library_stats": null,
+  "monitor_summary": {
+    "total_tasks": 100,
+    "completed_tasks": 100,
+    "avg_duration_seconds": 39.86,
+    "avg_tokens_input": 8523,
+    "avg_tokens_output": 1151,
+    "avg_tool_calls": 14.16
+  }
+}

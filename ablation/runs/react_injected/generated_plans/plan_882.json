@@ -1,0 +1,87 @@
+{
+  "question_id": 882,
+  "query": "Could you formulate a 5-day travel itinerary for a group of 5, departing from Gainesville to visit 2 cities in Georgia between March 5th and March 9th, 2022? The total budget for this travel plan is $10,400. We require accommodations that allow parties and should ideally be entire rooms. In terms of food preferences, we enjoy a variety of cuisines including American, Indian, French, and Mediterranean.",
+  "question_details": {
+    "id": 882,
+    "query": "Could you formulate a 5-day travel itinerary for a group of 5, departing from Gainesville to visit 2 cities in Georgia between March 5th and March 9th, 2022? The total budget for this travel plan is $10,400. We require accommodations that allow parties and should ideally be entire rooms. In terms of food preferences, we enjoy a variety of cuisines including American, Indian, French, and Mediterranean.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Gainesville",
+    "dest": "Georgia",
+    "budget": 10400,
+    "local_constraint": "{'house rule': 'parties', 'cuisine': ['Indian', 'French', 'American', 'Mediterranean'], 'room type': 'entire room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-13T02:53:06+00:00",
+  "duration_seconds": 48.52,
+  "tokens_input": 9298,
+  "tokens_output": 1496,
+  "tool_calls": 15,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Gainesville to Georgia\nTransportation: Flight Number: F9999999, from Gainesville to Georgia, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Gainesville\nAttraction: Liberty Hall, Georgia\nLunch: The Olive Tree, Georgia\nDinner: The Olive Tree, Georgia\nAccommodation: Boutique Inn at Georgia Center, Georgia\n\nDay 2:\nCurrent City: Georgia\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Georgia\nAttraction: Liberty Hall, Georgia\nLunch: Harbor Cafe, Georgia\nDinner: The Olive Tree, Georgia\nAccommodation: Boutique Inn at Georgia Center, Georgia\n\nDay 3:\nCurrent City: Georgia\nTransportation: -\nBreakfast: Riverside Bistro, Georgia\nAttraction: Old Town Square, Georgia\nLunch: Riverside Bistro, Georgia\nDinner: Garden Brasserie, Georgia\nAccommodation: Boutique Inn at Georgia Center, Georgia\n\nDay 4:\nCurrent City: Georgia\nTransportation: -\nBreakfast: Garden Brasserie, Georgia\nAttraction: Heritage Museum, Georgia\nLunch: Maple Diner, Georgia\nDinner: Garden Brasserie, Georgia\nAccommodation: Boutique Inn at Georgia Center, Georgia\n\nDay 5:\nCurrent City: from Georgia to Gainesville\nTransportation: Flight Number: F10122128, from Georgia to Gainesville, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, Georgia\nAttraction: -\nLunch: Sunset Grille, Georgia\nDinner: Riverside Bistro, Georgia\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "question_id": 682,
+  "query": "Can you create a travel plan for a group of 4 departing from Seattle and heading to San Francisco for 3 days, from March 6th to March 8th, 2022? Our budget is $2,900. We are bringing pets, so accommodations need to be pet-friendly. We are interested in trying Mexican, French, American, and Mediterranean cuisines during our visit. We would also prefer to avoid flying for transportation.",
+  "question_details": {
+    "id": 682,
+    "query": "Can you create a travel plan for a group of 4 departing from Seattle and heading to San Francisco for 3 days, from March 6th to March 8th, 2022? Our budget is $2,900. We are bringing pets, so accommodations need to be pet-friendly. We are interested in trying Mexican, French, American, and Mediterranean cuisines during our visit. We would also prefer to avoid flying for transportation.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Seattle",
+    "dest": "San Francisco",
+    "budget": 2900,
+    "local_constraint": "{'house rule': 'pets', 'cuisine': ['Mexican', 'French', 'American', 'Mediterranean'], 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-06', '2022-03-07', '2022-03-08']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T10:49:46+00:00",
+  "duration_seconds": 75.95,
+  "tokens_input": 14899,
+  "tokens_output": 2131,
+  "tool_calls": 14,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Seattle to San Francisco\nTransportation: Flight Number: F12491113, from Seattle to San Francisco, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Seattle\nAttraction: Heritage Museum, San Francisco\nLunch: Sunset Grille, San Francisco\nDinner: Maple Diner, San Francisco\nAccommodation: Boutique Inn at San Francisco Center, San Francisco\n\nDay 2:\nCurrent City: San Francisco\nTransportation: -\nBreakfast: Kettle & Fork, San Francisco\nAttraction: City Botanical Garden, San Francisco\nLunch: Garden Brasserie, San Francisco\nDinner: Maple Diner, San Francisco\nAccommodation: Boutique Inn at San Francisco Center, San Francisco\n\nDay 3:\nCurrent City: from San Francisco to Seattle\nTransportation: Flight Number: F2307643, from San Francisco to Seattle, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, San Francisco\nAttraction: -\nLunch: The Olive Tree, San Francisco\nDinner: Riverside Bistro, San Francisco\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": true,
+      "C6": true,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": true,
+      "H2": true,
+      "H3": false,
+      "H5": true
+    },
+    "composite_score": 0.8125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

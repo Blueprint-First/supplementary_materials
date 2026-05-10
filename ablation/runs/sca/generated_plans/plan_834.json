@@ -1,0 +1,56 @@
+{
+  "question_id": 834,
+  "query": "Could you assist me in planning a 5-day trip for two that begins in Houston and includes visits to two cities in Florida from March 11th to March 15th, 2022? Our budget is capped at $4,200. For accommodations, we aim to have private rooms that allow smoking. During the trip, we would like to experience a diverse culinary palette, including Indian, Italian, Mexican, and American cuisines.",
+  "question_details": {
+    "id": 834,
+    "query": "Could you assist me in planning a 5-day trip for two that begins in Houston and includes visits to two cities in Florida from March 11th to March 15th, 2022? Our budget is capped at $4,200. For accommodations, we aim to have private rooms that allow smoking. During the trip, we would like to experience a diverse culinary palette, including Indian, Italian, Mexican, and American cuisines.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Houston",
+    "dest": "Florida",
+    "budget": 4200,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': ['Italian', 'Mexican', 'Indian', 'American'], 'room type': 'private room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-11', '2022-03-12', '2022-03-13', '2022-03-14', '2022-03-15']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T13:54:42+00:00",
+  "duration_seconds": 111.03,
+  "tokens_input": 20268,
+  "tokens_output": 3491,
+  "tool_calls": 28,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Houston to Florida\nTransportation: Flight Number: F15799992, from Houston to Florida, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Houston\nAttraction: Liberty Hall, Florida\nLunch: Riverside Bistro, Florida\nDinner: Garden Brasserie, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 2:\nCurrent City: Florida\nTransportation: -\nBreakfast: Kettle & Fork, Florida\nAttraction: Liberty Hall, Florida\nLunch: Sunset Grille, Florida\nDinner: The Olive Tree, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 3:\nCurrent City: Florida\nTransportation: -\nBreakfast: The Olive Tree, Florida\nAttraction: Liberty Hall, Florida\nLunch: Harbor Cafe, Florida\nDinner: Harbor Cafe, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 4:\nCurrent City: Florida\nTransportation: -\nBreakfast: Maple Diner, Florida\nAttraction: Riverwalk Park, Florida\nLunch: Riverside Bistro, Florida\nDinner: Stone Hearth Kitchen, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 5:\nCurrent City: from Florida to Houston\nTransportation: Flight Number: F5616522, from Florida to Houston, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, Florida\nAttraction: -\nLunch: Riverside Bistro, Florida\nDinner: Lantern House, Florida\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.1875,
+    "final_pass": false
+  },
+  "status": "completed"
+}

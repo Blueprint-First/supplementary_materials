@@ -1,0 +1,53 @@
+{
+  "question_id": 212,
+  "query": "Could you help design a 5-day travel itinerary from Albuquerque to Colorado covering 2 cities for one person between March 1st and March 5th, 2022, with a maximum expenditure limit of $2,700?",
+  "question_details": {
+    "id": 212,
+    "query": "Could you help design a 5-day travel itinerary from Albuquerque to Colorado covering 2 cities for one person between March 1st and March 5th, 2022, with a maximum expenditure limit of $2,700?",
+    "level": "easy",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Albuquerque",
+    "dest": "Colorado",
+    "budget": 2700,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-01', '2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T01:17:56+00:00",
+  "duration_seconds": 67.31,
+  "tokens_input": 16017,
+  "tokens_output": 2146,
+  "tool_calls": 17,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Albuquerque to Colorado\nTransportation: Flight Number: F12033749, from Albuquerque to Colorado, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Albuquerque\nAttraction: Riverwalk Park, Colorado\nLunch: The Olive Tree, Colorado\nDinner: Sunset Grille, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 2:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Kettle & Fork, Colorado\nAttraction: Liberty Hall, Colorado\nLunch: Garden Brasserie, Colorado\nDinner: The Olive Tree, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 3:\nCurrent City: Colorado\nTransportation: -\nBreakfast: The Olive Tree, Colorado\nAttraction: Liberty Hall, Colorado\nLunch: Stone Hearth Kitchen, Colorado\nDinner: Maple Diner, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 4:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Colorado\nAttraction: Old Town Square, Colorado\nLunch: Riverside Bistro, Colorado\nDinner: Kettle & Fork, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 5:\nCurrent City: from Colorado to Albuquerque\nTransportation: Flight Number: F0525870, from Colorado to Albuquerque, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, Colorado\nAttraction: -\nLunch: Stone Hearth Kitchen, Colorado\nDinner: Kettle & Fork, Colorado\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.1875,
+    "final_pass": false
+  },
+  "status": "completed"
+}

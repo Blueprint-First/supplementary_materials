@@ -1,0 +1,81 @@
+{
+  "question_id": 556,
+  "query": "Could you help me plan a 5-day trip for two people departing from Portland and intending to visit 2 cities in California from March 6th to March 10th, 2022? We require accommodations that are private rooms. Our travel budget is set at $5,100.",
+  "question_details": {
+    "id": 556,
+    "query": "Could you help me plan a 5-day trip for two people departing from Portland and intending to visit 2 cities in California from March 6th to March 10th, 2022? We require accommodations that are private rooms. Our travel budget is set at $5,100.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Portland",
+    "dest": "California",
+    "budget": 5100,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'private room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09', '2022-03-10']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-13T00:16:28+00:00",
+  "duration_seconds": 41.63,
+  "tokens_input": 8648,
+  "tokens_output": 1498,
+  "tool_calls": 12,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Portland to California\nTransportation: Flight Number: F99999996, from Portland to California, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Portland\nAttraction: Liberty Hall, California\nLunch: Harbor Cafe, California\nDinner: Harbor Cafe, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 2:\nCurrent City: California\nTransportation: -\nBreakfast: Riverside Bistro, California\nAttraction: Liberty Hall, California\nLunch: Stone Hearth Kitchen, California\nDinner: Sunset Grille, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 3:\nCurrent City: California\nTransportation: -\nBreakfast: Garden Brasserie, California\nAttraction: Liberty Hall, California\nLunch: Garden Brasserie, California\nDinner: Maple Diner, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 4:\nCurrent City: California\nTransportation: -\nBreakfast: Sunset Grille, California\nAttraction: Riverwalk Park, California\nLunch: Lantern House, California\nDinner: Kettle & Fork, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 5:\nCurrent City: from California to Portland\nTransportation: Flight Number: F16376103, from California to Portland, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Garden Brasserie, California\nAttraction: -\nLunch: Sunset Grille, California\nDinner: Harbor Cafe, California\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

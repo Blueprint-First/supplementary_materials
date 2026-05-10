@@ -1,0 +1,54 @@
+{
+  "question_id": 87,
+  "query": "Could you help arrange a 5-day travel plan for a group of 7, departing from Omaha and planning to visit 2 cities in Colorado? The trip is set from March 14th to March 18th, 2022. It's vital that our accommodations are pet-friendly, as we have pets with us. Our budget for the entire trip is $23,400.",
+  "question_details": {
+    "id": 87,
+    "query": "Could you help arrange a 5-day travel plan for a group of 7, departing from Omaha and planning to visit 2 cities in Colorado? The trip is set from March 14th to March 18th, 2022. It's vital that our accommodations are pet-friendly, as we have pets with us. Our budget for the entire trip is $23,400.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Omaha",
+    "dest": "Colorado",
+    "budget": 23400,
+    "local_constraint": "{'house rule': 'pets', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 7,
+    "date": "['2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17', '2022-03-18']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T22:45:51+00:00",
+  "duration_seconds": 53.4,
+  "tokens_input": 10898,
+  "tokens_output": 1690,
+  "tool_calls": 12,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Omaha to Denver\",\n        \"transportation\": \"Flight Number: F3979147, from Omaha to Denver, Departure Time: 06:00, Arrival Time: 06:23\",\n        \"breakfast\": \"TBH - The Big House Cafe, Denver\",\n        \"attraction\": \"Denver Art Museum, Denver;\",\n        \"lunch\": \"The Urban Socialite, Denver\",\n        \"dinner\": \"Kloof Street House, Denver\",\n        \"accommodation\": \"Peaceful, beautiful home away, Denver\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Denver\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Nathu's Sweets, Denver\",\n        \"attraction\": \"Denver Zoo, Denver;Denver Botanic Gardens, Denver;\",\n        \"lunch\": \"Cafe Diva, Denver\",\n        \"dinner\": \"Chawla's', Denver\",\n        \"accommodation\": \"Peaceful, beautiful home away, Denver\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Denver to Colorado Springs\",\n        \"transportation\": \"Self-driving from Denver to Colorado Springs, Distance: 114km, Duration: 1h 11m\",\n        \"breakfast\": \"Nobu - One&Only, Colorado Springs\",\n        \"attraction\": \"Garden of the Gods, Colorado Springs;\",\n        \"lunch\": \"Underdoggs Sports Bar & Grill, Colorado Springs\",\n        \"dinner\": \"Deepak Rasoi, Colorado Springs\",\n        \"accommodation\": \"Charming and Bright 1 bdr apartment in Noho, Colorado Springs\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Colorado Springs\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"#Dilliwaala6, Colorado Springs\",\n        \"attraction\": \"Cheyenne Mountain Zoo, Colorado Springs;The Broadmoor Seven Falls, Colorado Springs;\",\n        \"lunch\": \"Sushi Masa, Colorado Springs\",\n        \"dinner\": \"New Vikrant Restaurant, Colorado Springs\",\n        \"accommodation\": \"Charming and Bright 1 bdr apartment in Noho, Colorado Springs\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Colorado Springs to Omaha\",\n        \"transportation\": \"Flight Number: F4026904, from Colorado Springs to Omaha, Departure Time: 14:05, Arrival Time: 16:19\",\n        \"breakfast\": \"New Raja Sweets, Colorado Springs\",\n        \"attraction\": \"-\",\n        \"lunch\": \"South Cafe, Colorado Springs\",\n        \"dinner\": \"Mamu's Infusion, Colorado Springs\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false
+    },
+    "composite_score": 0.25,
+    "final_pass": false
+  },
+  "status": "completed"
+}

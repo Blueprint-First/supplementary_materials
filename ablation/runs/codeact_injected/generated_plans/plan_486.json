@@ -1,0 +1,86 @@
+{
+  "question_id": 486,
+  "query": "I need assistance in creating a 5-day travel plan for a group of 4 people. Our group will be traveling from Philadelphia to visit 2 cities in Missouri from March 5th, 2022, to March 9th, 2022. We have a budget of $9,000 for this trip. During our stay, we would love to enjoy Chinese and American cuisines.",
+  "question_details": {
+    "id": 486,
+    "query": "I need assistance in creating a 5-day travel plan for a group of 4 people. Our group will be traveling from Philadelphia to visit 2 cities in Missouri from March 5th, 2022, to March 9th, 2022. We have a budget of $9,000 for this trip. During our stay, we would love to enjoy Chinese and American cuisines.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Philadelphia",
+    "dest": "Missouri",
+    "budget": 9000,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Chinese', 'American'], 'room type': None, 'transportation': None}",
+    "people_number": 4,
+    "date": "['2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T22:51:18+00:00",
+  "duration_seconds": 39.56,
+  "tokens_input": 9686,
+  "tokens_output": 1219,
+  "tool_calls": 11,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Philadelphia to Missouri\nTransportation: Flight Number: F9999999, from Philadelphia to Missouri, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Philadelphia\nAttraction: Old Town Square, Missouri\nLunch: Riverside Bistro, Missouri\nDinner: Riverside Bistro, Missouri\nAccommodation: Boutique Inn at Missouri Center, Missouri\n\nDay 2:\nCurrent City: Missouri\nTransportation: -\nBreakfast: Riverside Bistro, Missouri\nAttraction: Old Town Square, Missouri\nLunch: Garden Brasserie, Missouri\nDinner: Stone Hearth Kitchen, Missouri\nAccommodation: Boutique Inn at Missouri Center, Missouri\n\nDay 3:\nCurrent City: Missouri\nTransportation: -\nBreakfast: Sunset Grille, Missouri\nAttraction: Old Town Square, Missouri\nLunch: Garden Brasserie, Missouri\nDinner: Riverside Bistro, Missouri\nAccommodation: Boutique Inn at Missouri Center, Missouri\n\nDay 4:\nCurrent City: Missouri\nTransportation: -\nBreakfast: Maple Diner, Missouri\nAttraction: Riverwalk Park, Missouri\nLunch: Kettle & Fork, Missouri\nDinner: Sunset Grille, Missouri\nAccommodation: Boutique Inn at Missouri Center, Missouri\n\nDay 5:\nCurrent City: from Missouri to Philadelphia\nTransportation: Flight Number: F16403405, from Missouri to Philadelphia, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Missouri\nAttraction: -\nLunch: Stone Hearth Kitchen, Missouri\nDinner: Stone Hearth Kitchen, Missouri\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

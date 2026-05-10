@@ -1,0 +1,86 @@
+{
+  "question_id": 353,
+  "query": "Please plan a trip for two people from Wilmington to Washington for three days from March 19th to March 21st, 2022, with a budget of $2,500. We require accommodations that allow visitors.",
+  "question_details": {
+    "id": 353,
+    "query": "Please plan a trip for two people from Wilmington to Washington for three days from March 19th to March 21st, 2022, with a budget of $2,500. We require accommodations that allow visitors.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Wilmington",
+    "dest": "Washington",
+    "budget": 2500,
+    "local_constraint": "{'house rule': 'visitors', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-19', '2022-03-20', '2022-03-21']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T00:09:29+00:00",
+  "duration_seconds": 40.68,
+  "tokens_input": 9426,
+  "tokens_output": 1192,
+  "tool_calls": 8,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Wilmington to Washington\nTransportation: Flight Number: F9999999, from Wilmington to Washington, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Wilmington\nAttraction: Heritage Museum, Washington\nLunch: Stone Hearth Kitchen, Washington\nDinner: Stone Hearth Kitchen, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 2:\nCurrent City: Washington\nTransportation: -\nBreakfast: Lantern House, Washington\nAttraction: Heritage Museum, Washington\nLunch: Stone Hearth Kitchen, Washington\nDinner: Maple Diner, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 3:\nCurrent City: from Washington to Wilmington\nTransportation: Flight Number: F8534828, from Washington to Wilmington, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, Washington\nAttraction: -\nLunch: Harbor Cafe, Washington\nDinner: Kettle & Fork, Washington\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": true,
+      "H3": true,
+      "H4": true
+    },
+    "composite_score": 0.8125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    },
+    {
+      "code": "H4",
+      "kind": "hard",
+      "description": "Room-type match"
+    }
+  ]
+}

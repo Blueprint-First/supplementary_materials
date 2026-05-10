@@ -1,0 +1,55 @@
+{
+  "question_id": 561,
+  "query": "Could you help prepare a 5-day travel plan for 2 people, departing from Tucson, and touring 2 cities in California from March 9th to March 13th, 2022? The budget is around $5,700. We have a preference for American and Chinese cuisines during our journey.",
+  "question_details": {
+    "id": 561,
+    "query": "Could you help prepare a 5-day travel plan for 2 people, departing from Tucson, and touring 2 cities in California from March 9th to March 13th, 2022? The budget is around $5,700. We have a preference for American and Chinese cuisines during our journey.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Tucson",
+    "dest": "California",
+    "budget": 5700,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Chinese', 'American'], 'room type': None, 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-09', '2022-03-10', '2022-03-11', '2022-03-12', '2022-03-13']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T08:22:33+00:00",
+  "duration_seconds": 93.1,
+  "tokens_input": 16329,
+  "tokens_output": 3008,
+  "tool_calls": 19,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Tucson to California\nTransportation: Flight Number: F7848785, from Tucson to California, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Tucson\nAttraction: Skyline Observatory, California\nLunch: Lantern House, California\nDinner: Riverside Bistro, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 2:\nCurrent City: California\nTransportation: -\nBreakfast: Harbor Cafe, California\nAttraction: Skyline Observatory, California\nLunch: Garden Brasserie, California\nDinner: Harbor Cafe, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 3:\nCurrent City: California\nTransportation: -\nBreakfast: Kettle & Fork, California\nAttraction: Skyline Observatory, California\nLunch: Garden Brasserie, California\nDinner: Maple Diner, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 4:\nCurrent City: California\nTransportation: -\nBreakfast: Harbor Cafe, California\nAttraction: Liberty Hall, California\nLunch: Maple Diner, California\nDinner: Garden Brasserie, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 5:\nCurrent City: from California to Tucson\nTransportation: Flight Number: F13118122, from California to Tucson, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Kettle & Fork, California\nAttraction: -\nLunch: The Olive Tree, California\nDinner: Maple Diner, California\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": true,
+      "H4": false
+    },
+    "composite_score": 0.3542,
+    "final_pass": false
+  },
+  "status": "completed"
+}

@@ -1,0 +1,55 @@
+{
+  "question_id": 498,
+  "query": "Could you craft a 5-day travel plan for 2 people, with the journey beginning in Fresno and encompassing 2 cities in Arizona from March 3rd to March 7th, 2022? Our budget is set at $3,900 for this trip. We require accommodations that should ideally be entire rooms.",
+  "question_details": {
+    "id": 498,
+    "query": "Could you craft a 5-day travel plan for 2 people, with the journey beginning in Fresno and encompassing 2 cities in Arizona from March 3rd to March 7th, 2022? Our budget is set at $3,900 for this trip. We require accommodations that should ideally be entire rooms.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Fresno",
+    "dest": "Arizona",
+    "budget": 3900,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'entire room', 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T07:05:54+00:00",
+  "duration_seconds": 89.46,
+  "tokens_input": 20789,
+  "tokens_output": 2831,
+  "tool_calls": 24,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Fresno to Arizona\nTransportation: Flight Number: F1335473, from Fresno to Arizona, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Fresno\nAttraction: Skyline Observatory, Arizona\nLunch: Maple Diner, Arizona\nDinner: Kettle & Fork, Arizona\nAccommodation: Boutique Inn at Arizona Center, Arizona\n\nDay 2:\nCurrent City: Arizona\nTransportation: -\nBreakfast: Riverside Bistro, Arizona\nAttraction: City Botanical Garden, Arizona\nLunch: The Olive Tree, Arizona\nDinner: The Olive Tree, Arizona\nAccommodation: Boutique Inn at Arizona Center, Arizona\n\nDay 3:\nCurrent City: Arizona\nTransportation: -\nBreakfast: Maple Diner, Arizona\nAttraction: Old Town Square, Arizona\nLunch: Lantern House, Arizona\nDinner: Riverside Bistro, Arizona\nAccommodation: Boutique Inn at Arizona Center, Arizona\n\nDay 4:\nCurrent City: Arizona\nTransportation: -\nBreakfast: Maple Diner, Arizona\nAttraction: Skyline Observatory, Arizona\nLunch: The Olive Tree, Arizona\nDinner: Maple Diner, Arizona\nAccommodation: Boutique Inn at Arizona Center, Arizona\n\nDay 5:\nCurrent City: from Arizona to Fresno\nTransportation: Flight Number: F6604810, from Arizona to Fresno, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Kettle & Fork, Arizona\nAttraction: -\nLunch: Sunset Grille, Arizona\nDinner: Riverside Bistro, Arizona\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": true,
+      "H4": false
+    },
+    "composite_score": 0.4167,
+    "final_pass": false
+  },
+  "status": "completed"
+}

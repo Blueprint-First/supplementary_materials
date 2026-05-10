@@ -1,0 +1,56 @@
+{
+  "question_id": 953,
+  "query": "Could you assist in crafting a 7-day travel plan for a group of 5? We'll be setting out from Sun Valley and aim to visit 3 different cities in Utah from March 24th to March 30th, 2022. Our budget for this journey is now set at $9,000. In terms of accommodations, we require entire rooms and would appreciate it if they allowed smoking. Additionally, we'd prefer no air travel during our trip.",
+  "question_details": {
+    "id": 953,
+    "query": "Could you assist in crafting a 7-day travel plan for a group of 5? We'll be setting out from Sun Valley and aim to visit 3 different cities in Utah from March 24th to March 30th, 2022. Our budget for this journey is now set at $9,000. In terms of accommodations, we require entire rooms and would appreciate it if they allowed smoking. Additionally, we'd prefer no air travel during our trip.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Sun Valley",
+    "dest": "Utah",
+    "budget": 9000,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': None, 'room type': 'entire room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-24', '2022-03-25', '2022-03-26', '2022-03-27', '2022-03-28', '2022-03-29', '2022-03-30']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T16:19:29+00:00",
+  "duration_seconds": 162.27,
+  "tokens_input": 32148,
+  "tokens_output": 5354,
+  "tool_calls": 37,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Sun Valley to Utah\nTransportation: Flight Number: F14638158, from Sun Valley to Utah, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Sun Valley\nAttraction: Old Town Square, Utah\nLunch: Sunset Grille, Utah\nDinner: Riverside Bistro, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 2:\nCurrent City: Utah\nTransportation: -\nBreakfast: Garden Brasserie, Utah\nAttraction: Heritage Museum, Utah\nLunch: Sunset Grille, Utah\nDinner: Kettle & Fork, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 3:\nCurrent City: Utah\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Utah\nAttraction: Heritage Museum, Utah\nLunch: Garden Brasserie, Utah\nDinner: Harbor Cafe, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 4:\nCurrent City: Utah\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Utah\nAttraction: Skyline Observatory, Utah\nLunch: Riverside Bistro, Utah\nDinner: Riverside Bistro, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 5:\nCurrent City: Utah\nTransportation: -\nBreakfast: Garden Brasserie, Utah\nAttraction: Riverwalk Park, Utah\nLunch: Harbor Cafe, Utah\nDinner: Riverside Bistro, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 6:\nCurrent City: Utah\nTransportation: -\nBreakfast: Sunset Grille, Utah\nAttraction: Heritage Museum, Utah\nLunch: Lantern House, Utah\nDinner: Harbor Cafe, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 7:\nCurrent City: from Utah to Sun Valley\nTransportation: Flight Number: F3130279, from Utah to Sun Valley, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, Utah\nAttraction: -\nLunch: Stone Hearth Kitchen, Utah\nDinner: The Olive Tree, Utah\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H4": true
+    },
+    "composite_score": 0.3125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

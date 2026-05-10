@@ -1,0 +1,56 @@
+{
+  "question_id": 134,
+  "query": "Can you assist in formulating a 3-day travel plan departing from Columbus and heading to Newark, covering 1 city, from March 25th to March 27th, 2022, for 2 people? We are traveling with children under 10, so our accommodations must be suitable for them. We'd prefer entire rooms and our revised budget is set at $1,200. We're also looking for options where we don't need to self-drive.",
+  "question_details": {
+    "id": 134,
+    "query": "Can you assist in formulating a 3-day travel plan departing from Columbus and heading to Newark, covering 1 city, from March 25th to March 27th, 2022, for 2 people? We are traveling with children under 10, so our accommodations must be suitable for them. We'd prefer entire rooms and our revised budget is set at $1,200. We're also looking for options where we don't need to self-drive.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Columbus",
+    "dest": "Newark",
+    "budget": 1200,
+    "local_constraint": "{'house rule': 'children under 10', 'cuisine': None, 'room type': 'entire room', 'transportation': 'no self-driving'}",
+    "people_number": 2,
+    "date": "['2022-03-25', '2022-03-26', '2022-03-27']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T23:43:02+00:00",
+  "duration_seconds": 72.87,
+  "tokens_input": 14992,
+  "tokens_output": 2324,
+  "tool_calls": 19,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Columbus to Newark\",\n        \"transportation\": \"Flight Number: F4076294, from Columbus to Newark, Departure Time: 07:03, Arrival Time: 08:54\",\n        \"breakfast\": \"Tunday Kababi, Newark\",\n        \"attraction\": \"Branch Brook Park, Newark;\",\n        \"lunch\": \"New Garden Hut, Newark\",\n        \"dinner\": \"Hawai Adda, Newark\",\n        \"accommodation\": \"1 Bedroom in UWS Manhattan, Newark\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Newark\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Angeethi Restaurant, Newark\",\n        \"attraction\": \"The Newark Museum of Art, Newark;Military Park, Newark;\",\n        \"lunch\": \"Drifters Cafe, Newark\",\n        \"dinner\": \"Dev Burger, Newark\",\n        \"accommodation\": \"1 Bedroom in UWS Manhattan, Newark\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Newark to Columbus\",\n        \"transportation\": \"Flight Number: F4076752, from Newark to Columbus, Departure Time: 21:43, Arrival Time: 23:18\",\n        \"breakfast\": \"Ahmed's, Newark\",\n        \"attraction\": \"Newark Riverfront Park, Orange Sticks, Newark;\",\n        \"lunch\": \"Apni Rasoi, Newark\",\n        \"dinner\": \"Republic of Chicken, Newark\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": true
+    },
+    "composite_score": 0.3125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

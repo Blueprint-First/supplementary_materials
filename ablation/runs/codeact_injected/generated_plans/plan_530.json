@@ -1,0 +1,81 @@
+{
+  "question_id": 530,
+  "query": "Can you create a 5-day travel itinerary for 2 individuals departing from Charlotte and planning to visit 2 cities in New York from March 9th to March 13th, 2022? Our budget is set at $3,700. Regarding dining, we have a preference for French and Chinese cuisine. We will also need accommodations that can cater to our stay.",
+  "question_details": {
+    "id": 530,
+    "query": "Can you create a 5-day travel itinerary for 2 individuals departing from Charlotte and planning to visit 2 cities in New York from March 9th to March 13th, 2022? Our budget is set at $3,700. Regarding dining, we have a preference for French and Chinese cuisine. We will also need accommodations that can cater to our stay.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Charlotte",
+    "dest": "New York",
+    "budget": 3700,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Chinese', 'French'], 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-09', '2022-03-10', '2022-03-11', '2022-03-12', '2022-03-13']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T23:44:50+00:00",
+  "duration_seconds": 48.97,
+  "tokens_input": 8089,
+  "tokens_output": 1519,
+  "tool_calls": 10,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Charlotte to New York\nTransportation: Flight Number: F99999990, from Charlotte to New York, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Charlotte\nAttraction: Old Town Square, New York\nLunch: Maple Diner, New York\nDinner: Maple Diner, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 2:\nCurrent City: New York\nTransportation: -\nBreakfast: Stone Hearth Kitchen, New York\nAttraction: Old Town Square, New York\nLunch: Maple Diner, New York\nDinner: Sunset Grille, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 3:\nCurrent City: New York\nTransportation: -\nBreakfast: Maple Diner, New York\nAttraction: Skyline Observatory, New York\nLunch: Maple Diner, New York\nDinner: Sunset Grille, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 4:\nCurrent City: New York\nTransportation: -\nBreakfast: Sunset Grille, New York\nAttraction: Old Town Square, New York\nLunch: Kettle & Fork, New York\nDinner: Maple Diner, New York\nAccommodation: Boutique Inn at New York Center, New York\n\nDay 5:\nCurrent City: from New York to Charlotte\nTransportation: Flight Number: F2442391, from New York to Charlotte, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Kettle & Fork, New York\nAttraction: -\nLunch: Harbor Cafe, New York\nDinner: Kettle & Fork, New York\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": true,
+      "C5": true,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": true,
+      "H2": true,
+      "H4": true
+    },
+    "composite_score": 0.625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    }
+  ]
+}

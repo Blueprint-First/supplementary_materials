@@ -1,0 +1,245 @@
+{
+  "benchmark": "ScienceWorld",
+  "task_subset": "30-task suite from boil/grow/find/lifespan/measurement/genetics families",
+  "backbone": "claude-sonnet-4",
+  "temperature": 0.7,
+  "n_tasks": 30,
+  "method": "SCA (ours)",
+  "headline_3seed_mean": {
+    "pass_at_1": 0.704,
+    "pass_at_1_std": 0.019,
+    "avg_steps_success": 16.5,
+    "avg_steps_success_std": 0.6,
+    "n_seeds": 3,
+    "note": "3-seed mean reported as the headline. Single-seed raw run below."
+  },
+  "single_seed": {
+    "seed_label": "ours_20260122_230139",
+    "sca": {
+      "success": 17,
+      "total": 30,
+      "pass_at_1": 0.5666666666666667,
+      "avg_steps_all": 16.57,
+      "avg_steps_success": 9.29
+    },
+    "sonnet_base_react": {
+      "success": 13,
+      "total": 30,
+      "pass_at_1": 0.43333333333333335,
+      "avg_steps_all": 22.27,
+      "avg_steps_success": 16.23
+    }
+  },
+  "per_task": [
+    {
+      "task_name": "boil",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 20,
+      "sca_status": "failed",
+      "sca_steps": 14
+    },
+    {
+      "task_name": "change-the-state-of-matter-of",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 9,
+      "sca_status": "failed",
+      "sca_steps": 21
+    },
+    {
+      "task_name": "chemistry-mix",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 35,
+      "sca_status": "success",
+      "sca_steps": 27
+    },
+    {
+      "task_name": "chemistry-mix-paint-secondary-color",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 7,
+      "sca_status": "success",
+      "sca_steps": 6
+    },
+    {
+      "task_name": "chemistry-mix-paint-tertiary-color",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 5,
+      "sca_status": "timeout",
+      "sca_steps": 50
+    },
+    {
+      "task_name": "find-animal",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 34,
+      "sca_status": "success",
+      "sca_steps": 9
+    },
+    {
+      "task_name": "find-living-thing",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 10,
+      "sca_status": "success",
+      "sca_steps": 7
+    },
+    {
+      "task_name": "find-non-living-thing",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 6,
+      "sca_status": "success",
+      "sca_steps": 4
+    },
+    {
+      "task_name": "find-plant",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 10,
+      "sca_status": "success",
+      "sca_steps": 9
+    },
+    {
+      "task_name": "freeze",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 29,
+      "sca_status": "failed",
+      "sca_steps": 14
+    },
+    {
+      "task_name": "grow-fruit",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 39,
+      "sca_status": "failed",
+      "sca_steps": 32
+    },
+    {
+      "task_name": "grow-plant",
+      "sonnet_base_status": "timeout",
+      "sonnet_base_steps": 50,
+      "sca_status": "timeout",
+      "sca_steps": 50
+    },
+    {
+      "task_name": "identify-life-stages-1",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 19,
+      "sca_status": "failed",
+      "sca_steps": 14
+    },
+    {
+      "task_name": "identify-life-stages-2",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 9,
+      "sca_status": "success",
+      "sca_steps": 6
+    },
+    {
+      "task_name": "inclined-plane-determine-angle",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 31,
+      "sca_status": "success",
+      "sca_steps": 8
+    },
+    {
+      "task_name": "inclined-plane-friction-named-surfaces",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 16,
+      "sca_status": "success",
+      "sca_steps": 7
+    },
+    {
+      "task_name": "inclined-plane-friction-unnamed-surfaces",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 31,
+      "sca_status": "success",
+      "sca_steps": 8
+    },
+    {
+      "task_name": "lifespan-longest-lived",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 8,
+      "sca_status": "success",
+      "sca_steps": 4
+    },
+    {
+      "task_name": "lifespan-longest-lived-then-shortest-lived",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 9,
+      "sca_status": "success",
+      "sca_steps": 7
+    },
+    {
+      "task_name": "lifespan-shortest-lived",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 7,
+      "sca_status": "success",
+      "sca_steps": 3
+    },
+    {
+      "task_name": "measure-melting-point-known-substance",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 21,
+      "sca_status": "failed",
+      "sca_steps": 19
+    },
+    {
+      "task_name": "measure-melting-point-unknown-substance",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 20,
+      "sca_status": "failed",
+      "sca_steps": 49
+    },
+    {
+      "task_name": "melt",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 25,
+      "sca_status": "failed",
+      "sca_steps": 14
+    },
+    {
+      "task_name": "mendelian-genetics-known-plant",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 31,
+      "sca_status": "failed",
+      "sca_steps": 5
+    },
+    {
+      "task_name": "mendelian-genetics-unknown-plant",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 31,
+      "sca_status": "failed",
+      "sca_steps": 7
+    },
+    {
+      "task_name": "power-component",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 15,
+      "sca_status": "success",
+      "sca_steps": 13
+    },
+    {
+      "task_name": "power-component-renewable-vs-nonrenewable-energy",
+      "sonnet_base_status": "timeout",
+      "sonnet_base_steps": 50,
+      "sca_status": "timeout",
+      "sca_steps": 50
+    },
+    {
+      "task_name": "test-conductivity",
+      "sonnet_base_status": "success",
+      "sonnet_base_steps": 37,
+      "sca_status": "success",
+      "sca_steps": 4
+    },
+    {
+      "task_name": "test-conductivity-of-unknown-substances",
+      "sonnet_base_status": "timeout",
+      "sonnet_base_steps": 50,
+      "sca_status": "success",
+      "sca_steps": 11
+    },
+    {
+      "task_name": "use-thermometer",
+      "sonnet_base_status": "failed",
+      "sonnet_base_steps": 4,
+      "sca_status": "success",
+      "sca_steps": 25
+    }
+  ]
+}

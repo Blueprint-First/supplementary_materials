@@ -1,0 +1,53 @@
+{
+  "question_id": 36,
+  "query": "Could you please create a 5-day travel plan for me, starting from Los Angeles and visiting 2 cities in Colorado between March 13th and March 17th, 2022? My budget for the trip is $4,700.",
+  "question_details": {
+    "id": 36,
+    "query": "Could you please create a 5-day travel plan for me, starting from Los Angeles and visiting 2 cities in Colorado between March 13th and March 17th, 2022? My budget for the trip is $4,700.",
+    "level": "easy",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Los Angeles",
+    "dest": "Colorado",
+    "budget": 4700,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-13', '2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T21:43:48+00:00",
+  "duration_seconds": 42.71,
+  "tokens_input": 8888,
+  "tokens_output": 1299,
+  "tool_calls": 11,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Los Angeles to Denver\",\n        \"transportation\": \"Flight Number: F3701947, from Los Angeles to Denver, Departure Time: 12:33, Arrival Time: 16:03\",\n        \"breakfast\": \"Palmshore, Los Angeles\",\n        \"attraction\": \"Denver Art Museum, Denver;\",\n        \"lunch\": \"TBH - The Big House Cafe, Denver\",\n        \"dinner\": \"The Urban Socialite, Denver\",\n        \"accommodation\": \"NO GUEST SERVICE FEE Luxury Studio Suite w/ Free Continental Breakfast, Denver\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Denver\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Sweet Sensations, Denver\",\n        \"attraction\": \"Denver Museum of Nature & Science, Denver;Denver Zoo, Denver;Meow Wolf Denver | Convergence Station, Denver;\",\n        \"lunch\": \"Cafe Diva, Denver\",\n        \"dinner\": \"Kloof Street House, Denver\",\n        \"accommodation\": \"NO GUEST SERVICE FEE Luxury Studio Suite w/ Free Continental Breakfast, Denver\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Denver to Colorado Springs\",\n        \"transportation\": \"Self-Driving from Denver to Colorado Springs, Distance: 114km, Duration: 1h 11m\",\n        \"breakfast\": \"Nathu's Sweets, Denver\",\n        \"attraction\": \"Denver Botanic Gardens, Denver;\",\n        \"lunch\": \"Underdoggs Sports Bar & Grill, Colorado Springs\",\n        \"dinner\": \"Sushi Masa, Colorado Springs\",\n        \"accommodation\": \"Large sunny park slope apartment, Colorado Springs\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Colorado Springs\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Nobu - One&Only, Colorado Springs\",\n        \"attraction\": \"Garden of the Gods, Colorado Springs;Cheyenne Mountain Zoo, Colorado Springs;The Broadmoor Seven Falls, Colorado Springs;\",\n        \"lunch\": \"South Cafe, Colorado Springs\",\n        \"dinner\": \"Derby, Colorado Springs\",\n        \"accommodation\": \"Large sunny park slope apartment, Colorado Springs\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Colorado Springs to Los Angeles\",\n        \"transportation\": \"Flight Number: F3826871, from Colorado Springs to Los Angeles, Departure Time: 07:55, Arrival Time: 09:41\",\n        \"breakfast\": \"New Raja Sweets, Colorado Springs\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Choco Kraft, Los Angeles\",\n        \"dinner\": \"Angels in my Kitchen, Los Angeles\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": true
+    },
+    "composite_score": 0.75,
+    "final_pass": false
+  },
+  "status": "completed"
+}

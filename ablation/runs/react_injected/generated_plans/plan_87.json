@@ -1,0 +1,75 @@
+{
+  "question_id": 87,
+  "query": "Could you help arrange a 5-day travel plan for a group of 7, departing from Omaha and planning to visit 2 cities in Colorado? The trip is set from March 14th to March 18th, 2022. It's vital that our accommodations are pet-friendly, as we have pets with us. Our budget for the entire trip is $23,400.",
+  "question_details": {
+    "id": 87,
+    "query": "Could you help arrange a 5-day travel plan for a group of 7, departing from Omaha and planning to visit 2 cities in Colorado? The trip is set from March 14th to March 18th, 2022. It's vital that our accommodations are pet-friendly, as we have pets with us. Our budget for the entire trip is $23,400.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Omaha",
+    "dest": "Colorado",
+    "budget": 23400,
+    "local_constraint": "{'house rule': 'pets', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 7,
+    "date": "['2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17', '2022-03-18']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T10:45:51+00:00",
+  "duration_seconds": 19.69,
+  "tokens_input": 4138,
+  "tokens_output": 563,
+  "tool_calls": 7,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Omaha to Colorado\nTransportation: Flight Number: F99999997, from Omaha to Colorado, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Omaha\nAttraction: Riverwalk Park, Colorado\nLunch: Stone Hearth Kitchen, Colorado\nDinner: Stone Hearth Kitchen, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 2:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Maple Diner, Colorado\nAttraction: Riverwalk Park, Colorado\nLunch: Lantern House, Colorado\nDinner: Kettle & Fork, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 3:\nCurrent City: Colorado\nTransportation: -\nBreakfast: Lantern House, Colorado\nAttraction: Riverwalk Park, Colorado\nLunch: Maple Diner, Colorado\nDinner: The Olive Tree, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 4:\nCurrent City: Colorado\nTransportation: -\nBreakfast: The Olive Tree, Colorado\nAttraction: Heritage Museum, Colorado\nLunch: Maple Diner, Colorado\nDinner: Garden Brasserie, Colorado\nAccommodation: Boutique Inn at Colorado Center, Colorado\n\nDay 5:\nCurrent City: from Colorado to Omaha\nTransportation: Flight Number: F16283234, from Colorado to Omaha, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Lantern House, Colorado\nAttraction: -\nLunch: Lantern House, Colorado\nDinner: Riverside Bistro, Colorado\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": false,
+      "C4": true,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    }
+  ]
+}

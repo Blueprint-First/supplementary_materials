@@ -1,0 +1,82 @@
+{
+  "question_id": 717,
+  "query": "Could you please create a 3-day travel plan for 2 people beginning in Boston and traveling to New Orleans from March 6th to March 8th, 2022? We are budgeting $2,300 for this trip. We'd like to stay in accommodations that allow parties and require private rooms. Additionally, we won't be self-driving during our trip.",
+  "question_details": {
+    "id": 717,
+    "query": "Could you please create a 3-day travel plan for 2 people beginning in Boston and traveling to New Orleans from March 6th to March 8th, 2022? We are budgeting $2,300 for this trip. We'd like to stay in accommodations that allow parties and require private rooms. Additionally, we won't be self-driving during our trip.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Boston",
+    "dest": "New Orleans",
+    "budget": 2300,
+    "local_constraint": "{'house rule': 'parties', 'cuisine': None, 'room type': 'private room', 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-06', '2022-03-07', '2022-03-08']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T07:32:21+00:00",
+  "duration_seconds": 49.25,
+  "tokens_input": 11355,
+  "tokens_output": 1755,
+  "tool_calls": 12,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Boston to New Orleans\nTransportation: Flight Number: F9999999, from Boston to New Orleans, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Boston\nAttraction: Liberty Hall, New Orleans\nLunch: Maple Diner, New Orleans\nDinner: Maple Diner, New Orleans\nAccommodation: Boutique Inn at New Orleans Center, New Orleans\n\nDay 2:\nCurrent City: New Orleans\nTransportation: -\nBreakfast: The Olive Tree, New Orleans\nAttraction: Skyline Observatory, New Orleans\nLunch: Stone Hearth Kitchen, New Orleans\nDinner: Garden Brasserie, New Orleans\nAccommodation: Boutique Inn at New Orleans Center, New Orleans\n\nDay 3:\nCurrent City: from New Orleans to Boston\nTransportation: Flight Number: F12296184, from New Orleans to Boston, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, New Orleans\nAttraction: -\nLunch: Harbor Cafe, New Orleans\nDinner: Harbor Cafe, New Orleans\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": true,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.1875,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H3",
+      "kind": "hard",
+      "description": "House-rule compatibility"
+    }
+  ]
+}

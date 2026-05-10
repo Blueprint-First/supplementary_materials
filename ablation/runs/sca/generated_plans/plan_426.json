@@ -1,0 +1,55 @@
+{
+  "question_id": 426,
+  "query": "Could you arrange a 3-day trip starting from Manchester and ending in Baltimore from March 1st to March 3rd, 2022, for a group of 4 people? Our budget is $3,600. It\u2019s important for our accommodations to be pet-friendly.",
+  "question_details": {
+    "id": 426,
+    "query": "Could you arrange a 3-day trip starting from Manchester and ending in Baltimore from March 1st to March 3rd, 2022, for a group of 4 people? Our budget is $3,600. It\u2019s important for our accommodations to be pet-friendly.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Manchester",
+    "dest": "Baltimore",
+    "budget": 3600,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 4,
+    "date": "['2022-03-01', '2022-03-02', '2022-03-03']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T05:38:18+00:00",
+  "duration_seconds": 58.97,
+  "tokens_input": 12572,
+  "tokens_output": 1807,
+  "tool_calls": 14,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Manchester to Baltimore\nTransportation: Flight Number: F6701259, from Manchester to Baltimore, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Manchester\nAttraction: Riverwalk Park, Baltimore\nLunch: Sunset Grille, Baltimore\nDinner: Lantern House, Baltimore\nAccommodation: Boutique Inn at Baltimore Center, Baltimore\n\nDay 2:\nCurrent City: Baltimore\nTransportation: -\nBreakfast: Garden Brasserie, Baltimore\nAttraction: Riverwalk Park, Baltimore\nLunch: Lantern House, Baltimore\nDinner: Maple Diner, Baltimore\nAccommodation: Boutique Inn at Baltimore Center, Baltimore\n\nDay 3:\nCurrent City: from Baltimore to Manchester\nTransportation: Flight Number: F13295005, from Baltimore to Manchester, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, Baltimore\nAttraction: -\nLunch: Harbor Cafe, Baltimore\nDinner: Riverside Bistro, Baltimore\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": true,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": true,
+      "H5": true
+    },
+    "composite_score": 0.7083,
+    "final_pass": false
+  },
+  "status": "completed"
+}

@@ -1,0 +1,81 @@
+{
+  "question_id": 521,
+  "query": "Could you arrange a 5-day trip for a group of six from New York to Michigan, exploring 2 cities, spanning from March 27th to March 31st, 2022? We have a budget of $12,500, and for accommodations, we prefer private rooms.",
+  "question_details": {
+    "id": 521,
+    "query": "Could you arrange a 5-day trip for a group of six from New York to Michigan, exploring 2 cities, spanning from March 27th to March 31st, 2022? We have a budget of $12,500, and for accommodations, we prefer private rooms.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "New York",
+    "dest": "Michigan",
+    "budget": 12500,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'private room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-27', '2022-03-28', '2022-03-29', '2022-03-30', '2022-03-31']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T19:33:53+00:00",
+  "duration_seconds": 35.82,
+  "tokens_input": 7368,
+  "tokens_output": 1156,
+  "tool_calls": 14,
+  "parsed_plan_text": "Day 1:\nCurrent City: from New York to Michigan\nTransportation: Flight Number: F9999999, from New York to Michigan, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, New York\nAttraction: Skyline Observatory, Michigan\nLunch: Sunset Grille, Michigan\nDinner: Sunset Grille, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 2:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Sunset Grille, Michigan\nAttraction: Skyline Observatory, Michigan\nLunch: The Olive Tree, Michigan\nDinner: Lantern House, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 3:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Riverside Bistro, Michigan\nAttraction: City Botanical Garden, Michigan\nLunch: Stone Hearth Kitchen, Michigan\nDinner: Lantern House, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 4:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Sunset Grille, Michigan\nAttraction: Old Town Square, Michigan\nLunch: The Olive Tree, Michigan\nDinner: Kettle & Fork, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 5:\nCurrent City: from Michigan to New York\nTransportation: Flight Number: F11980740, from Michigan to New York, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Harbor Cafe, Michigan\nAttraction: -\nLunch: Riverside Bistro, Michigan\nDinner: The Olive Tree, Michigan\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H4": true,
+      "H5": false
+    },
+    "composite_score": 0.1667,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H5",
+      "kind": "hard",
+      "description": "Transportation restriction (no flight / no self-driving)"
+    }
+  ]
+}

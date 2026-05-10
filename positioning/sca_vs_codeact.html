@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SCA vs CodeAct — Different Layers, Composable</title>
+<style>
+  :root {
+    --ink: #1f2933;
+    --ink-soft: #3e4c59;
+    --muted: #7b8794;
+    --rule: #d9dee3;
+    --rule-soft: #e9ecef;
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --code-bg: #f6f7f9;
+
+    /* quiet, print-greyscale-safe palette */
+    --codeact: #5d6b85;       /* muted slate-blue */
+    --codeact-tint: #eef0f5;
+    --sca: #4a6b5d;           /* muted teal-green */
+    --sca-tint: #eaf0ed;
+    --hybrid: #6b5d6b;        /* muted plum (visibly distinct in greyscale) */
+    --hybrid-tint: #f0eaef;
+
+    --ok: #3b6e4a;
+    --warn: #8a6126;
+    --fail: #8a3a3a;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+                 Helvetica, Arial, "Liberation Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 32px 28px 48px;
+  }
+
+  /* --- Header --- */
+  header.doc-header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 11px;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  h1 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .lede {
+    margin: 6px 0 0;
+    color: var(--ink-soft);
+    font-size: 14px;
+    max-width: 78ch;
+  }
+
+  /* --- Shared task panel --- */
+  .task-card {
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin: 0 0 22px;
+  }
+  .task-card h2 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .task-card .task-statement {
+    font-size: 15px;
+    color: var(--ink);
+    margin: 0 0 10px;
+  }
+  .constraint-list {
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+  }
+  .constraint-list li {
+    font-size: 12px;
+    background: #f1f3f5;
+    color: var(--ink-soft);
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid var(--rule-soft);
+    font-family: "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+  }
+
+  /* --- Three-column comparison --- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 980px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 16px 16px 18px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .panel-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    border-bottom: 1px solid var(--rule-soft);
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+  }
+  .panel-tag {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .panel-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+  .panel-sub {
+    margin: -4px 0 12px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* per-panel accent (border-left rail, greyscale-safe) */
+  .panel.codeact { border-left: 3px solid var(--codeact); }
+  .panel.codeact .panel-tag { background: var(--codeact-tint); color: var(--codeact); }
+
+  .panel.sca { border-left: 3px solid var(--sca); }
+  .panel.sca .panel-tag { background: var(--sca-tint); color: var(--sca); }
+
+  .panel.hybrid { border-left: 3px solid var(--hybrid); }
+  .panel.hybrid .panel-tag { background: var(--hybrid-tint); color: var(--hybrid); }
+
+  /* --- Step list inside each panel --- */
+  ol.steps {
+    list-style: none;
+    counter-reset: stepc;
+    padding: 0;
+    margin: 0 0 12px;
+  }
+  ol.steps > li {
+    counter-increment: stepc;
+    position: relative;
+    padding: 0 0 8px 26px;
+    margin: 0 0 4px;
+  }
+  ol.steps > li::before {
+    content: counter(stepc);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #e9ecef;
+    color: var(--ink-soft);
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .panel.codeact ol.steps > li::before { background: var(--codeact-tint); color: var(--codeact); }
+  .panel.sca ol.steps > li::before { background: var(--sca-tint); color: var(--sca); }
+  .panel.hybrid ol.steps > li::before { background: var(--hybrid-tint); color: var(--hybrid); }
+
+  ol.steps .step-label {
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  ol.steps .step-actor {
+    display: inline-block;
+    font-size: 10px;
+    font-family: "SF Mono","Menlo","Consolas",monospace;
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-left: 6px;
+    color: var(--muted);
+    border: 1px solid var(--rule-soft);
+    background: #fafbfc;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .actor-llm { color: var(--codeact); border-color: var(--codeact-tint); background: var(--codeact-tint); }
+  .actor-det { color: var(--sca); border-color: var(--sca-tint); background: var(--sca-tint); }
+  .actor-engine { color: var(--hybrid); border-color: var(--hybrid-tint); background: var(--hybrid-tint); }
+
+  /* --- Code block --- */
+  pre.code {
+    background: var(--code-bg);
+    border: 1px solid var(--rule-soft);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-family: "SF Mono","Menlo","Consolas","Liberation Mono",monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    overflow-x: auto;
+    color: var(--ink);
+    margin: 6px 0 12px;
+    white-space: pre;
+  }
+  /* quiet light syntax theme (inline-styled spans below) */
+  .tk-kw { color: #6f42c1; }       /* keyword */
+  .tk-fn { color: #2b6cb0; }       /* function name */
+  .tk-str { color: #6e7e3a; }      /* string */
+  .tk-com { color: #8a93a0; font-style: italic; } /* comment */
+  .tk-dec { color: #a35a00; }      /* decorator */
+  .tk-num { color: #a35a00; }
+  .tk-op  { color: #4e5a66; }
+
+  /* --- Outcome strip at bottom of each panel --- */
+  .outcome {
+    margin-top: auto;
+    border-top: 1px dashed var(--rule);
+    padding-top: 10px;
+    font-size: 12px;
+  }
+  .outcome .row { display: flex; gap: 6px; margin: 3px 0; align-items: flex-start; }
+  .outcome .marker {
+    flex: 0 0 auto;
+    font-family: "SF Mono","Menlo","Consolas",monospace;
+    font-size: 10px;
+    padding: 1px 5px;
+    border-radius: 2px;
+    border: 1px solid;
+    line-height: 1.4;
+    margin-top: 1px;
+  }
+  .m-ok { color: var(--ok); border-color: #c1d4c4; background: #eef4ef; }
+  .m-warn { color: var(--warn); border-color: #e3d3b8; background: #f7f1e6; }
+  .m-fail { color: var(--fail); border-color: #e3c2c2; background: #f7eaea; }
+  .outcome .text { color: var(--ink-soft); }
+
+  /* --- Layered stack diagram (hybrid section) --- */
+  .stack-section {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 24px;
+  }
+  .stack-section h2 {
+    margin: 0 0 14px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .stack {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .stack .row {
+    display: contents;
+  }
+  .stack .label,
+  .stack .body {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .stack .row:last-child .label,
+  .stack .row:last-child .body { border-bottom: none; }
+  .stack .label {
+    background: #f6f7f9;
+    border-right: 1px solid var(--rule-soft);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .stack .body {
+    font-size: 13px;
+    color: var(--ink);
+    background: var(--panel);
+  }
+  .stack .body .who {
+    display: inline-block;
+    font-size: 10px;
+    font-family: "SF Mono","Menlo","Consolas",monospace;
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-left: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .who-sca { background: var(--sca-tint); color: var(--sca); }
+  .who-codeact { background: var(--codeact-tint); color: var(--codeact); }
+  .who-engine { background: var(--hybrid-tint); color: var(--hybrid); }
+
+  /* --- Comparison table --- */
+  .compare-section {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 24px;
+  }
+  .compare-section h2 {
+    margin: 0 0 12px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  table.compare {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  table.compare th, table.compare td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  table.compare thead th {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 600;
+    background: #f6f7f9;
+    border-bottom: 1px solid var(--rule);
+  }
+  table.compare tbody th {
+    color: var(--ink-soft);
+    font-weight: 500;
+    width: 22%;
+  }
+  table.compare td.sca-col { background: #fbfdfc; }
+  table.compare td.codeact-col { background: #fbfbfd; }
+
+  /* --- Footer --- */
+  footer.doc-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.55;
+  }
+  footer.doc-footer p { margin: 0 0 4px; }
+
+  /* Print: keep the layout */
+  @media print {
+    body { background: white; font-size: 11.5px; }
+    .page { padding: 18px; max-width: none; }
+    .panel, .task-card, .stack-section, .compare-section { break-inside: avoid; }
+    .grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="doc-header">
+  <p class="eyebrow">Supplementary reference &middot; positioning</p>
+  <h1>SCA and CodeAct operate at different layers and compose</h1>
+  <p class="lede">
+    A worked side-by-side on a single shared task. SCA controls
+    <em>which step runs next</em> with deterministic, expert-authored flow and
+    pre/post-condition guarantees. CodeAct-style generation controls
+    <em>how a single bounded step is executed</em> via LLM-emitted code. The two
+    sit on different layers of the agent stack and can be combined.
+  </p>
+</header>
+
+<!-- Shared task -->
+<section class="task-card" aria-labelledby="task-h">
+  <h2 id="task-h">Shared task used in all three panels</h2>
+  <p class="task-statement">
+    Natural-language request against a production database:
+    <em>"Mark the order with id&nbsp;<code>O-7741</code> as cancelled and refund the customer."</em>
+  </p>
+  <ul class="constraint-list" aria-label="task constraints">
+    <li>must not delete a row</li>
+    <li>state transition must be allowed by order_status_fsm</li>
+    <li>refund only if payment_state = "captured"</li>
+    <li>destructive write requires explicit confirmation</li>
+    <li>SQL must type-check against live schema</li>
+  </ul>
+</section>
+
+<!-- Three-panel walkthrough -->
+<section class="grid" aria-label="Three approaches">
+
+  <!-- ========== Panel 1: CodeAct alone ========== -->
+  <article class="panel codeact">
+    <div class="panel-head">
+      <span class="panel-tag">A &middot; CodeAct alone</span>
+      <h3 class="panel-title">LLM emits executable code for the whole task</h3>
+    </div>
+    <p class="panel-sub">Action space = code. The model decides both the plan and the code that carries it out.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="step-label">Model reads the request and current context.</span>
+        <span class="step-actor actor-llm">LLM</span>
+      </li>
+      <li>
+        <span class="step-label">Model emits a single program covering lookup, status update, and refund.</span>
+        <span class="step-actor actor-llm">LLM</span>
+      </li>
+      <li>
+        <span class="step-label">Interpreter runs the emitted code against the live database.</span>
+        <span class="step-actor actor-engine">EXEC</span>
+      </li>
+      <li>
+        <span class="step-label">Model observes the result and decides whether to continue.</span>
+        <span class="step-actor actor-llm">LLM</span>
+      </li>
+    </ol>
+
+<pre class="code"><span class="tk-com"># LLM-emitted action (single turn)</span>
+<span class="tk-kw">import</span> db
+order = db.query(<span class="tk-str">"SELECT * FROM orders WHERE id='O-7741'"</span>)
+<span class="tk-com"># model picks the update shape on its own:</span>
+db.execute(<span class="tk-str">"UPDATE orders SET status='cancelled' "</span>
+           <span class="tk-str">"WHERE id='O-7741'"</span>)
+db.execute(<span class="tk-str">"INSERT INTO refunds(order_id, amount) "</span>
+           <span class="tk-str">"VALUES ('O-7741', "</span> + <span class="tk-fn">str</span>(order.total) + <span class="tk-str">")"</span>)
+<span class="tk-fn">print</span>(<span class="tk-str">"done"</span>)</pre>
+
+    <div class="outcome">
+      <div class="row">
+        <span class="marker m-warn">risk</span>
+        <span class="text">No architectural check that <code>payment_state = "captured"</code>.
+        If captured-only is implicit in the prompt, the model may skip it on a sample.</span>
+      </div>
+      <div class="row">
+        <span class="marker m-warn">risk</span>
+        <span class="text">"No-delete" / "explicit confirmation" constraints rely on the model
+        following the system prompt; violation is silent until audit.</span>
+      </div>
+      <div class="row">
+        <span class="marker m-fail">debug</span>
+        <span class="text">If the run is wrong, failure is diffuse: the trace must
+        be replayed and inspected to localize the offending decision.</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- ========== Panel 2: SCA alone ========== -->
+  <article class="panel sca">
+    <div class="panel-head">
+      <span class="panel-tag">B &middot; SCA alone</span>
+      <h3 class="panel-title">Deterministic blueprint with pre/post-conditions</h3>
+    </div>
+    <p class="panel-sub">Expert-authored program decides the path. Each node has explicit guards. The LLM is invoked only for narrow sub-tasks.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="step-label">Parse request &rarr; structured intent <code>{order_id, action}</code>.</span>
+        <span class="step-actor actor-llm">LLM</span>
+      </li>
+      <li>
+        <span class="step-label">Fetch order; <em>precondition</em>: row exists.</span>
+        <span class="step-actor actor-det">DET</span>
+      </li>
+      <li>
+        <span class="step-label">Check FSM transition; <em>precondition</em>: <code>(current &rarr; cancelled)</code> allowed.</span>
+        <span class="step-actor actor-det">DET</span>
+      </li>
+      <li>
+        <span class="step-label">Refund branch; <em>guard</em>: <code>payment_state == "captured"</code>.</span>
+        <span class="step-actor actor-det">DET</span>
+      </li>
+      <li>
+        <span class="step-label">Confirm + write; <em>postcondition</em>: status == "cancelled" and audit row exists.</span>
+        <span class="step-actor actor-det">DET</span>
+      </li>
+    </ol>
+
+<pre class="code"><span class="tk-dec">@node</span>(BP)
+<span class="tk-dec">@precondition</span>(<span class="tk-kw">lambda</span> ctx: ctx[<span class="tk-str">"order"</span>][<span class="tk-str">"payment_state"</span>] == <span class="tk-str">"captured"</span>)
+<span class="tk-dec">@postcondition</span>(<span class="tk-kw">lambda</span> ctx: ctx[<span class="tk-str">"refund_id"</span>] <span class="tk-kw">is not</span> <span class="tk-num">None</span>)
+<span class="tk-kw">def</span> <span class="tk-fn">issue_refund</span>(ctx):
+    <span class="tk-com"># deterministic: parameterized call, no free-form SQL</span>
+    ctx[<span class="tk-str">"refund_id"</span>] = refunds.create(
+        order_id=ctx[<span class="tk-str">"order"</span>][<span class="tk-str">"id"</span>],
+        amount=ctx[<span class="tk-str">"order"</span>][<span class="tk-str">"total"</span>],
+    )</pre>
+
+    <div class="outcome">
+      <div class="row">
+        <span class="marker m-ok">guarantee</span>
+        <span class="text">A missing precondition (e.g. <code>payment_state != "captured"</code>)
+        halts the engine at the offending node with a localized error.</span>
+      </div>
+      <div class="row">
+        <span class="marker m-ok">guarantee</span>
+        <span class="text">"No row deleted" and "explicit confirmation" are architectural,
+        not advisory: the path through the blueprint cannot bypass them.</span>
+      </div>
+      <div class="row">
+        <span class="marker m-warn">limit</span>
+        <span class="text">Open-ended sub-tasks (e.g. emitting non-trivial SQL,
+        free-form summarization) still benefit from flexible code generation.</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- ========== Panel 3: SCA + CodeAct hybrid ========== -->
+  <article class="panel hybrid">
+    <div class="panel-head">
+      <span class="panel-tag">C &middot; SCA + CodeAct</span>
+      <h3 class="panel-title">SCA controls flow; one node delegates to CodeAct-style generation under contract</h3>
+    </div>
+    <p class="panel-sub">The flow is still deterministic. Inside one bounded node, an LLM emits code under a typed contract enforced by the engine.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="step-label">Same blueprint as B controls flow and constraints.</span>
+        <span class="step-actor actor-det">DET</span>
+      </li>
+      <li>
+        <span class="step-label">Inside <code>compose_audit_query</code>, delegate to CodeAct-style code generation.</span>
+        <span class="step-actor actor-llm">LLM</span>
+      </li>
+      <li>
+        <span class="step-label">Engine type-checks the emitted SQL against the live schema (postcondition).</span>
+        <span class="step-actor actor-engine">ENGINE</span>
+      </li>
+      <li>
+        <span class="step-label">If the postcondition fails, the engine retries the node with feedback; after N tries, it aborts locally.</span>
+        <span class="step-actor actor-engine">ENGINE</span>
+      </li>
+    </ol>
+
+<pre class="code"><span class="tk-dec">@node</span>(BP)
+<span class="tk-dec">@precondition</span>(<span class="tk-kw">lambda</span> ctx: ctx[<span class="tk-str">"schema"</span>] <span class="tk-kw">is not</span> <span class="tk-num">None</span>)
+<span class="tk-dec">@postcondition</span>(<span class="tk-kw">lambda</span> ctx: typecheck(ctx[<span class="tk-str">"sql"</span>], ctx[<span class="tk-str">"schema"</span>])
+                <span class="tk-kw">and</span> is_read_only(ctx[<span class="tk-str">"sql"</span>]))
+<span class="tk-kw">def</span> <span class="tk-fn">compose_audit_query</span>(ctx):
+    <span class="tk-com"># Bounded CodeAct-style call: free-form code, fixed contract.</span>
+    ctx[<span class="tk-str">"sql"</span>] = codeact_subagent.generate(
+        task=<span class="tk-str">"SELECT audit rows for this order"</span>,
+        inputs={<span class="tk-str">"order_id"</span>: ctx[<span class="tk-str">"order"</span>][<span class="tk-str">"id"</span>],
+                <span class="tk-str">"schema"</span>: ctx[<span class="tk-str">"schema"</span>]},
+        output_schema={<span class="tk-str">"sql"</span>: <span class="tk-fn">str</span>},
+    )</pre>
+
+    <div class="outcome">
+      <div class="row">
+        <span class="marker m-ok">composition</span>
+        <span class="text">SCA's flow guarantees still hold: the destructive write
+        path is unchanged.</span>
+      </div>
+      <div class="row">
+        <span class="marker m-ok">composition</span>
+        <span class="text">CodeAct-style generation is used exactly where it helps
+        &mdash; emitting one read-only SQL query under a typed postcondition.</span>
+      </div>
+      <div class="row">
+        <span class="marker m-ok">composition</span>
+        <span class="text">A bad generation surfaces locally at this node, not as
+        a downstream side-effect.</span>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Layered stack -->
+<section class="stack-section" aria-labelledby="stack-h">
+  <h2 id="stack-h">Why they compose: different layers of the agent stack</h2>
+  <div class="stack" role="table" aria-label="agent stack layers">
+    <div class="row" role="row">
+      <div class="label" role="rowheader">Layer</div>
+      <div class="body" role="columnheader" style="font-weight:600;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;background:#f6f7f9;">Who decides</div>
+    </div>
+    <div class="row" role="row">
+      <div class="label" role="rowheader">Workflow control</div>
+      <div class="body" role="cell">
+        Which node runs next, what guards must hold, when to halt.
+        <span class="who who-sca">SCA</span>
+      </div>
+    </div>
+    <div class="row" role="row">
+      <div class="label" role="rowheader">Constraint enforcement</div>
+      <div class="body" role="cell">
+        Pre / post-conditions are checked by the engine; violations are localized.
+        <span class="who who-engine">SCA engine</span>
+      </div>
+    </div>
+    <div class="row" role="row">
+      <div class="label" role="rowheader">Sub-task execution</div>
+      <div class="body" role="cell">
+        How a single bounded step (e.g. emit SQL, summarize, transform) is performed.
+        <span class="who who-codeact">CodeAct-style</span>
+      </div>
+    </div>
+    <div class="row" role="row">
+      <div class="label" role="rowheader">Tool / interpreter</div>
+      <div class="body" role="cell">
+        Runs the emitted code or the deterministic call against the environment.
+        <span class="who who-engine">runtime</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Side-by-side property table -->
+<section class="compare-section" aria-labelledby="compare-h">
+  <h2 id="compare-h">Property-by-property</h2>
+  <table class="compare">
+    <thead>
+      <tr>
+        <th></th>
+        <th>SCA</th>
+        <th>CodeAct (Wang et al., ICML 2024)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Layer addressed</th>
+        <td class="sca-col">Workflow control</td>
+        <td class="codeact-col">Action / sub-task execution</td>
+      </tr>
+      <tr>
+        <th scope="row">Authority over the next step</th>
+        <td class="sca-col">Deterministic, expert-authored program</td>
+        <td class="codeact-col">LLM-emitted code</td>
+      </tr>
+      <tr>
+        <th scope="row">Constraint enforcement</th>
+        <td class="sca-col">Architectural &mdash; pre/post-conditions on each node</td>
+        <td class="codeact-col">Implicit &mdash; relies on the model following instructions</td>
+      </tr>
+      <tr>
+        <th scope="row">Failure mode</th>
+        <td class="sca-col">Localized at the offending node, with the missing condition surfaced</td>
+        <td class="codeact-col">Diffuse &mdash; debugging requires trace inspection</td>
+      </tr>
+      <tr>
+        <th scope="row">Reproducibility of the path</th>
+        <td class="sca-col">High &mdash; same blueprint + inputs &rArr; same path</td>
+        <td class="codeact-col">Lower &mdash; varies with sampling</td>
+      </tr>
+      <tr>
+        <th scope="row">Best at</th>
+        <td class="sca-col">Procedurally well-defined, constraint-intensive workflows</td>
+        <td class="codeact-col">Open-ended sub-tasks where flexible code generation is the bottleneck</td>
+      </tr>
+      <tr>
+        <th scope="row">Complementary use</th>
+        <td colspan="2" style="background:var(--hybrid-tint);color:var(--ink);">
+          SCA orchestrates control flow with constraint guarantees; CodeAct-style generation runs inside individual subtask nodes under a typed contract checked by the engine.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<footer class="doc-footer">
+  <p>One-page reference. Companion to <code>sca_vs_codeact.md</code> and <code>hybrid_example.py</code> in this directory.</p>
+  <p>The shared task and constraints are illustrative; they exemplify the constraint-intensive workflow regime SCA targets and are not tied to a specific deployed system.</p>
+</footer>
+
+</div>
+</body>
+</html>

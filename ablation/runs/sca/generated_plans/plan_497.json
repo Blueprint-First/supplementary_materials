@@ -1,0 +1,55 @@
+{
+  "question_id": 497,
+  "query": "Could you formulate a 5-day travel plan for two individuals, beginning in Oakland and visiting two cities in Washington. The journey would take place from March 23rd to March 27th, 2022. We have allocated a budget of $3,400 for this trip. As for accommodations, it is critical that the places allow smoking.",
+  "question_details": {
+    "id": 497,
+    "query": "Could you formulate a 5-day travel plan for two individuals, beginning in Oakland and visiting two cities in Washington. The journey would take place from March 23rd to March 27th, 2022. We have allocated a budget of $3,400 for this trip. As for accommodations, it is critical that the places allow smoking.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Oakland",
+    "dest": "Washington",
+    "budget": 3400,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-23', '2022-03-24', '2022-03-25', '2022-03-26', '2022-03-27']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T07:04:41+00:00",
+  "duration_seconds": 88.94,
+  "tokens_input": 17239,
+  "tokens_output": 2638,
+  "tool_calls": 23,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Oakland to Washington\nTransportation: Flight Number: F13506276, from Oakland to Washington, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Oakland\nAttraction: City Botanical Garden, Washington\nLunch: Garden Brasserie, Washington\nDinner: Lantern House, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 2:\nCurrent City: Washington\nTransportation: -\nBreakfast: Garden Brasserie, Washington\nAttraction: Liberty Hall, Washington\nLunch: Riverside Bistro, Washington\nDinner: Riverside Bistro, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 3:\nCurrent City: Washington\nTransportation: -\nBreakfast: Sunset Grille, Washington\nAttraction: Riverwalk Park, Washington\nLunch: Garden Brasserie, Washington\nDinner: Sunset Grille, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 4:\nCurrent City: Washington\nTransportation: -\nBreakfast: Harbor Cafe, Washington\nAttraction: Riverwalk Park, Washington\nLunch: Kettle & Fork, Washington\nDinner: Garden Brasserie, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 5:\nCurrent City: from Washington to Oakland\nTransportation: Flight Number: F1998397, from Washington to Oakland, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Washington\nAttraction: -\nLunch: Maple Diner, Washington\nDinner: Lantern House, Washington\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed"
+}

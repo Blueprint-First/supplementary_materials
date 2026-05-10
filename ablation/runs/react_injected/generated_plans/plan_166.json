@@ -1,0 +1,87 @@
+{
+  "question_id": 166,
+  "query": "Could you devise a 7-day travel plan for two people, starting in Las Vegas and touring 3 cities in Idaho from March 4th to March 10th, 2022? Our budget is set at $5,100. We require accommodations that allow smoking and should ideally be entire rooms. We would prefer to avoid any flights for our transportation.",
+  "question_details": {
+    "id": 166,
+    "query": "Could you devise a 7-day travel plan for two people, starting in Las Vegas and touring 3 cities in Idaho from March 4th to March 10th, 2022? Our budget is set at $5,100. We require accommodations that allow smoking and should ideally be entire rooms. We would prefer to avoid any flights for our transportation.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Las Vegas",
+    "dest": "Idaho",
+    "budget": 5100,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': None, 'room type': 'entire room', 'transportation': 'no flight'}",
+    "people_number": 2,
+    "date": "['2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09', '2022-03-10']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T12:21:58+00:00",
+  "duration_seconds": 31.69,
+  "tokens_input": 7321,
+  "tokens_output": 1000,
+  "tool_calls": 11,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Las Vegas to Idaho\nTransportation: Flight Number: F99999997, from Las Vegas to Idaho, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Las Vegas\nAttraction: City Botanical Garden, Idaho\nLunch: Maple Diner, Idaho\nDinner: The Olive Tree, Idaho\nAccommodation: Boutique Inn at Idaho Center, Idaho\n\nDay 2:\nCurrent City: Idaho\nTransportation: -\nBreakfast: Maple Diner, Idaho\nAttraction: City Botanical Garden, Idaho\nLunch: Harbor Cafe, Idaho\nDinner: Garden Brasserie, Idaho\nAccommodation: Boutique Inn at Idaho Center, Idaho\n\nDay 3:\nCurrent City: Idaho\nTransportation: -\nBreakfast: Harbor Cafe, Idaho\nAttraction: Heritage Museum, Idaho\nLunch: Sunset Grille, Idaho\nDinner: Garden Brasserie, Idaho\nAccommodation: Boutique Inn at Idaho Center, Idaho\n\nDay 4:\nCurrent City: Idaho\nTransportation: -\nBreakfast: Harbor Cafe, Idaho\nAttraction: Liberty Hall, Idaho\nLunch: Sunset Grille, Idaho\nDinner: Harbor Cafe, Idaho\nAccommodation: Boutique Inn at Idaho Center, Idaho\n\nDay 5:\nCurrent City: Idaho\nTransportation: -\nBreakfast: The Olive Tree, Idaho\nAttraction: Liberty Hall, Idaho\nLunch: Harbor Cafe, Idaho\nDinner: Riverside Bistro, Idaho\nAccommodation: Boutique Inn at Idaho Center, Idaho\n\nDay 6:\nCurrent City: Idaho\nTransportation: -\nBreakfast: Garden Brasserie, Idaho\nAttraction: Liberty Hall, Idaho\nLunch: Lantern House, Idaho\nDinner: Maple Diner, Idaho\nAccommodation: Boutique Inn at Idaho Center, Idaho\n\nDay 7:\nCurrent City: from Idaho to Las Vegas\nTransportation: Flight Number: F0626308, from Idaho to Las Vegas, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Idaho\nAttraction: -\nLunch: Kettle & Fork, Idaho\nDinner: Riverside Bistro, Idaho\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

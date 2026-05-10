@@ -1,0 +1,53 @@
+{
+  "question_id": 4,
+  "query": "Could you arrange a 3-day solo trip for me starting from Ontario and heading to Honolulu spanning from March 4th to March 6th, 2022, with a total budget of $3,200?",
+  "question_details": {
+    "id": 4,
+    "query": "Could you arrange a 3-day solo trip for me starting from Ontario and heading to Honolulu spanning from March 4th to March 6th, 2022, with a total budget of $3,200?",
+    "level": "easy",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Ontario",
+    "dest": "Honolulu",
+    "budget": 3200,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T21:04:52+00:00",
+  "duration_seconds": 50.86,
+  "tokens_input": 10298,
+  "tokens_output": 1285,
+  "tool_calls": 12,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Ontario to Honolulu\",\n        \"transportation\": \"Flight Number: F3584294, from Ontario to Honolulu, Departure Time: 10:11, Arrival Time: 14:46\",\n        \"breakfast\": \"The Tea Lounge - Taj Palace Hotel, Ontario\",\n        \"attraction\": \"Waik\u012bk\u012b Beach, Honolulu;Duke Paoa Kahanamoku Statue, Honolulu;\",\n        \"lunch\": \"Bait El Khetyar, Honolulu\",\n        \"dinner\": \"Nimtho, Honolulu\",\n        \"accommodation\": \"BEAUTIFUL NEW Renovated Apt!!, Honolulu\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Honolulu\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Evergreen Sweet House, Honolulu\",\n        \"attraction\": \"Pearl Harbor National Memorial, Honolulu;Iolani Palace, Honolulu;Aloha Tower, Honolulu;\",\n        \"lunch\": \"Curry Shurry, Honolulu\",\n        \"dinner\": \"Dishoom, Honolulu\",\n        \"accommodation\": \"BEAUTIFUL NEW Renovated Apt!!, Honolulu\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Honolulu to Ontario\",\n        \"transportation\": \"Flight Number: F3584327, from Honolulu to Ontario, Departure Time: 14:35, Arrival Time: 22:02\",\n        \"breakfast\": \"Take Away, Honolulu\",\n        \"attraction\": \"Honolulu Zoo, Honolulu;Tantalus Lookout - Puu Ualakaa State Park, Honolulu;\",\n        \"lunch\": \"Cafe Beverly, Honolulu\",\n        \"dinner\": \"All Things Yummy, Ontario\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": true,
+      "C6": true,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": true
+    },
+    "composite_score": 0.9375,
+    "final_pass": false
+  },
+  "status": "completed"
+}

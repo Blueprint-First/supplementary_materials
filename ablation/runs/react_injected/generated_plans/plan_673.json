@@ -1,0 +1,91 @@
+{
+  "question_id": 673,
+  "query": "I need assistance with a travel plan for two, departing from Sacramento and heading to Texas for a seven-day trip spanning from March 19th to March 25th, 2022. Our budget is set at $5,700, and we plan to visit 3 different cities within Texas. While we're there, we would love to try some local Indian and Mediterranean cuisines.",
+  "question_details": {
+    "id": 673,
+    "query": "I need assistance with a travel plan for two, departing from Sacramento and heading to Texas for a seven-day trip spanning from March 19th to March 25th, 2022. Our budget is set at $5,700, and we plan to visit 3 different cities within Texas. While we're there, we would love to try some local Indian and Mediterranean cuisines.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Sacramento",
+    "dest": "Texas",
+    "budget": 5700,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Indian', 'Mediterranean'], 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-19', '2022-03-20', '2022-03-21', '2022-03-22', '2022-03-23', '2022-03-24', '2022-03-25']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T22:38:49+00:00",
+  "duration_seconds": 45.92,
+  "tokens_input": 10295,
+  "tokens_output": 1705,
+  "tool_calls": 16,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Sacramento to Texas\nTransportation: Flight Number: F5409629, from Sacramento to Texas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Sacramento\nAttraction: Skyline Observatory, Texas\nLunch: Riverside Bistro, Texas\nDinner: Riverside Bistro, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 2:\nCurrent City: Texas\nTransportation: -\nBreakfast: Lantern House, Texas\nAttraction: Skyline Observatory, Texas\nLunch: Maple Diner, Texas\nDinner: Sunset Grille, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 3:\nCurrent City: Texas\nTransportation: -\nBreakfast: Kettle & Fork, Texas\nAttraction: Heritage Museum, Texas\nLunch: Sunset Grille, Texas\nDinner: The Olive Tree, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 4:\nCurrent City: Texas\nTransportation: -\nBreakfast: Riverside Bistro, Texas\nAttraction: Skyline Observatory, Texas\nLunch: Garden Brasserie, Texas\nDinner: Maple Diner, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 5:\nCurrent City: Texas\nTransportation: -\nBreakfast: Riverside Bistro, Texas\nAttraction: Riverwalk Park, Texas\nLunch: Garden Brasserie, Texas\nDinner: Riverside Bistro, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 6:\nCurrent City: Texas\nTransportation: -\nBreakfast: Lantern House, Texas\nAttraction: City Botanical Garden, Texas\nLunch: Kettle & Fork, Texas\nDinner: Lantern House, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 7:\nCurrent City: from Texas to Sacramento\nTransportation: Flight Number: F10678966, from Texas to Sacramento, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Texas\nAttraction: -\nLunch: Maple Diner, Texas\nDinner: Lantern House, Texas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H4": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

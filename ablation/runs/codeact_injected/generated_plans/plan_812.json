@@ -1,0 +1,62 @@
+{
+  "question_id": 812,
+  "query": "Could you kindly produce a 5-day travel plan for 2 individuals? We wish to depart from Wilmington and explore 2 unique cities in Pennsylvania from March 23rd to March 27th, 2022. Our travel budget is now set at $2,600. We require accommodations that welcome children under 10, as we'll be traveling with our kids, and these should ideally be entire rooms. When it comes to cuisine, we appreciate a variety of meals including Mediterranean, American, French, and Italian.",
+  "question_details": {
+    "id": 812,
+    "query": "Could you kindly produce a 5-day travel plan for 2 individuals? We wish to depart from Wilmington and explore 2 unique cities in Pennsylvania from March 23rd to March 27th, 2022. Our travel budget is now set at $2,600. We require accommodations that welcome children under 10, as we'll be traveling with our kids, and these should ideally be entire rooms. When it comes to cuisine, we appreciate a variety of meals including Mediterranean, American, French, and Italian.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Wilmington",
+    "dest": "Pennsylvania",
+    "budget": 2600,
+    "local_constraint": "{'house rule': 'children under 10', 'cuisine': ['Italian', 'French', 'American', 'Mediterranean'], 'room type': 'entire room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-23', '2022-03-24', '2022-03-25', '2022-03-26', '2022-03-27']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-13T05:27:56+00:00",
+  "duration_seconds": 47.99,
+  "tokens_input": 10546,
+  "tokens_output": 1789,
+  "tool_calls": 15,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Wilmington to Pennsylvania\nTransportation: Flight Number: F9999999, from Wilmington to Pennsylvania, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Wilmington\nAttraction: Riverwalk Park, Pennsylvania\nLunch: Lantern House, Pennsylvania\nDinner: Harbor Cafe, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 2:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Riverside Bistro, Pennsylvania\nAttraction: Heritage Museum, Pennsylvania\nLunch: Kettle & Fork, Pennsylvania\nDinner: Kettle & Fork, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 3:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Riverside Bistro, Pennsylvania\nAttraction: Liberty Hall, Pennsylvania\nLunch: Maple Diner, Pennsylvania\nDinner: The Olive Tree, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 4:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Harbor Cafe, Pennsylvania\nAttraction: Old Town Square, Pennsylvania\nLunch: Kettle & Fork, Pennsylvania\nDinner: The Olive Tree, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 5:\nCurrent City: from Pennsylvania to Wilmington\nTransportation: Flight Number: F9315451, from Pennsylvania to Wilmington, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Maple Diner, Pennsylvania\nAttraction: -\nLunch: Sunset Grille, Pennsylvania\nDinner: Kettle & Fork, Pennsylvania\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    }
+  ]
+}

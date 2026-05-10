@@ -1,0 +1,86 @@
+{
+  "question_id": 615,
+  "query": "Could you assist in creating a 7-day travel plan starting from March 16th to March 22nd, 2022, for a group of 8 departing from Nashville and heading to Pennsylvania, planning to visit 3 cities? Our budget is set at $32,300. We would like to sample American and Chinese cuisines during our trip.",
+  "question_details": {
+    "id": 615,
+    "query": "Could you assist in creating a 7-day travel plan starting from March 16th to March 22nd, 2022, for a group of 8 departing from Nashville and heading to Pennsylvania, planning to visit 3 cities? Our budget is set at $32,300. We would like to sample American and Chinese cuisines during our trip.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Nashville",
+    "dest": "Pennsylvania",
+    "budget": 32300,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Chinese', 'American'], 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-16', '2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20', '2022-03-21', '2022-03-22']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-13T01:28:15+00:00",
+  "duration_seconds": 69.63,
+  "tokens_input": 12422,
+  "tokens_output": 1926,
+  "tool_calls": 14,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Nashville to Pennsylvania\nTransportation: Flight Number: F99999992, from Nashville to Pennsylvania, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Nashville\nAttraction: Riverwalk Park, Pennsylvania\nLunch: Stone Hearth Kitchen, Pennsylvania\nDinner: Stone Hearth Kitchen, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 2:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Maple Diner, Pennsylvania\nAttraction: Riverwalk Park, Pennsylvania\nLunch: Sunset Grille, Pennsylvania\nDinner: Sunset Grille, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 3:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Lantern House, Pennsylvania\nAttraction: Skyline Observatory, Pennsylvania\nLunch: Sunset Grille, Pennsylvania\nDinner: Kettle & Fork, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 4:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Riverside Bistro, Pennsylvania\nAttraction: Liberty Hall, Pennsylvania\nLunch: Sunset Grille, Pennsylvania\nDinner: Lantern House, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 5:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Garden Brasserie, Pennsylvania\nAttraction: City Botanical Garden, Pennsylvania\nLunch: Riverside Bistro, Pennsylvania\nDinner: Maple Diner, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 6:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: The Olive Tree, Pennsylvania\nAttraction: City Botanical Garden, Pennsylvania\nLunch: Maple Diner, Pennsylvania\nDinner: Kettle & Fork, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 7:\nCurrent City: from Pennsylvania to Nashville\nTransportation: Flight Number: F3828223, from Pennsylvania to Nashville, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Garden Brasserie, Pennsylvania\nAttraction: -\nLunch: Lantern House, Pennsylvania\nDinner: The Olive Tree, Pennsylvania\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H4": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

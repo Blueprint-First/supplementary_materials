@@ -1,0 +1,55 @@
+{
+  "question_id": 376,
+  "query": "Could you assist with developing a 3-day travel plan for 2 people, initiating from Montgomery with Dallas as the destination? The trip is planned from March 25th to March 27th, 2022, and we've allocated a budget of $2,500 for this journey. We love Italian and American food, and we'd love recommendations for the best places to enjoy these cuisines.",
+  "question_details": {
+    "id": 376,
+    "query": "Could you assist with developing a 3-day travel plan for 2 people, initiating from Montgomery with Dallas as the destination? The trip is planned from March 25th to March 27th, 2022, and we've allocated a budget of $2,500 for this journey. We love Italian and American food, and we'd love recommendations for the best places to enjoy these cuisines.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Montgomery",
+    "dest": "Dallas",
+    "budget": 2500,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Italian', 'American'], 'room type': None, 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-25', '2022-03-26', '2022-03-27']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T04:37:28+00:00",
+  "duration_seconds": 52.03,
+  "tokens_input": 12027,
+  "tokens_output": 1758,
+  "tool_calls": 12,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Montgomery to Dallas\nTransportation: Flight Number: F10133992, from Montgomery to Dallas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Montgomery\nAttraction: Heritage Museum, Dallas\nLunch: Garden Brasserie, Dallas\nDinner: Garden Brasserie, Dallas\nAccommodation: Boutique Inn at Dallas Center, Dallas\n\nDay 2:\nCurrent City: Dallas\nTransportation: -\nBreakfast: Garden Brasserie, Dallas\nAttraction: Riverwalk Park, Dallas\nLunch: Sunset Grille, Dallas\nDinner: Lantern House, Dallas\nAccommodation: Boutique Inn at Dallas Center, Dallas\n\nDay 3:\nCurrent City: from Dallas to Montgomery\nTransportation: Flight Number: F16727738, from Dallas to Montgomery, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Maple Diner, Dallas\nAttraction: -\nLunch: Maple Diner, Dallas\nDinner: Sunset Grille, Dallas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": true,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H4": false
+    },
+    "composite_score": 0.375,
+    "final_pass": false
+  },
+  "status": "completed"
+}

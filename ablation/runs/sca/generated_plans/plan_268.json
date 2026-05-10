@@ -1,0 +1,53 @@
+{
+  "question_id": 268,
+  "query": "Can you help me with a 7-day travel plan for a solo trip, starting from Detroit and covering 3 cities in Minnesota from March 20th to March 26th, 2022? The total budget for this trip is $5,800.",
+  "question_details": {
+    "id": 268,
+    "query": "Can you help me with a 7-day travel plan for a solo trip, starting from Detroit and covering 3 cities in Minnesota from March 20th to March 26th, 2022? The total budget for this trip is $5,800.",
+    "level": "easy",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Detroit",
+    "dest": "Minnesota",
+    "budget": 5800,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-20', '2022-03-21', '2022-03-22', '2022-03-23', '2022-03-24', '2022-03-25', '2022-03-26']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T02:26:04+00:00",
+  "duration_seconds": 116.11,
+  "tokens_input": 20800,
+  "tokens_output": 3904,
+  "tool_calls": 24,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Detroit to Minnesota\nTransportation: Flight Number: F5937968, from Detroit to Minnesota, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Detroit\nAttraction: Heritage Museum, Minnesota\nLunch: Lantern House, Minnesota\nDinner: Lantern House, Minnesota\nAccommodation: Boutique Inn at Minnesota Center, Minnesota\n\nDay 2:\nCurrent City: Minnesota\nTransportation: -\nBreakfast: The Olive Tree, Minnesota\nAttraction: Heritage Museum, Minnesota\nLunch: Riverside Bistro, Minnesota\nDinner: The Olive Tree, Minnesota\nAccommodation: Boutique Inn at Minnesota Center, Minnesota\n\nDay 3:\nCurrent City: Minnesota\nTransportation: -\nBreakfast: Kettle & Fork, Minnesota\nAttraction: Old Town Square, Minnesota\nLunch: Harbor Cafe, Minnesota\nDinner: Stone Hearth Kitchen, Minnesota\nAccommodation: Boutique Inn at Minnesota Center, Minnesota\n\nDay 4:\nCurrent City: Minnesota\nTransportation: -\nBreakfast: Maple Diner, Minnesota\nAttraction: City Botanical Garden, Minnesota\nLunch: Garden Brasserie, Minnesota\nDinner: Riverside Bistro, Minnesota\nAccommodation: Boutique Inn at Minnesota Center, Minnesota\n\nDay 5:\nCurrent City: Minnesota\nTransportation: -\nBreakfast: Lantern House, Minnesota\nAttraction: Liberty Hall, Minnesota\nLunch: Harbor Cafe, Minnesota\nDinner: Sunset Grille, Minnesota\nAccommodation: Boutique Inn at Minnesota Center, Minnesota\n\nDay 6:\nCurrent City: Minnesota\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Minnesota\nAttraction: City Botanical Garden, Minnesota\nLunch: Kettle & Fork, Minnesota\nDinner: Stone Hearth Kitchen, Minnesota\nAccommodation: Boutique Inn at Minnesota Center, Minnesota\n\nDay 7:\nCurrent City: from Minnesota to Detroit\nTransportation: Flight Number: F12531714, from Minnesota to Detroit, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Maple Diner, Minnesota\nAttraction: -\nLunch: Lantern House, Minnesota\nDinner: Stone Hearth Kitchen, Minnesota\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": true,
+      "C6": true,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": true
+    },
+    "composite_score": 0.9375,
+    "final_pass": false
+  },
+  "status": "completed"
+}

@@ -1,0 +1,92 @@
+{
+  "question_id": 177,
+  "query": "Can you help devise a 7-day travel itinerary for 2 people, beginning in Salt Lake City and includes visiting 3 unique cities in Montana from March 16th to 22nd, 2022? We have a planned budget of $7,200. In terms of accommodations, we would like places where parties are permitted. Throughout our stay, we'd wish to enjoy various cuisines, including American, Mediterranean, Indian, and Chinese. Lastly, we prefer not to drive ourselves throughout this journey.",
+  "question_details": {
+    "id": 177,
+    "query": "Can you help devise a 7-day travel itinerary for 2 people, beginning in Salt Lake City and includes visiting 3 unique cities in Montana from March 16th to 22nd, 2022? We have a planned budget of $7,200. In terms of accommodations, we would like places where parties are permitted. Throughout our stay, we'd wish to enjoy various cuisines, including American, Mediterranean, Indian, and Chinese. Lastly, we prefer not to drive ourselves throughout this journey.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Salt Lake City",
+    "dest": "Montana",
+    "budget": 7200,
+    "local_constraint": "{'house rule': 'parties', 'cuisine': ['American', 'Mediterranean', 'Indian', 'Chinese'], 'room type': None, 'transportation': 'no self-driving'}",
+    "people_number": 2,
+    "date": "['2022-03-16', '2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20', '2022-03-21', '2022-03-22']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T12:35:21+00:00",
+  "duration_seconds": 29.55,
+  "tokens_input": 6814,
+  "tokens_output": 941,
+  "tool_calls": 10,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Salt Lake City to Montana\nTransportation: Flight Number: F99999999, from Salt Lake City to Montana, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Salt Lake City\nAttraction: Heritage Museum, Montana\nLunch: Kettle & Fork, Montana\nDinner: Kettle & Fork, Montana\nAccommodation: Boutique Inn at Montana Center, Montana\n\nDay 2:\nCurrent City: Montana\nTransportation: -\nBreakfast: Kettle & Fork, Montana\nAttraction: Heritage Museum, Montana\nLunch: The Olive Tree, Montana\nDinner: Maple Diner, Montana\nAccommodation: Boutique Inn at Montana Center, Montana\n\nDay 3:\nCurrent City: Montana\nTransportation: -\nBreakfast: Maple Diner, Montana\nAttraction: Riverwalk Park, Montana\nLunch: Riverside Bistro, Montana\nDinner: Harbor Cafe, Montana\nAccommodation: Boutique Inn at Montana Center, Montana\n\nDay 4:\nCurrent City: Montana\nTransportation: -\nBreakfast: Riverside Bistro, Montana\nAttraction: Liberty Hall, Montana\nLunch: Lantern House, Montana\nDinner: Kettle & Fork, Montana\nAccommodation: Boutique Inn at Montana Center, Montana\n\nDay 5:\nCurrent City: Montana\nTransportation: -\nBreakfast: Lantern House, Montana\nAttraction: Liberty Hall, Montana\nLunch: Harbor Cafe, Montana\nDinner: Garden Brasserie, Montana\nAccommodation: Boutique Inn at Montana Center, Montana\n\nDay 6:\nCurrent City: Montana\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Montana\nAttraction: Skyline Observatory, Montana\nLunch: Lantern House, Montana\nDinner: Riverside Bistro, Montana\nAccommodation: Boutique Inn at Montana Center, Montana\n\nDay 7:\nCurrent City: from Montana to Salt Lake City\nTransportation: Flight Number: F0263270, from Montana to Salt Lake City, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, Montana\nAttraction: -\nLunch: Maple Diner, Montana\nDinner: Kettle & Fork, Montana\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": true,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": true,
+      "H5": false
+    },
+    "composite_score": 0.3125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H3",
+      "kind": "hard",
+      "description": "House-rule compatibility"
+    },
+    {
+      "code": "H5",
+      "kind": "hard",
+      "description": "Transportation restriction (no flight / no self-driving)"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "question_id": 143,
+  "query": "Could you help me plan a 5-day journey for a group of 6, departing from Cleveland and visiting 2 cities in Florida from March 2nd to March 6th, 2022? Our budget is now $13,900, and we require pet-friendly accommodations that should ideally be entire rooms. We are planning on bringing our pets along, so the need for pet-friendly accommodations is crucial. We would also prefer not to self-drive.",
+  "question_details": {
+    "id": 143,
+    "query": "Could you help me plan a 5-day journey for a group of 6, departing from Cleveland and visiting 2 cities in Florida from March 2nd to March 6th, 2022? Our budget is now $13,900, and we require pet-friendly accommodations that should ideally be entire rooms. We are planning on bringing our pets along, so the need for pet-friendly accommodations is crucial. We would also prefer not to self-drive.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Cleveland",
+    "dest": "Florida",
+    "budget": 13900,
+    "local_constraint": "{'house rule': 'pets', 'cuisine': None, 'room type': 'entire room', 'transportation': 'no self-driving'}",
+    "people_number": 6,
+    "date": "['2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-12T19:53:59+00:00",
+  "duration_seconds": 64.71,
+  "tokens_input": 12872,
+  "tokens_output": 1764,
+  "tool_calls": 14,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Cleveland to Florida\nTransportation: Flight Number: F9999999, from Cleveland to Florida, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Cleveland\nAttraction: Old Town Square, Florida\nLunch: Sunset Grille, Florida\nDinner: Sunset Grille, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 2:\nCurrent City: Florida\nTransportation: -\nBreakfast: Kettle & Fork, Florida\nAttraction: Skyline Observatory, Florida\nLunch: Lantern House, Florida\nDinner: Riverside Bistro, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 3:\nCurrent City: Florida\nTransportation: -\nBreakfast: The Olive Tree, Florida\nAttraction: Old Town Square, Florida\nLunch: Harbor Cafe, Florida\nDinner: Maple Diner, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 4:\nCurrent City: Florida\nTransportation: -\nBreakfast: Maple Diner, Florida\nAttraction: Skyline Observatory, Florida\nLunch: Kettle & Fork, Florida\nDinner: Harbor Cafe, Florida\nAccommodation: Boutique Inn at Florida Center, Florida\n\nDay 5:\nCurrent City: from Florida to Cleveland\nTransportation: Flight Number: F8067585, from Florida to Cleveland, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Maple Diner, Florida\nAttraction: -\nLunch: Kettle & Fork, Florida\nDinner: Harbor Cafe, Florida\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    }
+  ]
+}

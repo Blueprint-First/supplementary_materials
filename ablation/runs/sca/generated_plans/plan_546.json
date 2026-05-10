@@ -1,0 +1,55 @@
+{
+  "question_id": 546,
+  "query": "Can you create a 5-day travel itinerary, from March 13th to March 17th, 2022, for a group of 8 people departing from San Antonio with a destination to visit 2 cities in Michigan? We require private rooms for accommodations within a budget of $18,500.",
+  "question_details": {
+    "id": 546,
+    "query": "Can you create a 5-day travel itinerary, from March 13th to March 17th, 2022, for a group of 8 people departing from San Antonio with a destination to visit 2 cities in Michigan? We require private rooms for accommodations within a budget of $18,500.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "San Antonio",
+    "dest": "Michigan",
+    "budget": 18500,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'private room', 'transportation': None}",
+    "people_number": 8,
+    "date": "['2022-03-13', '2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T08:04:18+00:00",
+  "duration_seconds": 104.77,
+  "tokens_input": 19106,
+  "tokens_output": 2820,
+  "tool_calls": 23,
+  "parsed_plan_text": "Day 1:\nCurrent City: from San Antonio to Michigan\nTransportation: Flight Number: F5847118, from San Antonio to Michigan, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, San Antonio\nAttraction: Riverwalk Park, Michigan\nLunch: Garden Brasserie, Michigan\nDinner: Garden Brasserie, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 2:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Riverside Bistro, Michigan\nAttraction: Skyline Observatory, Michigan\nLunch: Lantern House, Michigan\nDinner: Garden Brasserie, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 3:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Michigan\nAttraction: City Botanical Garden, Michigan\nLunch: Maple Diner, Michigan\nDinner: The Olive Tree, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 4:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Garden Brasserie, Michigan\nAttraction: Skyline Observatory, Michigan\nLunch: The Olive Tree, Michigan\nDinner: Riverside Bistro, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 5:\nCurrent City: from Michigan to San Antonio\nTransportation: Flight Number: F11116455, from Michigan to San Antonio, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Lantern House, Michigan\nAttraction: -\nLunch: Stone Hearth Kitchen, Michigan\nDinner: Stone Hearth Kitchen, Michigan\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": false,
+      "H2": true,
+      "H4": true
+    },
+    "composite_score": 0.7083,
+    "final_pass": false
+  },
+  "status": "completed"
+}

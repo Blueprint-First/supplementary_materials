@@ -1,0 +1,53 @@
+{
+  "question_id": 32,
+  "query": "Can you assist in creating a 5-day long itinerary? I am planning to leave Omaha on March 2nd, 2022, visit 2 different cities in Washington, and return by March 6th, 2022. I will be traveling alone with a budget set to $5,000.",
+  "question_details": {
+    "id": 32,
+    "query": "Can you assist in creating a 5-day long itinerary? I am planning to leave Omaha on March 2nd, 2022, visit 2 different cities in Washington, and return by March 6th, 2022. I will be traveling alone with a budget set to $5,000.",
+    "level": "easy",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Omaha",
+    "dest": "Washington",
+    "budget": 5000,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T21:38:56+00:00",
+  "duration_seconds": 43.75,
+  "tokens_input": 9090,
+  "tokens_output": 1446,
+  "tool_calls": 10,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Omaha to Seattle\",\n        \"transportation\": \"Flight Number: F3736891, from Omaha to Seattle, Departure Time: 14:43, Arrival Time: 16:28\",\n        \"breakfast\": \"-\",\n        \"attraction\": \"Pike Place Market, Seattle;The Seattle Great Wheel, Seattle;\",\n        \"lunch\": \"Ting's Red Lantern, Seattle\",\n        \"dinner\": \"Goli Vada Pav No. 1, Seattle\",\n        \"accommodation\": \"New tidy room attached by PRIVATE FULL BATH, Seattle\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Seattle\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Hot Chimney, Seattle\",\n        \"attraction\": \"Space Needle, Seattle;Chihuly Garden and Glass, Seattle;Kerry Park, Seattle;\",\n        \"lunch\": \"Wow! Momo, Seattle\",\n        \"dinner\": \"The Sassy Spoon, Seattle\",\n        \"accommodation\": \"New tidy room attached by PRIVATE FULL BATH, Seattle\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Seattle to Spokane\",\n        \"transportation\": \"Flight Number: F3738208, from Seattle to Spokane, Departure Time: 11:28, Arrival Time: 12:38\",\n        \"breakfast\": \"wagamama, Seattle\",\n        \"attraction\": \"Seattle Art Museum, Seattle;Riverfront Park, Spokane;\",\n        \"lunch\": \"Pizza Hut, Spokane\",\n        \"dinner\": \"Just for Chai, Spokane\",\n        \"accommodation\": \"Giant bedroom in Carroll Gardens, Brooklyn, Spokane\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"from Spokane to Seattle\",\n        \"transportation\": \"Flight Number: F3738796, from Spokane to Seattle, Departure Time: 06:00, Arrival Time: 07:16\",\n        \"breakfast\": \"Shyam Chaat Bhandar, Spokane\",\n        \"attraction\": \"Northwest Museum of Arts & Culture, Spokane;Manito Park, Spokane;Olympic Sculpture Park, Seattle;\",\n        \"lunch\": \"PitStop BrewPub, Spokane\",\n        \"dinner\": \"Amul Sweets & Bakery, Seattle\",\n        \"accommodation\": \"-\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Seattle to Omaha\",\n        \"transportation\": \"Flight Number: F3739176, from Seattle to Omaha, Departure Time: 08:27, Arrival Time: 13:41\",\n        \"breakfast\": \"The Golden Dragon, Seattle\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Sarpal Restaurant, Seattle\",\n        \"dinner\": \"Caf\u00e9 Burger BC, Seattle\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": true,
+      "C6": true,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": true
+    },
+    "composite_score": 1.0,
+    "final_pass": true
+  },
+  "status": "completed"
+}

@@ -1,0 +1,54 @@
+{
+  "question_id": 70,
+  "query": "Could you create a 3-day travel itinerary for a group of 8, departing from Valparaiso and moving to Belleville? We will be traveling from March 3rd to March 5th, 2022. Our total budget for this trip is $6,600. We fancy Chinese and American cuisines for our meals during this trip.",
+  "question_details": {
+    "id": 70,
+    "query": "Could you create a 3-day travel itinerary for a group of 8, departing from Valparaiso and moving to Belleville? We will be traveling from March 3rd to March 5th, 2022. Our total budget for this trip is $6,600. We fancy Chinese and American cuisines for our meals during this trip.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Valparaiso",
+    "dest": "Belleville",
+    "budget": 6600,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Chinese', 'American'], 'room type': None, 'transportation': None}",
+    "people_number": 8,
+    "date": "['2022-03-03', '2022-03-04', '2022-03-05']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T22:25:10+00:00",
+  "duration_seconds": 42.53,
+  "tokens_input": 8666,
+  "tokens_output": 1280,
+  "tool_calls": 10,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Valparaiso to Belleville\",\n        \"transportation\": \"Flight Number: F3579167, from Valparaiso to Belleville, Departure Time: 17:23, Arrival Time: 19:06\",\n        \"breakfast\": \"Earl of Sandwich, Valparaiso\",\n        \"attraction\": \"National Shrine of Our Lady of the Snows, Belleville;Labor & Industrial Museum, Belleville;Belleville Square, Belleville;\",\n        \"lunch\": \"Shillong View, Valparaiso\",\n        \"dinner\": \"Chocolate Temptation, Belleville\",\n        \"accommodation\": \"Near Yankee Stadium, Belleville\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Belleville\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Best Biryani, Belleville\",\n        \"attraction\": \"St. Clair County Historical Society, Belleville;Citizens Park, Belleville;Hello Belleville Mural, Belleville;\",\n        \"lunch\": \"RollsKing, Belleville\",\n        \"dinner\": \"Tucks and Bao, Belleville\",\n        \"accommodation\": \"Near Yankee Stadium, Belleville\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Belleville to Valparaiso\",\n        \"transportation\": \"Flight Number: F3571908, from Belleville to Valparaiso, Departure Time: 17:15, Arrival Time: 18:55\",\n        \"breakfast\": \"Cafe Amaretto, Belleville\",\n        \"attraction\": \"Porter County Museum, Valparaiso;Central Park Plaza, Valparaiso;\",\n        \"lunch\": \"Twomato Foods, Belleville\",\n        \"dinner\": \"B. Matthew's Eatery, Valparaiso\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

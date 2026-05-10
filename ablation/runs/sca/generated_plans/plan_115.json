@@ -1,0 +1,54 @@
+{
+  "question_id": 115,
+  "query": "I require a 7-day travel plan for two people, beginning in Minneapolis and continuing to three different cities in Texas from March 22 to March 28, 2022. Our budget for this trip is $11,900. It's essential to us that our accommodations are suitable for children under 10 years old.",
+  "question_details": {
+    "id": 115,
+    "query": "I require a 7-day travel plan for two people, beginning in Minneapolis and continuing to three different cities in Texas from March 22 to March 28, 2022. Our budget for this trip is $11,900. It's essential to us that our accommodations are suitable for children under 10 years old.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Minneapolis",
+    "dest": "Texas",
+    "budget": 11900,
+    "local_constraint": "{'house rule': 'children under 10', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-22', '2022-03-23', '2022-03-24', '2022-03-25', '2022-03-26', '2022-03-27', '2022-03-28']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T23:19:55+00:00",
+  "duration_seconds": 51.42,
+  "tokens_input": 9537,
+  "tokens_output": 1533,
+  "tool_calls": 9,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Minneapolis to Dallas\",\n        \"transportation\": \"Flight Number: F3727205, from Minneapolis to Dallas, Departure Time: 13:20, Arrival Time: 15:58\",\n        \"breakfast\": \"The Cafe, Minneapolis\",\n        \"attraction\": \"Reunion Tower, Dallas;\",\n        \"lunch\": \"Coconuts Fish Cafe, Dallas\",\n        \"dinner\": \"1918 Bistro & Grill, Dallas\",\n        \"accommodation\": \"1BR, elevator, kitchen, doorman!, Dallas\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Dallas\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Cafe Gatherings, Dallas\",\n        \"attraction\": \"Dallas Zoo, Dallas;Perot Museum of Nature and Science, Dallas;\",\n        \"lunch\": \"Drifters Cafe, Dallas\",\n        \"dinner\": \"L'Opera, Dallas\",\n        \"accommodation\": \"1BR, elevator, kitchen, doorman!, Dallas\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Dallas to Austin\",\n        \"transportation\": \"Self-Driving from Dallas to Austin, Distance: 314km, Duration: 2h 53m\",\n        \"breakfast\": \"Bikaner Sweets, Dallas\",\n        \"attraction\": \"The Dallas World Aquarium, Dallas;\",\n        \"lunch\": \"Chili's, Austin\",\n        \"dinner\": \"Wildflour Cafe + Bakery, Austin\",\n        \"accommodation\": \"Spacious Williamsburg 1 bedroom!, Austin\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Austin\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Moksha, Austin\",\n        \"attraction\": \"Texas Capitol, Austin;Austin Zoo, Austin;\",\n        \"lunch\": \"Tandoori Nights, Austin\",\n        \"dinner\": \"The Blue Door Cafe, Austin\",\n        \"accommodation\": \"Spacious Williamsburg 1 bedroom!, Austin\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Austin to San Antonio\",\n        \"transportation\": \"Self-Driving from Austin to San Antonio, Distance: 128km, Duration: 1h 19m\",\n        \"breakfast\": \"Frontier, Austin\",\n        \"attraction\": \"Zilker Metropolitan Park, Austin;\",\n        \"lunch\": \"Cafe Le Rue @ The Landings, San Antonio\",\n        \"dinner\": \"Martin's BBQ, San Antonio\",\n        \"accommodation\": \"Charming Bedroom in Gramercy, San Antonio\"\n    },\n    {\n        \"days\": 6,\n        \"current_city\": \"San Antonio\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Spice Deli, San Antonio\",\n        \"attraction\": \"San Antonio Zoo, San Antonio;San Antonio River Walk, San Antonio;The Alamo, San Antonio;\",\n        \"lunch\": \"Barbeque Nation, San Antonio\",\n        \"dinner\": \"Cream Stone, San Antonio\",\n        \"accommodation\": \"Charming Bedroom in Gramercy, San Antonio\"\n    },\n    {\n        \"days\": 7,\n        \"current_city\": \"from San Antonio to Minneapolis\",\n        \"transportation\": \"Flight Number: F3538748, from San Antonio to Minneapolis, Departure Time: 06:32, Arrival Time: 09:24\",\n        \"breakfast\": \"Super Cake Shop, San Antonio\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Tony's, Minneapolis\",\n        \"dinner\": \"Court Avenue Brewing Company, Minneapolis\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": true,
+      "C6": true,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": true,
+      "H3": true
+    },
+    "composite_score": 1.0,
+    "final_pass": true
+  },
+  "status": "completed"
+}

@@ -1,0 +1,97 @@
+{
+  "question_id": 919,
+  "query": "Can you help me plan a 7-day trip for 3 people? We will be departing from Reno and intend to visit 3 cities in Washington, between March 15th and March 21st, 2022. Given our new budget of $3,400, we would like to secure entire rooms for accommodations and refrain from flying during our journey. Our culinary preferences encompass Mediterranean, Indian, American, and French cuisines to enjoy on the trip.",
+  "question_details": {
+    "id": 919,
+    "query": "Can you help me plan a 7-day trip for 3 people? We will be departing from Reno and intend to visit 3 cities in Washington, between March 15th and March 21st, 2022. Given our new budget of $3,400, we would like to secure entire rooms for accommodations and refrain from flying during our journey. Our culinary preferences encompass Mediterranean, Indian, American, and French cuisines to enjoy on the trip.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Reno",
+    "dest": "Washington",
+    "budget": 3400,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Indian', 'French', 'American', 'Mediterranean'], 'room type': 'entire room', 'transportation': None}",
+    "people_number": 3,
+    "date": "['2022-03-15', '2022-03-16', '2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20', '2022-03-21']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-13T07:38:07+00:00",
+  "duration_seconds": 65.64,
+  "tokens_input": 14273,
+  "tokens_output": 2429,
+  "tool_calls": 18,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Reno to Washington\nTransportation: Flight Number: F99999996, from Reno to Washington, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Reno\nAttraction: Skyline Observatory, Washington\nLunch: Kettle & Fork, Washington\nDinner: Kettle & Fork, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 2:\nCurrent City: Washington\nTransportation: -\nBreakfast: The Olive Tree, Washington\nAttraction: Skyline Observatory, Washington\nLunch: Maple Diner, Washington\nDinner: Stone Hearth Kitchen, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 3:\nCurrent City: Washington\nTransportation: -\nBreakfast: Harbor Cafe, Washington\nAttraction: Old Town Square, Washington\nLunch: Garden Brasserie, Washington\nDinner: Kettle & Fork, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 4:\nCurrent City: Washington\nTransportation: -\nBreakfast: Garden Brasserie, Washington\nAttraction: Heritage Museum, Washington\nLunch: Riverside Bistro, Washington\nDinner: Garden Brasserie, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 5:\nCurrent City: Washington\nTransportation: -\nBreakfast: Sunset Grille, Washington\nAttraction: Old Town Square, Washington\nLunch: Sunset Grille, Washington\nDinner: Sunset Grille, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 6:\nCurrent City: Washington\nTransportation: -\nBreakfast: Maple Diner, Washington\nAttraction: Skyline Observatory, Washington\nLunch: Kettle & Fork, Washington\nDinner: Garden Brasserie, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 7:\nCurrent City: from Washington to Reno\nTransportation: Flight Number: F6369946, from Washington to Reno, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Kettle & Fork, Washington\nAttraction: -\nLunch: Riverside Bistro, Washington\nDinner: Lantern House, Washington\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H4": true,
+      "H5": false
+    },
+    "composite_score": 0.1875,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    },
+    {
+      "code": "H2",
+      "kind": "hard",
+      "description": "Cuisine coverage at destination"
+    },
+    {
+      "code": "H5",
+      "kind": "hard",
+      "description": "Transportation restriction (no flight / no self-driving)"
+    }
+  ]
+}

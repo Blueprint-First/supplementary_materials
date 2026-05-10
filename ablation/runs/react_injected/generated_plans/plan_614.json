@@ -1,0 +1,81 @@
+{
+  "question_id": 614,
+  "query": "We need a travel itinerary for two individuals, spanning a week from March 9th to March 15th, 2022. The trip is set to commence from San Jose, and the destination is Washington. We aim to cover 3 cities in Washington within our trip. The allocated budget for our travel is $6,100. For our cuisine preference, we favor Mexican and Mediterranean delights.",
+  "question_details": {
+    "id": 614,
+    "query": "We need a travel itinerary for two individuals, spanning a week from March 9th to March 15th, 2022. The trip is set to commence from San Jose, and the destination is Washington. We aim to cover 3 cities in Washington within our trip. The allocated budget for our travel is $6,100. For our cuisine preference, we favor Mexican and Mediterranean delights.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "San Jose",
+    "dest": "Washington",
+    "budget": 6100,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Mexican', 'Mediterranean'], 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-09', '2022-03-10', '2022-03-11', '2022-03-12', '2022-03-13', '2022-03-14', '2022-03-15']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T21:27:02+00:00",
+  "duration_seconds": 61.87,
+  "tokens_input": 12598,
+  "tokens_output": 1653,
+  "tool_calls": 20,
+  "parsed_plan_text": "Day 1:\nCurrent City: from San Jose to Washington\nTransportation: Flight Number: F9999999, from San Jose to Washington, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, San Jose\nAttraction: Skyline Observatory, Washington\nLunch: Lantern House, Washington\nDinner: Lantern House, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 2:\nCurrent City: Washington\nTransportation: -\nBreakfast: Garden Brasserie, Washington\nAttraction: Skyline Observatory, Washington\nLunch: The Olive Tree, Washington\nDinner: Kettle & Fork, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 3:\nCurrent City: Washington\nTransportation: -\nBreakfast: Lantern House, Washington\nAttraction: Heritage Museum, Washington\nLunch: Harbor Cafe, Washington\nDinner: The Olive Tree, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 4:\nCurrent City: Washington\nTransportation: -\nBreakfast: Riverside Bistro, Washington\nAttraction: City Botanical Garden, Washington\nLunch: Sunset Grille, Washington\nDinner: Lantern House, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 5:\nCurrent City: Washington\nTransportation: -\nBreakfast: Harbor Cafe, Washington\nAttraction: Heritage Museum, Washington\nLunch: The Olive Tree, Washington\nDinner: Sunset Grille, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 6:\nCurrent City: Washington\nTransportation: -\nBreakfast: Riverside Bistro, Washington\nAttraction: Skyline Observatory, Washington\nLunch: Kettle & Fork, Washington\nDinner: The Olive Tree, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 7:\nCurrent City: from Washington to San Jose\nTransportation: Flight Number: F11339893, from Washington to San Jose, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Garden Brasserie, Washington\nAttraction: -\nLunch: Lantern House, Washington\nDinner: The Olive Tree, Washington\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": true,
+      "C4": false,
+      "C5": true,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H5": true
+    },
+    "composite_score": 0.3542,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    }
+  ]
+}

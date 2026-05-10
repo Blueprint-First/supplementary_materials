@@ -1,0 +1,56 @@
+{
+  "question_id": 707,
+  "query": "Can you help plan a 3-day trip for two people from St. Louis to Baltimore on March 20th to 22nd, 2022, with a $1,200 budget? We are hoping to enjoy Mediterranean, Indian, Mexican, and American cuisines during our stay. We need non-shared rooms for accommodations and would prefer to avoid flying for the transportation.",
+  "question_details": {
+    "id": 707,
+    "query": "Can you help plan a 3-day trip for two people from St. Louis to Baltimore on March 20th to 22nd, 2022, with a $1,200 budget? We are hoping to enjoy Mediterranean, Indian, Mexican, and American cuisines during our stay. We need non-shared rooms for accommodations and would prefer to avoid flying for the transportation.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "St. Louis",
+    "dest": "Baltimore",
+    "budget": 1200,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Mexican', 'Indian', 'American', 'Mediterranean'], 'room type': 'shared room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-20', '2022-03-21', '2022-03-22']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T11:20:11+00:00",
+  "duration_seconds": 78.89,
+  "tokens_input": 15191,
+  "tokens_output": 2338,
+  "tool_calls": 17,
+  "parsed_plan_text": "Day 1:\nCurrent City: from St. Louis to Baltimore\nTransportation: Flight Number: F9196534, from St. Louis to Baltimore, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, St. Louis\nAttraction: City Botanical Garden, Baltimore\nLunch: Stone Hearth Kitchen, Baltimore\nDinner: The Olive Tree, Baltimore\nAccommodation: Boutique Inn at Baltimore Center, Baltimore\n\nDay 2:\nCurrent City: Baltimore\nTransportation: -\nBreakfast: Harbor Cafe, Baltimore\nAttraction: City Botanical Garden, Baltimore\nLunch: Garden Brasserie, Baltimore\nDinner: Sunset Grille, Baltimore\nAccommodation: Boutique Inn at Baltimore Center, Baltimore\n\nDay 3:\nCurrent City: from Baltimore to St. Louis\nTransportation: Flight Number: F15790280, from Baltimore to St. Louis, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Baltimore\nAttraction: -\nLunch: Riverside Bistro, Baltimore\nDinner: Riverside Bistro, Baltimore\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H4": true,
+      "H5": false
+    },
+    "composite_score": 0.3125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

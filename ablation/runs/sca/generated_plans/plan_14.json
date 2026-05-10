@@ -1,0 +1,53 @@
+{
+  "question_id": 14,
+  "query": "Could you arrange a travel plan for me starting from Denver and going to Appleton for 3 days, specifically from March 4th to March 6th, 2022? I'm traveling alone and I have a budget of $1,800 for this trip.",
+  "question_details": {
+    "id": 14,
+    "query": "Could you arrange a travel plan for me starting from Denver and going to Appleton for 3 days, specifically from March 4th to March 6th, 2022? I'm traveling alone and I have a budget of $1,800 for this trip.",
+    "level": "easy",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Denver",
+    "dest": "Appleton",
+    "budget": 1800,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T21:17:02+00:00",
+  "duration_seconds": 53.36,
+  "tokens_input": 10868,
+  "tokens_output": 1633,
+  "tool_calls": 11,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Denver to Appleton\",\n        \"transportation\": \"Flight Number: F3822209, from Denver to Appleton, Departure Time: 17:30, Arrival Time: 20:44\",\n        \"breakfast\": \"TBH - The Big House Cafe, Denver\",\n        \"attraction\": \"Denver Art Museum, Denver;Denver Botanic Gardens, Denver;\",\n        \"lunch\": \"The Urban Socialite, Denver\",\n        \"dinner\": \"Fat Lulu's, Appleton\",\n        \"accommodation\": \"Stylish, convenient, renovated- 2 min to subway -, Appleton\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Appleton\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Mathew's Cafe, Appleton\",\n        \"attraction\": \"The History Museum at the Castle, Appleton;Trout Museum of Art, Appleton;Building For Kids, Appleton;Hearthstone Historic House Museum, Appleton;\",\n        \"lunch\": \"Homely Delight, Appleton\",\n        \"dinner\": \"Valonia, Appleton\",\n        \"accommodation\": \"Stylish, convenient, renovated- 2 min to subway -, Appleton\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Appleton to Denver\",\n        \"transportation\": \"Flight Number: F3828308, from Appleton to Denver, Departure Time: 08:23, Arrival Time: 10:37\",\n        \"breakfast\": \"New Bakers Shoppee, Appleton\",\n        \"attraction\": \"Atlas Science Center Center, Appleton;\",\n        \"lunch\": \"Nathu's Sweets, Denver\",\n        \"dinner\": \"Sweet Sensations, Denver\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": true,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.375,
+    "final_pass": false
+  },
+  "status": "completed"
+}

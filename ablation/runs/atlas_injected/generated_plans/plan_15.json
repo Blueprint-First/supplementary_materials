@@ -1,0 +1,79 @@
+{
+  "question_id": 15,
+  "query": "Please arrange a 3-day trip for me departing from St. Louis and visiting Las Vegas from March 29th to March 31st, 2022. My budget for this journey is $1,300.",
+  "question_details": {
+    "id": 15,
+    "query": "Please arrange a 3-day trip for me departing from St. Louis and visiting Las Vegas from March 29th to March 31st, 2022. My budget for this journey is $1,300.",
+    "level": "easy",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "St. Louis",
+    "dest": "Las Vegas",
+    "budget": 1300,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-29', '2022-03-30', '2022-03-31']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-12T17:18:15+00:00",
+  "duration_seconds": 36.52,
+  "tokens_input": 7788,
+  "tokens_output": 1093,
+  "tool_calls": 7,
+  "parsed_plan_text": "Day 1:\nCurrent City: from St. Louis to Las Vegas\nTransportation: Flight Number: F11378020, from St. Louis to Las Vegas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, St. Louis\nAttraction: Skyline Observatory, Las Vegas\nLunch: The Olive Tree, Las Vegas\nDinner: The Olive Tree, Las Vegas\nAccommodation: Boutique Inn at Las Vegas Center, Las Vegas\n\nDay 2:\nCurrent City: Las Vegas\nTransportation: -\nBreakfast: Garden Brasserie, Las Vegas\nAttraction: Skyline Observatory, Las Vegas\nLunch: Lantern House, Las Vegas\nDinner: The Olive Tree, Las Vegas\nAccommodation: Boutique Inn at Las Vegas Center, Las Vegas\n\nDay 3:\nCurrent City: from Las Vegas to St. Louis\nTransportation: Flight Number: F1194550, from Las Vegas to St. Louis, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Las Vegas\nAttraction: -\nLunch: Stone Hearth Kitchen, Las Vegas\nDinner: Garden Brasserie, Las Vegas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": true
+    },
+    "composite_score": 0.75,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "question_id": 352,
+  "query": "Could you create a 3-day travel itinerary for a group of 5 people departing from Orlando and heading to Newark, covering the period from March 4th to March 6th, 2022? Our budget is around $6,900. We would prefer to have private rooms for our accommodations.",
+  "question_details": {
+    "id": 352,
+    "query": "Could you create a 3-day travel itinerary for a group of 5 people departing from Orlando and heading to Newark, covering the period from March 4th to March 6th, 2022? Our budget is around $6,900. We would prefer to have private rooms for our accommodations.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Orlando",
+    "dest": "Newark",
+    "budget": 6900,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'private room', 'transportation': None}",
+    "people_number": 5,
+    "date": "['2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T04:08:16+00:00",
+  "duration_seconds": 53.21,
+  "tokens_input": 10753,
+  "tokens_output": 1812,
+  "tool_calls": 12,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Orlando to Newark\nTransportation: Flight Number: F1993599, from Orlando to Newark, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Orlando\nAttraction: Skyline Observatory, Newark\nLunch: Kettle & Fork, Newark\nDinner: The Olive Tree, Newark\nAccommodation: Boutique Inn at Newark Center, Newark\n\nDay 2:\nCurrent City: Newark\nTransportation: -\nBreakfast: Harbor Cafe, Newark\nAttraction: Old Town Square, Newark\nLunch: Garden Brasserie, Newark\nDinner: Riverside Bistro, Newark\nAccommodation: Boutique Inn at Newark Center, Newark\n\nDay 3:\nCurrent City: from Newark to Orlando\nTransportation: Flight Number: F8587345, from Newark to Orlando, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Newark\nAttraction: -\nLunch: Lantern House, Newark\nDinner: Sunset Grille, Newark\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": true,
+      "H4": false
+    },
+    "composite_score": 0.2917,
+    "final_pass": false
+  },
+  "status": "completed"
+}

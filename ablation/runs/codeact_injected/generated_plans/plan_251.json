@@ -1,0 +1,84 @@
+{
+  "question_id": 251,
+  "query": "Could you please help me create a travel plan for a week starting from Raleigh, going to California, and visiting 3 different cities? The departure date is the 10th of March, 2022, and the return date is the 16th of March, 2022. The budget for this trip is $7,300.",
+  "question_details": {
+    "id": 251,
+    "query": "Could you please help me create a travel plan for a week starting from Raleigh, going to California, and visiting 3 different cities? The departure date is the 10th of March, 2022, and the return date is the 16th of March, 2022. The budget for this trip is $7,300.",
+    "level": "easy",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Raleigh",
+    "dest": "California",
+    "budget": 7300,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-10', '2022-03-11', '2022-03-12', '2022-03-13', '2022-03-14', '2022-03-15', '2022-03-16']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T18:05:23+00:00",
+  "duration_seconds": 45.41,
+  "tokens_input": 10864,
+  "tokens_output": 1527,
+  "tool_calls": 13,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Raleigh to California\nTransportation: Flight Number: F9999999, from Raleigh to California, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Raleigh\nAttraction: Liberty Hall, California\nLunch: Lantern House, California\nDinner: Lantern House, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 2:\nCurrent City: California\nTransportation: -\nBreakfast: Kettle & Fork, California\nAttraction: Liberty Hall, California\nLunch: The Olive Tree, California\nDinner: Kettle & Fork, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 3:\nCurrent City: California\nTransportation: -\nBreakfast: Sunset Grille, California\nAttraction: Heritage Museum, California\nLunch: Garden Brasserie, California\nDinner: Riverside Bistro, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 4:\nCurrent City: California\nTransportation: -\nBreakfast: The Olive Tree, California\nAttraction: Riverwalk Park, California\nLunch: Harbor Cafe, California\nDinner: Riverside Bistro, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 5:\nCurrent City: California\nTransportation: -\nBreakfast: Garden Brasserie, California\nAttraction: Old Town Square, California\nLunch: The Olive Tree, California\nDinner: Garden Brasserie, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 6:\nCurrent City: California\nTransportation: -\nBreakfast: Maple Diner, California\nAttraction: Liberty Hall, California\nLunch: Harbor Cafe, California\nDinner: Harbor Cafe, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 7:\nCurrent City: from California to Raleigh\nTransportation: Flight Number: F5893243, from California to Raleigh, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, California\nAttraction: -\nLunch: Maple Diner, California\nDinner: Sunset Grille, California\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": true,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": true
+    },
+    "composite_score": 0.75,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    }
+  ]
+}

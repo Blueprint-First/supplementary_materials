@@ -1,0 +1,76 @@
+{
+  "question_id": 413,
+  "query": "Could you please create a travel plan for 2 people who are departing from Clarksburg and heading to Chicago? The travel duration will be 3 days, starting from March 10th to March 12th, 2022. Our budget is set at $2,400 for this trip. It is important to note that we need non-shared rooms for accommodation.",
+  "question_details": {
+    "id": 413,
+    "query": "Could you please create a travel plan for 2 people who are departing from Clarksburg and heading to Chicago? The travel duration will be 3 days, starting from March 10th to March 12th, 2022. Our budget is set at $2,400 for this trip. It is important to note that we need non-shared rooms for accommodation.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Clarksburg",
+    "dest": "Chicago",
+    "budget": 2400,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'shared room', 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-10', '2022-03-11', '2022-03-12']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T01:22:29+00:00",
+  "duration_seconds": 46.24,
+  "tokens_input": 8755,
+  "tokens_output": 1225,
+  "tool_calls": 8,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Clarksburg to Chicago\nTransportation: Flight Number: F99999998, from Clarksburg to Chicago, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Clarksburg\nAttraction: Heritage Museum, Chicago\nLunch: Lantern House, Chicago\nDinner: Lantern House, Chicago\nAccommodation: Boutique Inn at Chicago Center, Chicago\n\nDay 2:\nCurrent City: Chicago\nTransportation: -\nBreakfast: Maple Diner, Chicago\nAttraction: Skyline Observatory, Chicago\nLunch: Garden Brasserie, Chicago\nDinner: Riverside Bistro, Chicago\nAccommodation: Boutique Inn at Chicago Center, Chicago\n\nDay 3:\nCurrent City: from Chicago to Clarksburg\nTransportation: Flight Number: F15431975, from Chicago to Clarksburg, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, Chicago\nAttraction: -\nLunch: Kettle & Fork, Chicago\nDinner: Stone Hearth Kitchen, Chicago\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": true,
+      "C6": false,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "H4",
+      "kind": "hard",
+      "description": "Room-type match"
+    },
+    {
+      "code": "H5",
+      "kind": "hard",
+      "description": "Transportation restriction (no flight / no self-driving)"
+    }
+  ]
+}

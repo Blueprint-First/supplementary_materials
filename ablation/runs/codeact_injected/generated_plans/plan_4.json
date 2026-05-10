@@ -1,0 +1,84 @@
+{
+  "question_id": 4,
+  "query": "Could you arrange a 3-day solo trip for me starting from Ontario and heading to Honolulu spanning from March 4th to March 6th, 2022, with a total budget of $3,200?",
+  "question_details": {
+    "id": 4,
+    "query": "Could you arrange a 3-day solo trip for me starting from Ontario and heading to Honolulu spanning from March 4th to March 6th, 2022, with a total budget of $3,200?",
+    "level": "easy",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Ontario",
+    "dest": "Honolulu",
+    "budget": 3200,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T13:04:52+00:00",
+  "duration_seconds": 22.39,
+  "tokens_input": 4993,
+  "tokens_output": 708,
+  "tool_calls": 6,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Ontario to Honolulu\nTransportation: Flight Number: F99999996, from Ontario to Honolulu, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Ontario\nAttraction: Skyline Observatory, Honolulu\nLunch: Garden Brasserie, Honolulu\nDinner: Garden Brasserie, Honolulu\nAccommodation: Boutique Inn at Honolulu Center, Honolulu\n\nDay 2:\nCurrent City: Honolulu\nTransportation: -\nBreakfast: Sunset Grille, Honolulu\nAttraction: Skyline Observatory, Honolulu\nLunch: Maple Diner, Honolulu\nDinner: Kettle & Fork, Honolulu\nAccommodation: Boutique Inn at Honolulu Center, Honolulu\n\nDay 3:\nCurrent City: from Honolulu to Ontario\nTransportation: Flight Number: F16752053, from Honolulu to Ontario, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Honolulu\nAttraction: -\nLunch: Maple Diner, Honolulu\nDinner: Maple Diner, Honolulu\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": true,
+      "C6": false,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    }
+  ]
+}

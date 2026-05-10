@@ -1,0 +1,86 @@
+{
+  "question_id": 625,
+  "query": "Could you create a 7-day travel plan for a group of 4, departing from Madison and visiting 3 cities in Illinois from March 3rd to March 9th, 2022? Our budget for this trip is set at $18,600. We're planning to bring our pets, so we need our accommodations to be pet-friendly.",
+  "question_details": {
+    "id": 625,
+    "query": "Could you create a 7-day travel plan for a group of 4, departing from Madison and visiting 3 cities in Illinois from March 3rd to March 9th, 2022? Our budget for this trip is set at $18,600. We're planning to bring our pets, so we need our accommodations to be pet-friendly.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Madison",
+    "dest": "Illinois",
+    "budget": 18600,
+    "local_constraint": "{'house rule': 'pets', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-13T01:40:25+00:00",
+  "duration_seconds": 53.3,
+  "tokens_input": 13685,
+  "tokens_output": 1716,
+  "tool_calls": 17,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Madison to Illinois\nTransportation: Flight Number: F99999997, from Madison to Illinois, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Madison\nAttraction: Liberty Hall, Illinois\nLunch: Kettle & Fork, Illinois\nDinner: Harbor Cafe, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 2:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Maple Diner, Illinois\nAttraction: Liberty Hall, Illinois\nLunch: Lantern House, Illinois\nDinner: Lantern House, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 3:\nCurrent City: Illinois\nTransportation: -\nBreakfast: The Olive Tree, Illinois\nAttraction: Liberty Hall, Illinois\nLunch: Lantern House, Illinois\nDinner: Lantern House, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 4:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Riverside Bistro, Illinois\nAttraction: Skyline Observatory, Illinois\nLunch: Lantern House, Illinois\nDinner: Riverside Bistro, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 5:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Garden Brasserie, Illinois\nAttraction: City Botanical Garden, Illinois\nLunch: Garden Brasserie, Illinois\nDinner: Kettle & Fork, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 6:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Lantern House, Illinois\nAttraction: Riverwalk Park, Illinois\nLunch: Riverside Bistro, Illinois\nDinner: Garden Brasserie, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 7:\nCurrent City: from Illinois to Madison\nTransportation: Flight Number: F1935877, from Illinois to Madison, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, Illinois\nAttraction: -\nLunch: Kettle & Fork, Illinois\nDinner: Sunset Grille, Illinois\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": true,
+      "H4": false
+    },
+    "composite_score": 0.1667,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    },
+    {
+      "code": "H3",
+      "kind": "hard",
+      "description": "House-rule compatibility"
+    },
+    {
+      "code": "H4",
+      "kind": "hard",
+      "description": "Room-type match"
+    }
+  ]
+}

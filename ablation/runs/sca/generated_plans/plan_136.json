@@ -1,0 +1,56 @@
+{
+  "question_id": 136,
+  "query": "Could you help create a 3-day travel plan for two people? We're traveling from West Palm Beach to White Plains, visiting only one city from March 5th to March 7th, 2022. We have a budget of $2,600. For our accommodations, we'd like rooms that are not shared. We are not planning on self-driving and will be reliant on public transportation. Cuisines we are interested in trying include Mexican, Chinese, Mediterranean, and American.",
+  "question_details": {
+    "id": 136,
+    "query": "Could you help create a 3-day travel plan for two people? We're traveling from West Palm Beach to White Plains, visiting only one city from March 5th to March 7th, 2022. We have a budget of $2,600. For our accommodations, we'd like rooms that are not shared. We are not planning on self-driving and will be reliant on public transportation. Cuisines we are interested in trying include Mexican, Chinese, Mediterranean, and American.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "West Palm Beach",
+    "dest": "White Plains",
+    "budget": 2600,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Mexican', 'Chinese', 'Mediterranean', 'American'], 'room type': 'not shared room', 'transportation': 'no self-driving'}",
+    "people_number": 2,
+    "date": "['2022-03-05', '2022-03-06', '2022-03-07']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T23:45:28+00:00",
+  "duration_seconds": 69.6,
+  "tokens_input": 17348,
+  "tokens_output": 2258,
+  "tool_calls": 20,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from West Palm Beach to White Plains\",\n        \"transportation\": \"Flight Number: F3765519, from West Palm Beach to White Plains, Departure Time: 18:45, Arrival Time: 21:40\",\n        \"breakfast\": \"Citron - Hotel Haut.Monde, West Palm Beach\",\n        \"attraction\": \"No attractions available in West Palm Beach, West Palm Beach;\",\n        \"lunch\": \"Indochi, West Palm Beach\",\n        \"dinner\": \"El Kiosco Mexican Restaurant, White Plains\",\n        \"accommodation\": \"Private Theatre District Bedroom, White Plains\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"White Plains\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Tulsi Ram Chinese Hut, White Plains\",\n        \"attraction\": \"Saxon Woods Park, White Plains;Neuberger Museum of Art, White Plains;Garden of Remembrance Holocaust Memorial, White Plains;\",\n        \"lunch\": \"Saffron Mantra, White Plains\",\n        \"dinner\": \"Pan Asian - Sheraton New Delhi Hotel, White Plains\",\n        \"accommodation\": \"Private Theatre District Bedroom, White Plains\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from White Plains to West Palm Beach\",\n        \"transportation\": \"Flight Number: F3759006, from White Plains to West Palm Beach, Departure Time: 15:51, Arrival Time: 18:41\",\n        \"breakfast\": \"Happy Hakka, White Plains\",\n        \"attraction\": \"Kensico Dam Plaza, White Plains;The Puzzle Parlour, White Plains;\",\n        \"lunch\": \"The California Boulevard, White Plains\",\n        \"dinner\": \"Amul Ice-Cream Parlour, West Palm Beach\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

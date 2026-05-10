@@ -1,0 +1,43 @@
+{
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "subset": "ablation/100task_subset.json",
+  "n_tasks": 100,
+  "headline": {
+    "composite_score_mean": 0.2435,
+    "composite_score_pct": "24.35%",
+    "final_pass_rate": 0.01,
+    "final_pass_pct": "1.0%"
+  },
+  "constraint_pass_rate": {
+    "C1": 0.31,
+    "C2": 0.22,
+    "C3": 0.23,
+    "C4": 0.27,
+    "C5": 0.26,
+    "C6": 0.2,
+    "C7": 0.28,
+    "C8": 0.26,
+    "H1": 0.18,
+    "H2": 0.26,
+    "H3": 0.25,
+    "H4": 0.2586,
+    "H5": 0.2
+  },
+  "library_stats": null,
+  "monitor_summary": {
+    "total_tasks": 100,
+    "completed_tasks": 100,
+    "avg_duration_seconds": 74.18,
+    "avg_tokens_input": 14557,
+    "avg_tokens_output": 2175,
+    "avg_tool_calls": 17.4
+  }
+}

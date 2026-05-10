@@ -1,0 +1,87 @@
+{
+  "question_id": 757,
+  "query": "Could you create a travel itinerary for a group of 4 departing from Honolulu to Los Angeles for 3 days, from March 26th to March 28th, 2022? We are on a new budget of $6,200. Keep in mind that our accommodations must allow children under 10 and we need entire rooms to accommodate all of us. Please note that we won't be self-driving for transportation.",
+  "question_details": {
+    "id": 757,
+    "query": "Could you create a travel itinerary for a group of 4 departing from Honolulu to Los Angeles for 3 days, from March 26th to March 28th, 2022? We are on a new budget of $6,200. Keep in mind that our accommodations must allow children under 10 and we need entire rooms to accommodate all of us. Please note that we won't be self-driving for transportation.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Honolulu",
+    "dest": "Los Angeles",
+    "budget": 6200,
+    "local_constraint": "{'house rule': 'children under 10', 'cuisine': None, 'room type': 'entire room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-26', '2022-03-27', '2022-03-28']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-13T04:21:01+00:00",
+  "duration_seconds": 29.47,
+  "tokens_input": 6028,
+  "tokens_output": 973,
+  "tool_calls": 9,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Honolulu to Los Angeles\nTransportation: Flight Number: F99999990, from Honolulu to Los Angeles, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Honolulu\nAttraction: Skyline Observatory, Los Angeles\nLunch: Harbor Cafe, Los Angeles\nDinner: Harbor Cafe, Los Angeles\nAccommodation: Boutique Inn at Los Angeles Center, Los Angeles\n\nDay 2:\nCurrent City: Los Angeles\nTransportation: -\nBreakfast: Maple Diner, Los Angeles\nAttraction: Skyline Observatory, Los Angeles\nLunch: Garden Brasserie, Los Angeles\nDinner: The Olive Tree, Los Angeles\nAccommodation: Boutique Inn at Los Angeles Center, Los Angeles\n\nDay 3:\nCurrent City: from Los Angeles to Honolulu\nTransportation: Flight Number: F4836001, from Los Angeles to Honolulu, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, Los Angeles\nAttraction: -\nLunch: Garden Brasserie, Los Angeles\nDinner: Harbor Cafe, Los Angeles\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": true
+    },
+    "composite_score": 0.25,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H4",
+      "kind": "hard",
+      "description": "Room-type match"
+    },
+    {
+      "code": "H5",
+      "kind": "hard",
+      "description": "Transportation restriction (no flight / no self-driving)"
+    }
+  ]
+}

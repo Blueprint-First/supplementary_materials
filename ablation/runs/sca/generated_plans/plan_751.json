@@ -1,0 +1,56 @@
+{
+  "question_id": 751,
+  "query": "Could you devise a 3-day travel plan for two people, starting from Baton Rouge and heading to Houston from March 16th to March 18th, 2022? Our budget is roughly $1,900. We require accommodations that allow smoking and should ideally be entire rooms. In terms of meals, we enjoy French, Mediterranean, Mexican, and American cuisines.",
+  "question_details": {
+    "id": 751,
+    "query": "Could you devise a 3-day travel plan for two people, starting from Baton Rouge and heading to Houston from March 16th to March 18th, 2022? Our budget is roughly $1,900. We require accommodations that allow smoking and should ideally be entire rooms. In terms of meals, we enjoy French, Mediterranean, Mexican, and American cuisines.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Baton Rouge",
+    "dest": "Houston",
+    "budget": 1900,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': ['Mexican', 'French', 'American', 'Mediterranean'], 'room type': 'entire room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-16', '2022-03-17', '2022-03-18']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T12:13:43+00:00",
+  "duration_seconds": 63.3,
+  "tokens_input": 12829,
+  "tokens_output": 2244,
+  "tool_calls": 15,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Baton Rouge to Houston\nTransportation: Flight Number: F16053146, from Baton Rouge to Houston, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Baton Rouge\nAttraction: City Botanical Garden, Houston\nLunch: Sunset Grille, Houston\nDinner: Lantern House, Houston\nAccommodation: Boutique Inn at Houston Center, Houston\n\nDay 2:\nCurrent City: Houston\nTransportation: -\nBreakfast: Kettle & Fork, Houston\nAttraction: Liberty Hall, Houston\nLunch: Kettle & Fork, Houston\nDinner: Kettle & Fork, Houston\nAccommodation: Boutique Inn at Houston Center, Houston\n\nDay 3:\nCurrent City: from Houston to Baton Rouge\nTransportation: Flight Number: F5869676, from Houston to Baton Rouge, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Maple Diner, Houston\nAttraction: -\nLunch: Maple Diner, Houston\nDinner: Stone Hearth Kitchen, Houston\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": true,
+      "C6": true,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": false,
+      "H2": true,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.5,
+    "final_pass": false
+  },
+  "status": "completed"
+}

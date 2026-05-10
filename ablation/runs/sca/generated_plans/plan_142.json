@@ -1,0 +1,56 @@
+{
+  "question_id": 142,
+  "query": "Could you create a 5-day travel itinerary for two people starting in Washington and visiting 2 cities in California from March 14th to March 18th, 2022? The budget for this trip is $4,600. We are food lovers with a preference for Chinese, Mexican, American, and Italian cuisines. As for our accommodations, we require non-shared rooms and places that welcome visitors. Transportation details are currently flexible.",
+  "question_details": {
+    "id": 142,
+    "query": "Could you create a 5-day travel itinerary for two people starting in Washington and visiting 2 cities in California from March 14th to March 18th, 2022? The budget for this trip is $4,600. We are food lovers with a preference for Chinese, Mexican, American, and Italian cuisines. As for our accommodations, we require non-shared rooms and places that welcome visitors. Transportation details are currently flexible.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Washington",
+    "dest": "California",
+    "budget": 4600,
+    "local_constraint": "{'house rule': 'visitors', 'cuisine': ['Chinese', 'Mexican', 'American', 'Italian'], 'room type': 'not shared room', 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17', '2022-03-18']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T23:52:46+00:00",
+  "duration_seconds": 89.05,
+  "tokens_input": 18158,
+  "tokens_output": 2516,
+  "tool_calls": 19,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Washington to Los Angeles\",\n        \"transportation\": \"Flight Number: F3779009, from Washington to Los Angeles, Departure Time: 17:20, Arrival Time: 19:32\",\n        \"breakfast\": \"Choco Kraft, Los Angeles\",\n        \"attraction\": \"Hollywood Walk of Fame, Los Angeles;Hollywood Sign, Los Angeles;\",\n        \"lunch\": \"Palmshore, Los Angeles\",\n        \"dinner\": \"Village - The House of Food, Los Angeles\",\n        \"accommodation\": \"Luxury building studio in Los Angeles, Los Angeles\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Los Angeles\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Shree Manakamna Fast Food, Los Angeles\",\n        \"attraction\": \"Griffith Observatory, Los Angeles;Santa Monica Pier, Los Angeles;\",\n        \"lunch\": \"Punjabi Tandoori Tikka, Los Angeles\",\n        \"dinner\": \"Elan - The Lodhi, Los Angeles\",\n        \"accommodation\": \"Luxury building studio in Los Angeles, Los Angeles\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Los Angeles to San Francisco\",\n        \"transportation\": \"Flight Number: F3911571, from Los Angeles to San Francisco, Departure Time: 13:16, Arrival Time: 14:36\",\n        \"breakfast\": \"Chicken Minar, Los Angeles\",\n        \"attraction\": \"The Getty, Los Angeles;\",\n        \"lunch\": \"Onokabe, Los Angeles\",\n        \"dinner\": \"Coffee & Chai Co., San Francisco\",\n        \"accommodation\": \"Spacious 1 bedroom in Woodlawn NYC in San Francisco, San Francisco\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"San Francisco\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Anupam Eating Point, San Francisco\",\n        \"attraction\": \"Golden Gate Bridge, San Francisco;PIER 39, San Francisco;Union Square, San Francisco;\",\n        \"lunch\": \"Gupta's Rasoi, San Francisco\",\n        \"dinner\": \"Bonne Bouche, San Francisco\",\n        \"accommodation\": \"Spacious 1 bedroom in Woodlawn NYC in San Francisco, San Francisco\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from San Francisco to Washington\",\n        \"transportation\": \"Flight Number: F3907821, from San Francisco to Washington, Departure Time: 22:55, Arrival Time: 06:57\",\n        \"breakfast\": \"Aggarwal Sweet and Restaurant, San Francisco\",\n        \"attraction\": \"Golden Gate Park, San Francisco;\",\n        \"lunch\": \"Sudarshan, San Francisco\",\n        \"dinner\": \"Ustad Moinuddin Kebab, San Francisco\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": true,
+      "H3": true,
+      "H4": false
+    },
+    "composite_score": 0.5,
+    "final_pass": false
+  },
+  "status": "completed"
+}

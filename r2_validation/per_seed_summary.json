@@ -1,0 +1,64 @@
+{
+  "validation_seed1": {
+    "plans_sca.jsonl": {
+      "n_records": 180,
+      "n_with_plan": 180,
+      "avg_plan_days": 5.0,
+      "min_plan_days": 3,
+      "max_plan_days": 7,
+      "idx_min": 1,
+      "idx_max": 180
+    },
+    "plans_react.jsonl": {
+      "n_records": 179,
+      "n_with_plan": 179,
+      "avg_plan_days": 5.01,
+      "min_plan_days": 3,
+      "max_plan_days": 7,
+      "idx_min": 1,
+      "idx_max": 180
+    }
+  },
+  "validation_seed2": {
+    "plans_sca.jsonl": {
+      "n_records": 180,
+      "n_with_plan": 180,
+      "avg_plan_days": 5.01,
+      "min_plan_days": 3,
+      "max_plan_days": 7,
+      "idx_min": 1,
+      "idx_max": 180
+    }
+  },
+  "validation_seed3": {
+    "plans_sca.jsonl": {
+      "n_records": 180,
+      "n_with_plan": 180,
+      "avg_plan_days": 5.01,
+      "min_plan_days": 3,
+      "max_plan_days": 7,
+      "idx_min": 1,
+      "idx_max": 180
+    }
+  },
+  "test_seed1": {
+    "plans_sca.jsonl": {
+      "n_records": 1000,
+      "n_with_plan": 999,
+      "avg_plan_days": 5.04,
+      "min_plan_days": 0,
+      "max_plan_days": 7,
+      "idx_min": 0,
+      "idx_max": 999
+    },
+    "plans_sca_react.jsonl": {
+      "n_records": 1000,
+      "n_with_plan": 1000,
+      "avg_plan_days": 5.06,
+      "min_plan_days": 1,
+      "max_plan_days": 7,
+      "idx_min": 0,
+      "idx_max": 999
+    }
+  }
+}

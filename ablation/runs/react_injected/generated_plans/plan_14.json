@@ -1,0 +1,53 @@
+{
+  "question_id": 14,
+  "query": "Could you arrange a travel plan for me starting from Denver and going to Appleton for 3 days, specifically from March 4th to March 6th, 2022? I'm traveling alone and I have a budget of $1,800 for this trip.",
+  "question_details": {
+    "id": 14,
+    "query": "Could you arrange a travel plan for me starting from Denver and going to Appleton for 3 days, specifically from March 4th to March 6th, 2022? I'm traveling alone and I have a budget of $1,800 for this trip.",
+    "level": "easy",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Denver",
+    "dest": "Appleton",
+    "budget": 1800,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T09:17:02+00:00",
+  "duration_seconds": 22.54,
+  "tokens_input": 3814,
+  "tokens_output": 485,
+  "tool_calls": 6,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Denver to Appleton\nTransportation: Flight Number: F2800863, from Denver to Appleton, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Denver\nAttraction: Heritage Museum, Appleton\nLunch: Kettle & Fork, Appleton\nDinner: Sunset Grille, Appleton\nAccommodation: Boutique Inn at Appleton Center, Appleton\n\nDay 2:\nCurrent City: Appleton\nTransportation: -\nBreakfast: The Olive Tree, Appleton\nAttraction: Old Town Square, Appleton\nLunch: Harbor Cafe, Appleton\nDinner: Sunset Grille, Appleton\nAccommodation: Boutique Inn at Appleton Center, Appleton\n\nDay 3:\nCurrent City: from Appleton to Denver\nTransportation: Flight Number: F8070200, from Appleton to Denver, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Garden Brasserie, Appleton\nAttraction: -\nLunch: Maple Diner, Appleton\nDinner: Maple Diner, Appleton\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": true,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": []
+}

@@ -1,0 +1,82 @@
+{
+  "question_id": 843,
+  "query": "Could you provide a 5-day travel plan for 2 people, originating from El Paso and aiming to visit 2 cities in California from March 2nd to March 6th, 2022? Our budget is set at $3,600. We require accommodations that allow for parties and should not be shared rooms. We would prefer not to take flights for our transportation.",
+  "question_details": {
+    "id": 843,
+    "query": "Could you provide a 5-day travel plan for 2 people, originating from El Paso and aiming to visit 2 cities in California from March 2nd to March 6th, 2022? Our budget is set at $3,600. We require accommodations that allow for parties and should not be shared rooms. We would prefer not to take flights for our transportation.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "El Paso",
+    "dest": "California",
+    "budget": 3600,
+    "local_constraint": "{'house rule': 'parties', 'cuisine': None, 'room type': 'shared room', 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T10:05:39+00:00",
+  "duration_seconds": 80.49,
+  "tokens_input": 16886,
+  "tokens_output": 2943,
+  "tool_calls": 21,
+  "parsed_plan_text": "Day 1:\nCurrent City: from El Paso to California\nTransportation: Flight Number: F5563726, from El Paso to California, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, El Paso\nAttraction: Heritage Museum, California\nLunch: The Olive Tree, California\nDinner: The Olive Tree, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 2:\nCurrent City: California\nTransportation: -\nBreakfast: Lantern House, California\nAttraction: Heritage Museum, California\nLunch: Sunset Grille, California\nDinner: Sunset Grille, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 3:\nCurrent City: California\nTransportation: -\nBreakfast: Riverside Bistro, California\nAttraction: Skyline Observatory, California\nLunch: Garden Brasserie, California\nDinner: Stone Hearth Kitchen, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 4:\nCurrent City: California\nTransportation: -\nBreakfast: Riverside Bistro, California\nAttraction: City Botanical Garden, California\nLunch: Maple Diner, California\nDinner: Stone Hearth Kitchen, California\nAccommodation: Boutique Inn at California Center, California\n\nDay 5:\nCurrent City: from California to El Paso\nTransportation: Flight Number: F12157472, from California to El Paso, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, California\nAttraction: -\nLunch: Maple Diner, California\nDinner: The Olive Tree, California\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    },
+    {
+      "code": "H4",
+      "kind": "hard",
+      "description": "Room-type match"
+    }
+  ]
+}

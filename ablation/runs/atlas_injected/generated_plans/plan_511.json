@@ -1,0 +1,81 @@
+{
+  "question_id": 511,
+  "query": "Could you assist in planning a 5-day journey for two people, commencing in Bloomington and covering 2 cities in Georgia from March 24th to March 28th, 2022? We have set our budget to $5,900. On our journey, we would love to explore the Indian and Chinese cuisines.",
+  "question_details": {
+    "id": 511,
+    "query": "Could you assist in planning a 5-day journey for two people, commencing in Bloomington and covering 2 cities in Georgia from March 24th to March 28th, 2022? We have set our budget to $5,900. On our journey, we would love to explore the Indian and Chinese cuisines.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Bloomington",
+    "dest": "Georgia",
+    "budget": 5900,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Chinese', 'Indian'], 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-24', '2022-03-25', '2022-03-26', '2022-03-27', '2022-03-28']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T03:21:43+00:00",
+  "duration_seconds": 71.88,
+  "tokens_input": 15611,
+  "tokens_output": 2358,
+  "tool_calls": 15,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Bloomington to Georgia\nTransportation: Flight Number: F99999994, from Bloomington to Georgia, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Bloomington\nAttraction: Heritage Museum, Georgia\nLunch: Sunset Grille, Georgia\nDinner: Sunset Grille, Georgia\nAccommodation: Boutique Inn at Georgia Center, Georgia\n\nDay 2:\nCurrent City: Georgia\nTransportation: -\nBreakfast: Harbor Cafe, Georgia\nAttraction: Heritage Museum, Georgia\nLunch: Maple Diner, Georgia\nDinner: Harbor Cafe, Georgia\nAccommodation: Boutique Inn at Georgia Center, Georgia\n\nDay 3:\nCurrent City: Georgia\nTransportation: -\nBreakfast: Riverside Bistro, Georgia\nAttraction: Liberty Hall, Georgia\nLunch: Stone Hearth Kitchen, Georgia\nDinner: Harbor Cafe, Georgia\nAccommodation: Boutique Inn at Georgia Center, Georgia\n\nDay 4:\nCurrent City: Georgia\nTransportation: -\nBreakfast: Harbor Cafe, Georgia\nAttraction: Heritage Museum, Georgia\nLunch: Riverside Bistro, Georgia\nDinner: Kettle & Fork, Georgia\nAccommodation: Boutique Inn at Georgia Center, Georgia\n\nDay 5:\nCurrent City: from Georgia to Bloomington\nTransportation: Flight Number: F16668341, from Georgia to Bloomington, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, Georgia\nAttraction: -\nLunch: Stone Hearth Kitchen, Georgia\nDinner: Stone Hearth Kitchen, Georgia\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H4": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    }
+  ]
+}

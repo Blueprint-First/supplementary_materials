@@ -1,0 +1,53 @@
+{
+  "question_id": 329,
+  "query": "Can you help draft a week-long travel plan for one person leaving Denver to visit 3 cities in Louisiana? The trip will run from March 7th through March 13th, 2022, with a budget set at $5,900.",
+  "question_details": {
+    "id": 329,
+    "query": "Can you help draft a week-long travel plan for one person leaving Denver to visit 3 cities in Louisiana? The trip will run from March 7th through March 13th, 2022, with a budget set at $5,900.",
+    "level": "easy",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Denver",
+    "dest": "Louisiana",
+    "budget": 5900,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-07', '2022-03-08', '2022-03-09', '2022-03-10', '2022-03-11', '2022-03-12', '2022-03-13']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T03:40:17+00:00",
+  "duration_seconds": 119.79,
+  "tokens_input": 18904,
+  "tokens_output": 3417,
+  "tool_calls": 25,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Denver to Louisiana\nTransportation: Flight Number: F14281399, from Denver to Louisiana, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Denver\nAttraction: City Botanical Garden, Louisiana\nLunch: The Olive Tree, Louisiana\nDinner: Maple Diner, Louisiana\nAccommodation: Boutique Inn at Louisiana Center, Louisiana\n\nDay 2:\nCurrent City: Louisiana\nTransportation: -\nBreakfast: Kettle & Fork, Louisiana\nAttraction: Old Town Square, Louisiana\nLunch: Maple Diner, Louisiana\nDinner: The Olive Tree, Louisiana\nAccommodation: Boutique Inn at Louisiana Center, Louisiana\n\nDay 3:\nCurrent City: Louisiana\nTransportation: -\nBreakfast: Harbor Cafe, Louisiana\nAttraction: Old Town Square, Louisiana\nLunch: Sunset Grille, Louisiana\nDinner: Maple Diner, Louisiana\nAccommodation: Boutique Inn at Louisiana Center, Louisiana\n\nDay 4:\nCurrent City: Louisiana\nTransportation: -\nBreakfast: The Olive Tree, Louisiana\nAttraction: Skyline Observatory, Louisiana\nLunch: Riverside Bistro, Louisiana\nDinner: Stone Hearth Kitchen, Louisiana\nAccommodation: Boutique Inn at Louisiana Center, Louisiana\n\nDay 5:\nCurrent City: Louisiana\nTransportation: -\nBreakfast: The Olive Tree, Louisiana\nAttraction: Liberty Hall, Louisiana\nLunch: Maple Diner, Louisiana\nDinner: Riverside Bistro, Louisiana\nAccommodation: Boutique Inn at Louisiana Center, Louisiana\n\nDay 6:\nCurrent City: Louisiana\nTransportation: -\nBreakfast: Riverside Bistro, Louisiana\nAttraction: City Botanical Garden, Louisiana\nLunch: Sunset Grille, Louisiana\nDinner: The Olive Tree, Louisiana\nAccommodation: Boutique Inn at Louisiana Center, Louisiana\n\nDay 7:\nCurrent City: from Louisiana to Denver\nTransportation: Flight Number: F4097929, from Louisiana to Denver, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Harbor Cafe, Louisiana\nAttraction: -\nLunch: Maple Diner, Louisiana\nDinner: Harbor Cafe, Louisiana\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

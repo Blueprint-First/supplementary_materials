@@ -1,0 +1,74 @@
+{
+  "question_id": 220,
+  "query": "Could you help in creating a 5-day travel plan, starting from Milwaukee and covering 2 cities in Utah from March 7th to March 11th, 2022? Given that I'm traveling solo, I have reserved a budget of $4,800 for this trip.",
+  "question_details": {
+    "id": 220,
+    "query": "Could you help in creating a 5-day travel plan, starting from Milwaukee and covering 2 cities in Utah from March 7th to March 11th, 2022? Given that I'm traveling solo, I have reserved a budget of $4,800 for this trip.",
+    "level": "easy",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Milwaukee",
+    "dest": "Utah",
+    "budget": 4800,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-07', '2022-03-08', '2022-03-09', '2022-03-10', '2022-03-11']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T17:27:40+00:00",
+  "duration_seconds": 38.18,
+  "tokens_input": 8075,
+  "tokens_output": 1240,
+  "tool_calls": 10,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Milwaukee to Utah\nTransportation: Flight Number: F11210853, from Milwaukee to Utah, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Milwaukee\nAttraction: Skyline Observatory, Utah\nLunch: Harbor Cafe, Utah\nDinner: Harbor Cafe, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 2:\nCurrent City: Utah\nTransportation: -\nBreakfast: Garden Brasserie, Utah\nAttraction: Skyline Observatory, Utah\nLunch: Harbor Cafe, Utah\nDinner: Lantern House, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 3:\nCurrent City: Utah\nTransportation: -\nBreakfast: Harbor Cafe, Utah\nAttraction: Riverwalk Park, Utah\nLunch: Riverside Bistro, Utah\nDinner: Riverside Bistro, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 4:\nCurrent City: Utah\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Utah\nAttraction: Heritage Museum, Utah\nLunch: Harbor Cafe, Utah\nDinner: Garden Brasserie, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 5:\nCurrent City: from Utah to Milwaukee\nTransportation: Flight Number: F1027383, from Utah to Milwaukee, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Utah\nAttraction: -\nLunch: Maple Diner, Utah\nDinner: Sunset Grille, Utah\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.25,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

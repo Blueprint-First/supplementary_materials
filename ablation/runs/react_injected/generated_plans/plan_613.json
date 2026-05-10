@@ -1,0 +1,86 @@
+{
+  "question_id": 613,
+  "query": "Could you curate a week-long travel plan for a group of 7? We'll be departing from Cincinnati and aim to explore 3 unique cities in Pennsylvania from March 2nd to March 8th, 2022. Our budget is approximately $26,600. Since we will be bringing our pets, it's vital to ensure our accommodations allow them.",
+  "question_details": {
+    "id": 613,
+    "query": "Could you curate a week-long travel plan for a group of 7? We'll be departing from Cincinnati and aim to explore 3 unique cities in Pennsylvania from March 2nd to March 8th, 2022. Our budget is approximately $26,600. Since we will be bringing our pets, it's vital to ensure our accommodations allow them.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Cincinnati",
+    "dest": "Pennsylvania",
+    "budget": 26600,
+    "local_constraint": "{'house rule': 'pets', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T21:25:49+00:00",
+  "duration_seconds": 56.11,
+  "tokens_input": 12460,
+  "tokens_output": 1764,
+  "tool_calls": 20,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Cincinnati to Pennsylvania\nTransportation: Flight Number: F99999993, from Cincinnati to Pennsylvania, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Cincinnati\nAttraction: Old Town Square, Pennsylvania\nLunch: Maple Diner, Pennsylvania\nDinner: Maple Diner, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 2:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Maple Diner, Pennsylvania\nAttraction: Heritage Museum, Pennsylvania\nLunch: Maple Diner, Pennsylvania\nDinner: Garden Brasserie, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 3:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Riverside Bistro, Pennsylvania\nAttraction: Skyline Observatory, Pennsylvania\nLunch: Lantern House, Pennsylvania\nDinner: Lantern House, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 4:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Kettle & Fork, Pennsylvania\nAttraction: Skyline Observatory, Pennsylvania\nLunch: The Olive Tree, Pennsylvania\nDinner: Harbor Cafe, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 5:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Harbor Cafe, Pennsylvania\nAttraction: Old Town Square, Pennsylvania\nLunch: Harbor Cafe, Pennsylvania\nDinner: Sunset Grille, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 6:\nCurrent City: Pennsylvania\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Pennsylvania\nAttraction: Heritage Museum, Pennsylvania\nLunch: Lantern House, Pennsylvania\nDinner: Lantern House, Pennsylvania\nAccommodation: Boutique Inn at Pennsylvania Center, Pennsylvania\n\nDay 7:\nCurrent City: from Pennsylvania to Cincinnati\nTransportation: Flight Number: F4057323, from Pennsylvania to Cincinnati, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Lantern House, Pennsylvania\nAttraction: -\nLunch: Kettle & Fork, Pennsylvania\nDinner: Harbor Cafe, Pennsylvania\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": true,
+      "C4": false,
+      "C5": true,
+      "C6": false,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": true,
+      "H3": false,
+      "H5": false
+    },
+    "composite_score": 0.3542,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H3",
+      "kind": "hard",
+      "description": "House-rule compatibility"
+    },
+    {
+      "code": "H5",
+      "kind": "hard",
+      "description": "Transportation restriction (no flight / no self-driving)"
+    }
+  ]
+}

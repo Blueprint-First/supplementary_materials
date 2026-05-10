@@ -1,0 +1,87 @@
+{
+  "question_id": 774,
+  "query": "Could you design a 5-day travel plan for 2 people, starting in Tampa and heading to Indiana from March 16th to March 20th, 2022, where we will visit 2 different cities? We have a budget of $3,100. For our stay, we want to ensure our accommodations are not shared and that they allow us to have visitors over. For meals, we would love the options of American, Chinese, Mexican, and Indian cuisines.",
+  "question_details": {
+    "id": 774,
+    "query": "Could you design a 5-day travel plan for 2 people, starting in Tampa and heading to Indiana from March 16th to March 20th, 2022, where we will visit 2 different cities? We have a budget of $3,100. For our stay, we want to ensure our accommodations are not shared and that they allow us to have visitors over. For meals, we would love the options of American, Chinese, Mexican, and Indian cuisines.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Tampa",
+    "dest": "Indiana",
+    "budget": 3100,
+    "local_constraint": "{'house rule': 'visitors', 'cuisine': ['Chinese', 'Mexican', 'Indian', 'American'], 'room type': None, 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-16', '2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-13T00:41:42+00:00",
+  "duration_seconds": 41.33,
+  "tokens_input": 9041,
+  "tokens_output": 1252,
+  "tool_calls": 15,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Tampa to Indiana\nTransportation: Flight Number: F99999991, from Tampa to Indiana, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Tampa\nAttraction: Heritage Museum, Indiana\nLunch: Garden Brasserie, Indiana\nDinner: Garden Brasserie, Indiana\nAccommodation: Boutique Inn at Indiana Center, Indiana\n\nDay 2:\nCurrent City: Indiana\nTransportation: -\nBreakfast: Riverside Bistro, Indiana\nAttraction: Old Town Square, Indiana\nLunch: The Olive Tree, Indiana\nDinner: Stone Hearth Kitchen, Indiana\nAccommodation: Boutique Inn at Indiana Center, Indiana\n\nDay 3:\nCurrent City: Indiana\nTransportation: -\nBreakfast: The Olive Tree, Indiana\nAttraction: Liberty Hall, Indiana\nLunch: Sunset Grille, Indiana\nDinner: Kettle & Fork, Indiana\nAccommodation: Boutique Inn at Indiana Center, Indiana\n\nDay 4:\nCurrent City: Indiana\nTransportation: -\nBreakfast: Lantern House, Indiana\nAttraction: Riverwalk Park, Indiana\nLunch: Sunset Grille, Indiana\nDinner: Riverside Bistro, Indiana\nAccommodation: Boutique Inn at Indiana Center, Indiana\n\nDay 5:\nCurrent City: from Indiana to Tampa\nTransportation: Flight Number: F16758598, from Indiana to Tampa, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Indiana\nAttraction: -\nLunch: Harbor Cafe, Indiana\nDinner: Kettle & Fork, Indiana\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": true,
+      "H2": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.1875,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

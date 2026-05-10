@@ -1,0 +1,79 @@
+{
+  "question_id": 323,
+  "query": "Can you create a travel plan for me where I depart from Punta Gorda to head towards Texas? I'm interested in visiting 3 cities within Texas over a 7-day period from March 13th, 2022, to March 19th, 2022. This trip is for one person and my budget is now $6,100.",
+  "question_details": {
+    "id": 323,
+    "query": "Can you create a travel plan for me where I depart from Punta Gorda to head towards Texas? I'm interested in visiting 3 cities within Texas over a 7-day period from March 13th, 2022, to March 19th, 2022. This trip is for one person and my budget is now $6,100.",
+    "level": "easy",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Punta Gorda",
+    "dest": "Texas",
+    "budget": 6100,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-13', '2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17', '2022-03-18', '2022-03-19']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T15:32:59+00:00",
+  "duration_seconds": 39.31,
+  "tokens_input": 10296,
+  "tokens_output": 1212,
+  "tool_calls": 17,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Punta Gorda to Texas\nTransportation: Flight Number: F9999999, from Punta Gorda to Texas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Punta Gorda\nAttraction: Old Town Square, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Stone Hearth Kitchen, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 2:\nCurrent City: Texas\nTransportation: -\nBreakfast: Lantern House, Texas\nAttraction: Old Town Square, Texas\nLunch: Harbor Cafe, Texas\nDinner: Kettle & Fork, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 3:\nCurrent City: Texas\nTransportation: -\nBreakfast: Lantern House, Texas\nAttraction: City Botanical Garden, Texas\nLunch: Riverside Bistro, Texas\nDinner: Maple Diner, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 4:\nCurrent City: Texas\nTransportation: -\nBreakfast: Kettle & Fork, Texas\nAttraction: Liberty Hall, Texas\nLunch: Sunset Grille, Texas\nDinner: The Olive Tree, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 5:\nCurrent City: Texas\nTransportation: -\nBreakfast: Maple Diner, Texas\nAttraction: Old Town Square, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Maple Diner, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 6:\nCurrent City: Texas\nTransportation: -\nBreakfast: Lantern House, Texas\nAttraction: Heritage Museum, Texas\nLunch: Garden Brasserie, Texas\nDinner: Kettle & Fork, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 7:\nCurrent City: from Texas to Punta Gorda\nTransportation: Flight Number: F14779979, from Texas to Punta Gorda, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Texas\nAttraction: -\nLunch: Harbor Cafe, Texas\nDinner: Harbor Cafe, Texas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    }
+  ]
+}

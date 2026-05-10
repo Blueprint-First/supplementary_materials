@@ -1,0 +1,53 @@
+{
+  "question_id": 226,
+  "query": "Could you assist me in creating a 5-day travel plan for one person, starting in Grand Rapids and visiting 2 cities in Illinois from March 23rd to March 27th, 2022? The total budget for this trip is capped at $3,700.",
+  "question_details": {
+    "id": 226,
+    "query": "Could you assist me in creating a 5-day travel plan for one person, starting in Grand Rapids and visiting 2 cities in Illinois from March 23rd to March 27th, 2022? The total budget for this trip is capped at $3,700.",
+    "level": "easy",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Grand Rapids",
+    "dest": "Illinois",
+    "budget": 3700,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-23', '2022-03-24', '2022-03-25', '2022-03-26', '2022-03-27']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T01:34:58+00:00",
+  "duration_seconds": 86.43,
+  "tokens_input": 15023,
+  "tokens_output": 2300,
+  "tool_calls": 16,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Grand Rapids to Illinois\nTransportation: Flight Number: F11136175, from Grand Rapids to Illinois, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Grand Rapids\nAttraction: Heritage Museum, Illinois\nLunch: Riverside Bistro, Illinois\nDinner: The Olive Tree, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 2:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Lantern House, Illinois\nAttraction: Liberty Hall, Illinois\nLunch: The Olive Tree, Illinois\nDinner: Lantern House, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 3:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Illinois\nAttraction: Liberty Hall, Illinois\nLunch: The Olive Tree, Illinois\nDinner: Kettle & Fork, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 4:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Illinois\nAttraction: Liberty Hall, Illinois\nLunch: Stone Hearth Kitchen, Illinois\nDinner: Harbor Cafe, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 5:\nCurrent City: from Illinois to Grand Rapids\nTransportation: Flight Number: F16405512, from Illinois to Grand Rapids, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Illinois\nAttraction: -\nLunch: Maple Diner, Illinois\nDinner: Riverside Bistro, Illinois\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": true,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": true
+    },
+    "composite_score": 0.875,
+    "final_pass": false
+  },
+  "status": "completed"
+}

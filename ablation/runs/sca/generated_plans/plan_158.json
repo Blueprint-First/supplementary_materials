@@ -1,0 +1,56 @@
+{
+  "question_id": 158,
+  "query": "Can you assist in preparing a 5-day travel plan for two individuals, departing from Fort Lauderdale and visiting 2 cities in Texas? The travel dates should be from March 5th to March 9th, 2022, with a budget cap of $4,200. We're open to variety when it comes to food, preferring Indian, Italian, Chinese, or Mediterranean cuisines. It's important to note that we'd like accommodations allowing parties since we're planning to host them. Kindly note that we aren't intending to drive ourselves during the trip.",
+  "question_details": {
+    "id": 158,
+    "query": "Can you assist in preparing a 5-day travel plan for two individuals, departing from Fort Lauderdale and visiting 2 cities in Texas? The travel dates should be from March 5th to March 9th, 2022, with a budget cap of $4,200. We're open to variety when it comes to food, preferring Indian, Italian, Chinese, or Mediterranean cuisines. It's important to note that we'd like accommodations allowing parties since we're planning to host them. Kindly note that we aren't intending to drive ourselves during the trip.",
+    "level": "hard",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Fort Lauderdale",
+    "dest": "Texas",
+    "budget": 4200,
+    "local_constraint": "{'house rule': 'parties', 'cuisine': ['Indian', 'Italian', 'Chinese', 'Mediterranean'], 'room type': None, 'transportation': 'no self-driving'}",
+    "people_number": 2,
+    "date": "['2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T00:12:14+00:00",
+  "duration_seconds": 89.53,
+  "tokens_input": 15300,
+  "tokens_output": 2521,
+  "tool_calls": 18,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Fort Lauderdale to Austin\",\n        \"transportation\": \"Flight Number: F3769154, from Fort Lauderdale to Austin, Departure Time: 20:28, Arrival Time: 22:31\",\n        \"breakfast\": \"-\",\n        \"attraction\": \"-\",\n        \"lunch\": \"-\",\n        \"dinner\": \"Tandoori Nights, Austin\",\n        \"accommodation\": \"Spacious Williamsburg 1 bedroom!, Austin\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Austin\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Moksha, Austin\",\n        \"attraction\": \"Texas Capitol, Austin;Zilker Metropolitan Park, Austin;Museum of the Weird, Austin;\",\n        \"lunch\": \"Chin Pokli, Austin\",\n        \"dinner\": \"The Blue Door Cafe, Austin\",\n        \"accommodation\": \"Spacious Williamsburg 1 bedroom!, Austin\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Austin to Houston\",\n        \"transportation\": \"Taxi, from Austin to Houston, Distance: 266km, Duration: 2h 31m\",\n        \"breakfast\": \"Frontier, Austin\",\n        \"attraction\": \"Bullock Texas State History Museum, Austin;\",\n        \"lunch\": \"Matchbox, Houston\",\n        \"dinner\": \"Chawla's', Houston\",\n        \"accommodation\": \"Spacious room in front of prospect park, Houston\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Houston\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Vinayaka Mylari, Houston\",\n        \"attraction\": \"Space Center Houston, Houston;Houston Museum of Natural Science, Houston;Water Wall, Houston;\",\n        \"lunch\": \"Pebble Street, Houston\",\n        \"dinner\": \"Istanbul Restaurant, Houston\",\n        \"accommodation\": \"Spacious room in front of prospect park, Houston\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Houston to Fort Lauderdale\",\n        \"transportation\": \"Flight Number: F4019288, from Houston to Fort Lauderdale, Departure Time: 15:32, Arrival Time: 18:41\",\n        \"breakfast\": \"Tasty Bite, Houston\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Truth Coffee, Houston\",\n        \"dinner\": \"-\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H5": false
+    },
+    "composite_score": 0.1875,
+    "final_pass": false
+  },
+  "status": "completed"
+}

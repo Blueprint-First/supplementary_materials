@@ -1,0 +1,54 @@
+{
+  "question_id": 82,
+  "query": "Could you create a 5-day travel itinerary for a group of 3, starting in Miami and visiting 2 cities in Texas from March 27th to March 31st, 2022? We have a budget of $8,500. Along the way, we would love to experience Indian and Mediterranean cuisine.",
+  "question_details": {
+    "id": 82,
+    "query": "Could you create a 5-day travel itinerary for a group of 3, starting in Miami and visiting 2 cities in Texas from March 27th to March 31st, 2022? We have a budget of $8,500. Along the way, we would love to experience Indian and Mediterranean cuisine.",
+    "level": "medium",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Miami",
+    "dest": "Texas",
+    "budget": 8500,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Indian', 'Mediterranean'], 'room type': None, 'transportation': None}",
+    "people_number": 3,
+    "date": "['2022-03-27', '2022-03-28', '2022-03-29', '2022-03-30', '2022-03-31']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T22:39:46+00:00",
+  "duration_seconds": 44.82,
+  "tokens_input": 8917,
+  "tokens_output": 1323,
+  "tool_calls": 9,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Miami to Houston\",\n        \"transportation\": \"Flight Number: F3880086, from Miami to Houston, Departure Time: 13:56, Arrival Time: 15:29\",\n        \"breakfast\": \"South Indian Corner, Miami\",\n        \"attraction\": \"Space Center Houston, Houston;\",\n        \"lunch\": \"Papouli's Mediterranean Cafe & Market, Miami\",\n        \"dinner\": \"Istanbul Restaurant, Houston\",\n        \"accommodation\": \"Superhost 3 bedroom DISCOUNT, Houston\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Houston\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Vinayaka Mylari, Houston\",\n        \"attraction\": \"Houston Museum of Natural Science, Houston;Houston Zoo, Houston;Water Wall, Houston;\",\n        \"lunch\": \"Pebble Street, Houston\",\n        \"dinner\": \"The BrewMaster - The Mix Fine Dine, Houston\",\n        \"accommodation\": \"Superhost 3 bedroom DISCOUNT, Houston\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Houston to Dallas\",\n        \"transportation\": \"Flight Number: F3961229, from Houston to Dallas, Departure Time: 18:20, Arrival Time: 19:12\",\n        \"breakfast\": \"Zaika, Houston\",\n        \"attraction\": \"Hermann Park, Houston;\",\n        \"lunch\": \"Royal Mart, Houston\",\n        \"dinner\": \"Coconuts Fish Cafe, Dallas\",\n        \"accommodation\": \"Spacious cozy apartment, Dallas\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Dallas\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Cafe Gatherings, Dallas\",\n        \"attraction\": \"The Dallas Arboretum and Botanical Garden, Dallas;The Sixth Floor Museum at Dealey Plaza, Dallas;Dealey Plaza, Dallas;Reunion Tower, Dallas;\",\n        \"lunch\": \"Yanki Sizzlers, Dallas\",\n        \"dinner\": \"Bake Club, Dallas\",\n        \"accommodation\": \"Spacious cozy apartment, Dallas\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Dallas to Miami\",\n        \"transportation\": \"Flight Number: F3699688, from Dallas to Miami, Departure Time: 10:56, Arrival Time: 14:31\",\n        \"breakfast\": \"Kolkata Biryani House, Dallas\",\n        \"attraction\": \"-\",\n        \"lunch\": \"MONKS, Dallas\",\n        \"dinner\": \"Anjlika, Miami\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed"
+}

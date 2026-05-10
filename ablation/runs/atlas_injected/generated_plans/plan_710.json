@@ -1,0 +1,82 @@
+{
+  "question_id": 710,
+  "query": "Please create a travel plan for 2 people starting in San Diego and heading to Austin for 3 days from March 12th to March 14th, 2022. Our budget is $2,700. For our accommodations, we require a smoking-allowed place, and we are open about the types of rooms. We will not be self-driving, so kindly arrange for the necessary transportation. Regarding meals, we're interested in Italian, Mediterranean, American, and Mexican cuisines.",
+  "question_details": {
+    "id": 710,
+    "query": "Please create a travel plan for 2 people starting in San Diego and heading to Austin for 3 days from March 12th to March 14th, 2022. Our budget is $2,700. For our accommodations, we require a smoking-allowed place, and we are open about the types of rooms. We will not be self-driving, so kindly arrange for the necessary transportation. Regarding meals, we're interested in Italian, Mediterranean, American, and Mexican cuisines.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "San Diego",
+    "dest": "Austin",
+    "budget": 2700,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': ['Italian', 'Mexican', 'American', 'Mediterranean'], 'room type': None, 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-12', '2022-03-13', '2022-03-14']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T07:23:50+00:00",
+  "duration_seconds": 48.19,
+  "tokens_input": 8805,
+  "tokens_output": 1534,
+  "tool_calls": 13,
+  "parsed_plan_text": "Day 1:\nCurrent City: from San Diego to Austin\nTransportation: Flight Number: F99999993, from San Diego to Austin, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, San Diego\nAttraction: Skyline Observatory, Austin\nLunch: The Olive Tree, Austin\nDinner: The Olive Tree, Austin\nAccommodation: Boutique Inn at Austin Center, Austin\n\nDay 2:\nCurrent City: Austin\nTransportation: -\nBreakfast: Harbor Cafe, Austin\nAttraction: Skyline Observatory, Austin\nLunch: Lantern House, Austin\nDinner: Sunset Grille, Austin\nAccommodation: Boutique Inn at Austin Center, Austin\n\nDay 3:\nCurrent City: from Austin to San Diego\nTransportation: Flight Number: F1852603, from Austin to San Diego, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Austin\nAttraction: -\nLunch: Harbor Cafe, Austin\nDinner: Lantern House, Austin\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": true,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.1875,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    },
+    {
+      "code": "H2",
+      "kind": "hard",
+      "description": "Cuisine coverage at destination"
+    }
+  ]
+}

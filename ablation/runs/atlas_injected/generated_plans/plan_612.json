@@ -1,0 +1,61 @@
+{
+  "question_id": 612,
+  "query": "Could you help me outline a one-week travel plan for 2 people, starting in Grand Rapids and visiting 3 different cities in Texas from March 1st to March 7th, 2022? We have allocated a budget of $5,100 for this trip. Please ensure that our accommodations consist of rooms that are not shared with others.",
+  "question_details": {
+    "id": 612,
+    "query": "Could you help me outline a one-week travel plan for 2 people, starting in Grand Rapids and visiting 3 different cities in Texas from March 1st to March 7th, 2022? We have allocated a budget of $5,100 for this trip. Please ensure that our accommodations consist of rooms that are not shared with others.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Grand Rapids",
+    "dest": "Texas",
+    "budget": 5100,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-01', '2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T05:24:36+00:00",
+  "duration_seconds": 110.02,
+  "tokens_input": 17665,
+  "tokens_output": 2947,
+  "tool_calls": 21,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Grand Rapids to Texas\nTransportation: Flight Number: F9999999, from Grand Rapids to Texas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Grand Rapids\nAttraction: Skyline Observatory, Texas\nLunch: Lantern House, Texas\nDinner: Stone Hearth Kitchen, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 2:\nCurrent City: Texas\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Texas\nAttraction: Heritage Museum, Texas\nLunch: Harbor Cafe, Texas\nDinner: Harbor Cafe, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 3:\nCurrent City: Texas\nTransportation: -\nBreakfast: Garden Brasserie, Texas\nAttraction: Skyline Observatory, Texas\nLunch: Garden Brasserie, Texas\nDinner: Kettle & Fork, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 4:\nCurrent City: Texas\nTransportation: -\nBreakfast: Sunset Grille, Texas\nAttraction: Heritage Museum, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Lantern House, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 5:\nCurrent City: Texas\nTransportation: -\nBreakfast: The Olive Tree, Texas\nAttraction: Liberty Hall, Texas\nLunch: Harbor Cafe, Texas\nDinner: Lantern House, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 6:\nCurrent City: Texas\nTransportation: -\nBreakfast: Riverside Bistro, Texas\nAttraction: Liberty Hall, Texas\nLunch: Riverside Bistro, Texas\nDinner: Stone Hearth Kitchen, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 7:\nCurrent City: from Texas to Grand Rapids\nTransportation: Flight Number: F10996619, from Texas to Grand Rapids, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, Texas\nAttraction: -\nLunch: Lantern House, Texas\nDinner: Harbor Cafe, Texas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H5": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "question_id": 403,
+  "query": "Please help me create a travel itinerary for 2 people from Fort Myers to Atlantic City. This trip will only span 3 days from March 9th to March 11th, 2022. We have a budget of $2,000 and would prefer to stay in accommodations that provide entire rooms.",
+  "question_details": {
+    "id": 403,
+    "query": "Please help me create a travel itinerary for 2 people from Fort Myers to Atlantic City. This trip will only span 3 days from March 9th to March 11th, 2022. We have a budget of $2,000 and would prefer to stay in accommodations that provide entire rooms.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Fort Myers",
+    "dest": "Atlantic City",
+    "budget": 2000,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'entire room', 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-09', '2022-03-10', '2022-03-11']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T05:10:19+00:00",
+  "duration_seconds": 48.61,
+  "tokens_input": 10985,
+  "tokens_output": 1653,
+  "tool_calls": 12,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Fort Myers to Atlantic City\nTransportation: Flight Number: F1465052, from Fort Myers to Atlantic City, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Fort Myers\nAttraction: Skyline Observatory, Atlantic City\nLunch: Lantern House, Atlantic City\nDinner: Lantern House, Atlantic City\nAccommodation: Boutique Inn at Atlantic City Center, Atlantic City\n\nDay 2:\nCurrent City: Atlantic City\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Atlantic City\nAttraction: Heritage Museum, Atlantic City\nLunch: Harbor Cafe, Atlantic City\nDinner: The Olive Tree, Atlantic City\nAccommodation: Boutique Inn at Atlantic City Center, Atlantic City\n\nDay 3:\nCurrent City: from Atlantic City to Fort Myers\nTransportation: Flight Number: F8058798, from Atlantic City to Fort Myers, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Atlantic City\nAttraction: -\nLunch: Garden Brasserie, Atlantic City\nDinner: Garden Brasserie, Atlantic City\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed"
+}

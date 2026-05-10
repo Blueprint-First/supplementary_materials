@@ -1,0 +1,86 @@
+{
+  "question_id": 420,
+  "query": "Could you provide a 3-day travel itinerary for a group of 7, departing from Atlanta and heading to San Francisco from March 28th to March 30th, 2022? Take into account a budget of $16,100. The accommodations should be suitable for parties.",
+  "question_details": {
+    "id": 420,
+    "query": "Could you provide a 3-day travel itinerary for a group of 7, departing from Atlanta and heading to San Francisco from March 28th to March 30th, 2022? Take into account a budget of $16,100. The accommodations should be suitable for parties.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Atlanta",
+    "dest": "San Francisco",
+    "budget": 16100,
+    "local_constraint": "{'house rule': 'parties', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-28', '2022-03-29', '2022-03-30']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T17:31:00+00:00",
+  "duration_seconds": 26.03,
+  "tokens_input": 4981,
+  "tokens_output": 598,
+  "tool_calls": 9,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Atlanta to San Francisco\nTransportation: Flight Number: F9999999, from Atlanta to San Francisco, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Atlanta\nAttraction: Heritage Museum, San Francisco\nLunch: Maple Diner, San Francisco\nDinner: Maple Diner, San Francisco\nAccommodation: Boutique Inn at San Francisco Center, San Francisco\n\nDay 2:\nCurrent City: San Francisco\nTransportation: -\nBreakfast: Riverside Bistro, San Francisco\nAttraction: Old Town Square, San Francisco\nLunch: Maple Diner, San Francisco\nDinner: Kettle & Fork, San Francisco\nAccommodation: Boutique Inn at San Francisco Center, San Francisco\n\nDay 3:\nCurrent City: from San Francisco to Atlanta\nTransportation: Flight Number: F9700033, from San Francisco to Atlanta, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, San Francisco\nAttraction: -\nLunch: Kettle & Fork, San Francisco\nDinner: Maple Diner, San Francisco\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false
+    },
+    "composite_score": 0.0,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    },
+    {
+      "code": "H2",
+      "kind": "hard",
+      "description": "Cuisine coverage at destination"
+    }
+  ]
+}

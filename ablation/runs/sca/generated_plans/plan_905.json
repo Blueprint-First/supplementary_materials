@@ -1,0 +1,56 @@
+{
+  "question_id": 905,
+  "query": "We would appreciate a 7-day travel itinerary for 2 people, departing from Tallahassee towards 3 cities in Texas. The dates we are looking at are from March 1st through March 7th, 2022. For this trip, our budget is set at $5,000. We have children under 10 with us, so accommodations should be suitable for them. As for transportation, we prefer not to take any flights. Lastly, for dining, we enjoy French, American, Mexican, and Italian cuisines.",
+  "question_details": {
+    "id": 905,
+    "query": "We would appreciate a 7-day travel itinerary for 2 people, departing from Tallahassee towards 3 cities in Texas. The dates we are looking at are from March 1st through March 7th, 2022. For this trip, our budget is set at $5,000. We have children under 10 with us, so accommodations should be suitable for them. As for transportation, we prefer not to take any flights. Lastly, for dining, we enjoy French, American, Mexican, and Italian cuisines.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Tallahassee",
+    "dest": "Texas",
+    "budget": 5000,
+    "local_constraint": "{'house rule': 'children under 10', 'cuisine': ['Italian', 'Mexican', 'French', 'American'], 'room type': None, 'transportation': None}",
+    "people_number": 2,
+    "date": "['2022-03-01', '2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T15:21:05+00:00",
+  "duration_seconds": 180.02,
+  "tokens_input": 28015,
+  "tokens_output": 4687,
+  "tool_calls": 33,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Tallahassee to Texas\nTransportation: Flight Number: F2150093, from Tallahassee to Texas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Tallahassee\nAttraction: City Botanical Garden, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Riverside Bistro, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 2:\nCurrent City: Texas\nTransportation: -\nBreakfast: Riverside Bistro, Texas\nAttraction: Heritage Museum, Texas\nLunch: Kettle & Fork, Texas\nDinner: Garden Brasserie, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 3:\nCurrent City: Texas\nTransportation: -\nBreakfast: Riverside Bistro, Texas\nAttraction: Old Town Square, Texas\nLunch: Garden Brasserie, Texas\nDinner: Garden Brasserie, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 4:\nCurrent City: Texas\nTransportation: -\nBreakfast: Riverside Bistro, Texas\nAttraction: Old Town Square, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Maple Diner, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 5:\nCurrent City: Texas\nTransportation: -\nBreakfast: Harbor Cafe, Texas\nAttraction: City Botanical Garden, Texas\nLunch: Maple Diner, Texas\nDinner: The Olive Tree, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 6:\nCurrent City: Texas\nTransportation: -\nBreakfast: Kettle & Fork, Texas\nAttraction: Riverwalk Park, Texas\nLunch: Harbor Cafe, Texas\nDinner: Garden Brasserie, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 7:\nCurrent City: from Texas to Tallahassee\nTransportation: Flight Number: F7419430, from Texas to Tallahassee, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Harbor Cafe, Texas\nAttraction: -\nLunch: Garden Brasserie, Texas\nDinner: Lantern House, Texas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": false,
+      "C6": true,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.25,
+    "final_pass": false
+  },
+  "status": "completed"
+}

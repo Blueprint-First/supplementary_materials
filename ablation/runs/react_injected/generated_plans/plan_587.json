@@ -1,0 +1,91 @@
+{
+  "question_id": 587,
+  "query": "Can you help me plan a 7-day trip from Great Falls to Washington for two people from March 13th to March 19th, 2022? We plan to visit 3 cities in Washington and have a budget of $3,500. During our trip, we would love to enjoy Mexican and Italian cuisine.",
+  "question_details": {
+    "id": 587,
+    "query": "Can you help me plan a 7-day trip from Great Falls to Washington for two people from March 13th to March 19th, 2022? We plan to visit 3 cities in Washington and have a budget of $3,500. During our trip, we would love to enjoy Mexican and Italian cuisine.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Great Falls",
+    "dest": "Washington",
+    "budget": 3500,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Italian', 'Mexican'], 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-13', '2022-03-14', '2022-03-15', '2022-03-16', '2022-03-17', '2022-03-18', '2022-03-19']"
+  },
+  "method": "react_injected",
+  "method_label": "ReAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ReAct",
+    "system_prompt": "ablation/injected_prompts/react_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8",
+    "max_tool_calls": 30
+  },
+  "timestamp": "2026-04-12T20:54:11+00:00",
+  "duration_seconds": 61.87,
+  "tokens_input": 11960,
+  "tokens_output": 1539,
+  "tool_calls": 16,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Great Falls to Washington\nTransportation: Flight Number: F9999999, from Great Falls to Washington, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Great Falls\nAttraction: Heritage Museum, Washington\nLunch: Lantern House, Washington\nDinner: Lantern House, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 2:\nCurrent City: Washington\nTransportation: -\nBreakfast: Riverside Bistro, Washington\nAttraction: Heritage Museum, Washington\nLunch: Garden Brasserie, Washington\nDinner: Harbor Cafe, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 3:\nCurrent City: Washington\nTransportation: -\nBreakfast: Riverside Bistro, Washington\nAttraction: Heritage Museum, Washington\nLunch: Maple Diner, Washington\nDinner: Sunset Grille, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 4:\nCurrent City: Washington\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Washington\nAttraction: City Botanical Garden, Washington\nLunch: Harbor Cafe, Washington\nDinner: Lantern House, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 5:\nCurrent City: Washington\nTransportation: -\nBreakfast: The Olive Tree, Washington\nAttraction: Skyline Observatory, Washington\nLunch: Stone Hearth Kitchen, Washington\nDinner: Kettle & Fork, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 6:\nCurrent City: Washington\nTransportation: -\nBreakfast: Harbor Cafe, Washington\nAttraction: Old Town Square, Washington\nLunch: Sunset Grille, Washington\nDinner: Garden Brasserie, Washington\nAccommodation: Boutique Inn at Washington Center, Washington\n\nDay 7:\nCurrent City: from Washington to Great Falls\nTransportation: Flight Number: F7745345, from Washington to Great Falls, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Washington\nAttraction: -\nLunch: Sunset Grille, Washington\nDinner: Riverside Bistro, Washington\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": true,
+      "C5": true,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false
+    },
+    "composite_score": 0.125,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "C8",
+      "kind": "commonsense",
+      "description": "Information completeness per day"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}

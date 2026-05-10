@@ -1,0 +1,56 @@
+{
+  "question_id": 978,
+  "query": "Could you arrange a week-long journey for two people beginning in Kansas City, during which we will visit three different cities in Texas starting from March 3rd to March 9th, 2022? We\u2019ve set a budget of $7,700. For accommodations, we require non-shared rooms where smoking is allowed. Additionally, we prefer not to drive ourselves throughout this trip.",
+  "question_details": {
+    "id": 978,
+    "query": "Could you arrange a week-long journey for two people beginning in Kansas City, during which we will visit three different cities in Texas starting from March 3rd to March 9th, 2022? We\u2019ve set a budget of $7,700. For accommodations, we require non-shared rooms where smoking is allowed. Additionally, we prefer not to drive ourselves throughout this trip.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Kansas City",
+    "dest": "Texas",
+    "budget": 7700,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': None, 'room type': 'shared room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T16:49:54+00:00",
+  "duration_seconds": 144.59,
+  "tokens_input": 36875,
+  "tokens_output": 4330,
+  "tool_calls": 35,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Kansas City to Texas\nTransportation: Flight Number: F15892489, from Kansas City to Texas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Kansas City\nAttraction: Old Town Square, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Sunset Grille, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 2:\nCurrent City: Texas\nTransportation: -\nBreakfast: Harbor Cafe, Texas\nAttraction: Riverwalk Park, Texas\nLunch: Harbor Cafe, Texas\nDinner: Lantern House, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 3:\nCurrent City: Texas\nTransportation: -\nBreakfast: Harbor Cafe, Texas\nAttraction: Old Town Square, Texas\nLunch: Kettle & Fork, Texas\nDinner: Harbor Cafe, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 4:\nCurrent City: Texas\nTransportation: -\nBreakfast: Sunset Grille, Texas\nAttraction: Riverwalk Park, Texas\nLunch: Sunset Grille, Texas\nDinner: Kettle & Fork, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 5:\nCurrent City: Texas\nTransportation: -\nBreakfast: The Olive Tree, Texas\nAttraction: Heritage Museum, Texas\nLunch: Sunset Grille, Texas\nDinner: The Olive Tree, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 6:\nCurrent City: Texas\nTransportation: -\nBreakfast: Riverside Bistro, Texas\nAttraction: Liberty Hall, Texas\nLunch: Maple Diner, Texas\nDinner: Harbor Cafe, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 7:\nCurrent City: from Texas to Kansas City\nTransportation: Flight Number: F4384610, from Texas to Kansas City, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Kettle & Fork, Texas\nAttraction: -\nLunch: Maple Diner, Texas\nDinner: Harbor Cafe, Texas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": true,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.3125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

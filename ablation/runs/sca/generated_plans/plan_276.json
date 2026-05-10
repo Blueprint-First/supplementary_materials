@@ -1,0 +1,53 @@
+{
+  "question_id": 276,
+  "query": "I need to plan a 7-day solo trip, departing from Twin Falls and visiting 3 different cities in Utah. The trip will span from March 23rd to March 29th, 2022. My budget for this trip is $3,400. Could you assist in planning this trip?",
+  "question_details": {
+    "id": 276,
+    "query": "I need to plan a 7-day solo trip, departing from Twin Falls and visiting 3 different cities in Utah. The trip will span from March 23rd to March 29th, 2022. My budget for this trip is $3,400. Could you assist in planning this trip?",
+    "level": "easy",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Twin Falls",
+    "dest": "Utah",
+    "budget": 3400,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-23', '2022-03-24', '2022-03-25', '2022-03-26', '2022-03-27', '2022-03-28', '2022-03-29']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T02:35:48+00:00",
+  "duration_seconds": 125.47,
+  "tokens_input": 24212,
+  "tokens_output": 3574,
+  "tool_calls": 23,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Twin Falls to Utah\nTransportation: Flight Number: F2718042, from Twin Falls to Utah, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Twin Falls\nAttraction: City Botanical Garden, Utah\nLunch: Riverside Bistro, Utah\nDinner: Kettle & Fork, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 2:\nCurrent City: Utah\nTransportation: -\nBreakfast: Stone Hearth Kitchen, Utah\nAttraction: Liberty Hall, Utah\nLunch: The Olive Tree, Utah\nDinner: Garden Brasserie, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 3:\nCurrent City: Utah\nTransportation: -\nBreakfast: Riverside Bistro, Utah\nAttraction: Heritage Museum, Utah\nLunch: Harbor Cafe, Utah\nDinner: Kettle & Fork, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 4:\nCurrent City: Utah\nTransportation: -\nBreakfast: Lantern House, Utah\nAttraction: Old Town Square, Utah\nLunch: Sunset Grille, Utah\nDinner: Stone Hearth Kitchen, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 5:\nCurrent City: Utah\nTransportation: -\nBreakfast: Garden Brasserie, Utah\nAttraction: Riverwalk Park, Utah\nLunch: Harbor Cafe, Utah\nDinner: Lantern House, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 6:\nCurrent City: Utah\nTransportation: -\nBreakfast: Riverside Bistro, Utah\nAttraction: Liberty Hall, Utah\nLunch: Sunset Grille, Utah\nDinner: Garden Brasserie, Utah\nAccommodation: Boutique Inn at Utah Center, Utah\n\nDay 7:\nCurrent City: from Utah to Twin Falls\nTransportation: Flight Number: F7987379, from Utah to Twin Falls, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: The Olive Tree, Utah\nAttraction: -\nLunch: Sunset Grille, Utah\nDinner: Riverside Bistro, Utah\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": true,
+      "C5": false,
+      "C6": false,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.1875,
+    "final_pass": false
+  },
+  "status": "completed"
+}

@@ -1,0 +1,56 @@
+{
+  "question_id": 739,
+  "query": "Can you create a travel plan for two people departing Minneapolis and heading to St. Louis for 3 days, from March 14th to March 16th, 2022? Our budget is set at $1,400. As we're traveling with children under 10, please ensure that the accommodations are suitable for them. Moreover, we require non-shared rooms, and would prefer not to drive ourselves during the trip.",
+  "question_details": {
+    "id": 739,
+    "query": "Can you create a travel plan for two people departing Minneapolis and heading to St. Louis for 3 days, from March 14th to March 16th, 2022? Our budget is set at $1,400. As we're traveling with children under 10, please ensure that the accommodations are suitable for them. Moreover, we require non-shared rooms, and would prefer not to drive ourselves during the trip.",
+    "level": "hard",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Minneapolis",
+    "dest": "St. Louis",
+    "budget": 1400,
+    "local_constraint": "{'house rule': 'children under 10', 'cuisine': None, 'room type': 'shared room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-14', '2022-03-15', '2022-03-16']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T11:59:07+00:00",
+  "duration_seconds": 65.98,
+  "tokens_input": 15229,
+  "tokens_output": 2270,
+  "tool_calls": 15,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Minneapolis to St. Louis\nTransportation: Flight Number: F1338718, from Minneapolis to St. Louis, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Minneapolis\nAttraction: Liberty Hall, St. Louis\nLunch: Maple Diner, St. Louis\nDinner: Lantern House, St. Louis\nAccommodation: Boutique Inn at St. Louis Center, St. Louis\n\nDay 2:\nCurrent City: St. Louis\nTransportation: -\nBreakfast: Kettle & Fork, St. Louis\nAttraction: Skyline Observatory, St. Louis\nLunch: The Olive Tree, St. Louis\nDinner: Garden Brasserie, St. Louis\nAccommodation: Boutique Inn at St. Louis Center, St. Louis\n\nDay 3:\nCurrent City: from St. Louis to Minneapolis\nTransportation: Flight Number: F6608055, from St. Louis to Minneapolis, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Stone Hearth Kitchen, St. Louis\nAttraction: -\nLunch: Sunset Grille, St. Louis\nDinner: Kettle & Fork, St. Louis\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": true,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.25,
+    "final_pass": false
+  },
+  "status": "completed"
+}

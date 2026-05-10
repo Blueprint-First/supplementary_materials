@@ -1,0 +1,55 @@
+{
+  "question_id": 652,
+  "query": "I need help to plan a 7-day trip for 3 people from Green Bay to Michigan, visiting 3 different cities from March 10th to March 16th, 2022. Our accommodation preferences are for private rooms. The total budget for the trip shouldn't exceed $9,100.",
+  "question_details": {
+    "id": 652,
+    "query": "I need help to plan a 7-day trip for 3 people from Green Bay to Michigan, visiting 3 different cities from March 10th to March 16th, 2022. Our accommodation preferences are for private rooms. The total budget for the trip shouldn't exceed $9,100.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Green Bay",
+    "dest": "Michigan",
+    "budget": 9100,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'private room', 'transportation': None}",
+    "people_number": 3,
+    "date": "['2022-03-10', '2022-03-11', '2022-03-12', '2022-03-13', '2022-03-14', '2022-03-15', '2022-03-16']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T10:13:16+00:00",
+  "duration_seconds": 131.54,
+  "tokens_input": 24755,
+  "tokens_output": 4534,
+  "tool_calls": 33,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Green Bay to Michigan\nTransportation: Flight Number: F11086332, from Green Bay to Michigan, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Green Bay\nAttraction: City Botanical Garden, Michigan\nLunch: Garden Brasserie, Michigan\nDinner: Lantern House, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 2:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Kettle & Fork, Michigan\nAttraction: Heritage Museum, Michigan\nLunch: Riverside Bistro, Michigan\nDinner: Maple Diner, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 3:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Riverside Bistro, Michigan\nAttraction: City Botanical Garden, Michigan\nLunch: Stone Hearth Kitchen, Michigan\nDinner: Garden Brasserie, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 4:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Sunset Grille, Michigan\nAttraction: Old Town Square, Michigan\nLunch: Stone Hearth Kitchen, Michigan\nDinner: The Olive Tree, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 5:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Harbor Cafe, Michigan\nAttraction: Liberty Hall, Michigan\nLunch: Stone Hearth Kitchen, Michigan\nDinner: Harbor Cafe, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 6:\nCurrent City: Michigan\nTransportation: -\nBreakfast: Sunset Grille, Michigan\nAttraction: Riverwalk Park, Michigan\nLunch: Stone Hearth Kitchen, Michigan\nDinner: Riverside Bistro, Michigan\nAccommodation: Boutique Inn at Michigan Center, Michigan\n\nDay 7:\nCurrent City: from Michigan to Green Bay\nTransportation: Flight Number: F16355669, from Michigan to Green Bay, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, Michigan\nAttraction: -\nLunch: Harbor Cafe, Michigan\nDinner: Kettle & Fork, Michigan\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed"
+}

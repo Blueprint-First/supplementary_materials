@@ -1,0 +1,55 @@
+{
+  "question_id": 625,
+  "query": "Could you create a 7-day travel plan for a group of 4, departing from Madison and visiting 3 cities in Illinois from March 3rd to March 9th, 2022? Our budget for this trip is set at $18,600. We're planning to bring our pets, so we need our accommodations to be pet-friendly.",
+  "question_details": {
+    "id": 625,
+    "query": "Could you create a 7-day travel plan for a group of 4, departing from Madison and visiting 3 cities in Illinois from March 3rd to March 9th, 2022? Our budget for this trip is set at $18,600. We're planning to bring our pets, so we need our accommodations to be pet-friendly.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Madison",
+    "dest": "Illinois",
+    "budget": 18600,
+    "local_constraint": "{'house rule': 'pets', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T09:40:25+00:00",
+  "duration_seconds": 129.07,
+  "tokens_input": 27525,
+  "tokens_output": 3720,
+  "tool_calls": 32,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Madison to Illinois\nTransportation: Flight Number: F12119347, from Madison to Illinois, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Madison\nAttraction: Liberty Hall, Illinois\nLunch: Kettle & Fork, Illinois\nDinner: Harbor Cafe, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 2:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Maple Diner, Illinois\nAttraction: Skyline Observatory, Illinois\nLunch: Lantern House, Illinois\nDinner: Lantern House, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 3:\nCurrent City: Illinois\nTransportation: -\nBreakfast: The Olive Tree, Illinois\nAttraction: Liberty Hall, Illinois\nLunch: Lantern House, Illinois\nDinner: Lantern House, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 4:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Riverside Bistro, Illinois\nAttraction: Skyline Observatory, Illinois\nLunch: Lantern House, Illinois\nDinner: Riverside Bistro, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 5:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Garden Brasserie, Illinois\nAttraction: City Botanical Garden, Illinois\nLunch: Garden Brasserie, Illinois\nDinner: Kettle & Fork, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 6:\nCurrent City: Illinois\nTransportation: -\nBreakfast: Lantern House, Illinois\nAttraction: Riverwalk Park, Illinois\nLunch: Riverside Bistro, Illinois\nDinner: Garden Brasserie, Illinois\nAccommodation: Boutique Inn at Illinois Center, Illinois\n\nDay 7:\nCurrent City: from Illinois to Madison\nTransportation: Flight Number: F1935877, from Illinois to Madison, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, Illinois\nAttraction: -\nLunch: Kettle & Fork, Illinois\nDinner: Sunset Grille, Illinois\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed"
+}

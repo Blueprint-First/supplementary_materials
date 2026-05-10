@@ -1,0 +1,53 @@
+{
+  "question_id": 29,
+  "query": "Can you assist in crafting a travel schedule departing from Richmond and traveling to 2 cities in Tennessee? The journey will last 5 days, starting on March 5th and concluding on March 9th, 2022. The travel budget is set at $2,600.",
+  "question_details": {
+    "id": 29,
+    "query": "Can you assist in crafting a travel schedule departing from Richmond and traveling to 2 cities in Tennessee? The journey will last 5 days, starting on March 5th and concluding on March 9th, 2022. The travel budget is set at $2,600.",
+    "level": "easy",
+    "days": 5,
+    "visiting_city_number": 2,
+    "org": "Richmond",
+    "dest": "Tennessee",
+    "budget": 2600,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-12T21:35:17+00:00",
+  "duration_seconds": 52.2,
+  "tokens_input": 10174,
+  "tokens_output": 1354,
+  "tool_calls": 12,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Richmond to Knoxville\",\n        \"transportation\": \"Self-Driving from Richmond to Knoxville, Distance: 702km, Duration: 6h 26mins, Cost: 35.00\",\n        \"breakfast\": \"Open Kitchen, Knoxville\",\n        \"attraction\": \"World's Fair Park, Knoxville;Sunsphere, Knoxville;\",\n        \"lunch\": \"Mamagoto, Knoxville\",\n        \"dinner\": \"Cafe Arabelle, Knoxville\",\n        \"accommodation\": \"Light-filled Room in Renovated Apt, Knoxville\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Knoxville\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Chit Chat, Knoxville\",\n        \"attraction\": \"Zoo Knoxville, Knoxville;Knoxville Museum of Art, Knoxville;Ijams Nature Center, Knoxville;\",\n        \"lunch\": \"La-Nawaab, Knoxville\",\n        \"dinner\": \"Coalition Cafe, Knoxville\",\n        \"accommodation\": \"Light-filled Room in Renovated Apt, Knoxville\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Knoxville to Nashville\",\n        \"transportation\": \"Self-Driving from Knoxville to Nashville, Distance: 290km, Duration: 2h 42mins, Cost: 14.50\",\n        \"breakfast\": \"Tandoori Tadka, Knoxville\",\n        \"attraction\": \"Country Music Hall of Fame and Museum, Nashville;\",\n        \"lunch\": \"Les 3 Brasseurs, Knoxville\",\n        \"dinner\": \"Twigly, Nashville\",\n        \"accommodation\": \"Lovely room in heart of Williamsburg, Nashville\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Nashville\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Govinda's Confectionery, Nashville\",\n        \"attraction\": \"The Parthenon, Nashville;Grand Ole Opry, Nashville;Honky Tonk Highway, Nashville;\",\n        \"lunch\": \"Chicago Pizza, Nashville\",\n        \"dinner\": \"GoGourmet, Nashville\",\n        \"accommodation\": \"Lovely room in heart of Williamsburg, Nashville\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Nashville to Richmond\",\n        \"transportation\": \"Self-Driving from Nashville to Richmond, Distance: 988km, Duration: 9h 1min, Cost: 49.40\",\n        \"breakfast\": \"Bablu Fast Food, Nashville\",\n        \"attraction\": \"-\",\n        \"lunch\": \"Meenakshi Bhawan, Nashville\",\n        \"dinner\": \"Punjabi Virsa, Nashville\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": true,
+      "C4": false,
+      "C5": true,
+      "C6": true,
+      "C7": true,
+      "C8": false
+    },
+    "hard": {
+      "H1": false
+    },
+    "composite_score": 0.3125,
+    "final_pass": false
+  },
+  "status": "completed"
+}

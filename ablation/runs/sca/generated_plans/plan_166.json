@@ -1,0 +1,56 @@
+{
+  "question_id": 166,
+  "query": "Could you devise a 7-day travel plan for two people, starting in Las Vegas and touring 3 cities in Idaho from March 4th to March 10th, 2022? Our budget is set at $5,100. We require accommodations that allow smoking and should ideally be entire rooms. We would prefer to avoid any flights for our transportation.",
+  "question_details": {
+    "id": 166,
+    "query": "Could you devise a 7-day travel plan for two people, starting in Las Vegas and touring 3 cities in Idaho from March 4th to March 10th, 2022? Our budget is set at $5,100. We require accommodations that allow smoking and should ideally be entire rooms. We would prefer to avoid any flights for our transportation.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Las Vegas",
+    "dest": "Idaho",
+    "budget": 5100,
+    "local_constraint": "{'house rule': 'smoking', 'cuisine': None, 'room type': 'entire room', 'transportation': 'no flight'}",
+    "people_number": 2,
+    "date": "['2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07', '2022-03-08', '2022-03-09', '2022-03-10']"
+  },
+  "method": "sca",
+  "method_label": "SCA (Structured Constraint Architecture)",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "SCA (Structured Constraint Architecture)",
+    "system_prompt": "blueprint_release/travelplanner_blueprint/blueprint.yaml",
+    "constraint_injection": false,
+    "constraint_enforcement": "deterministic, blueprint-driven",
+    "tool_set": "TravelPlanner-standard-8 (subagent-bound)",
+    "subagent_pattern": true
+  },
+  "timestamp": "2026-04-13T00:21:58+00:00",
+  "duration_seconds": 76.1,
+  "tokens_input": 14584,
+  "tokens_output": 2499,
+  "tool_calls": 18,
+  "parsed_plan_text": "```json\n[\n    {\n        \"days\": 1,\n        \"current_city\": \"from Las Vegas to Boise\",\n        \"transportation\": \"Self-Driving from Las Vegas to Boise, Distance: 1,005km, Duration: 9h 29m, Cost: 50\",\n        \"breakfast\": \"Big Brewsky, Las Vegas\",\n        \"attraction\": \"-\",\n        \"lunch\": \"California Pizza Kitchen, Boise\",\n        \"dinner\": \"Dhaba By Claridges, Boise\",\n        \"accommodation\": \"Duplex 5 BR apartment in a historic brownstone, Boise\"\n    },\n    {\n        \"days\": 2,\n        \"current_city\": \"Boise\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Domino's Pizza, Boise\",\n        \"attraction\": \"Zoo Boise, Boise;Boise Art Museum, Boise;Julia Davis Park, Boise;\",\n        \"lunch\": \"AMPM Caf\u00e9 & Bar, Boise\",\n        \"dinner\": \"The Brewhouse, Boise\",\n        \"accommodation\": \"Duplex 5 BR apartment in a historic brownstone, Boise\"\n    },\n    {\n        \"days\": 3,\n        \"current_city\": \"from Boise to Twin Falls\",\n        \"transportation\": \"Self-Driving from Boise to Twin Falls, Distance: 206km, Duration: 2h 0m, Cost: 10\",\n        \"breakfast\": \"Evergreen Sweets, Boise\",\n        \"attraction\": \"Old Idaho Penitentiary Site, Boise;\",\n        \"lunch\": \"Fresc Co, Twin Falls\",\n        \"dinner\": \"Thai Paradise, Twin Falls\",\n        \"accommodation\": \"2 Bed Private Entrance Williamsburg, Twin Falls\"\n    },\n    {\n        \"days\": 4,\n        \"current_city\": \"Twin Falls\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"The Bake Studio, Twin Falls\",\n        \"attraction\": \"Shoshone Falls Park, Twin Falls;Snake River Canyon Rim Trail, Twin Falls;Evel Knievel Snake River Canyon Jump Site, Twin Falls;\",\n        \"lunch\": \"Asia Kitchen, Twin Falls\",\n        \"dinner\": \"Mr. Grill, Twin Falls\",\n        \"accommodation\": \"2 Bed Private Entrance Williamsburg, Twin Falls\"\n    },\n    {\n        \"days\": 5,\n        \"current_city\": \"from Twin Falls to Idaho Falls\",\n        \"transportation\": \"Self-Driving from Twin Falls to Idaho Falls, Distance: 256km, Duration: 2h 22m, Cost: 12\",\n        \"breakfast\": \"Haldiram's, Twin Falls\",\n        \"attraction\": \"Herrett Center, Twin Falls;\",\n        \"lunch\": \"Karim's, Idaho Falls\",\n        \"dinner\": \"Dhuaan, Idaho Falls\",\n        \"accommodation\": \"Perfect Williamsburg Summer Haven, Idaho Falls\"\n    },\n    {\n        \"days\": 6,\n        \"current_city\": \"Idaho Falls\",\n        \"transportation\": \"-\",\n        \"breakfast\": \"Subway, Idaho Falls\",\n        \"attraction\": \"Idaho Falls Zoo at Tautphaus Park, Idaho Falls;Museum of Idaho, Idaho Falls;Idaho Falls River Walk - Greenbelt Trail, Idaho Falls;\",\n        \"lunch\": \"The Fusion Food Stand, Idaho Falls\",\n        \"dinner\": \"Chinese X'Press, Idaho Falls\",\n        \"accommodation\": \"Perfect Williamsburg Summer Haven, Idaho Falls\"\n    },\n    {\n        \"days\": 7,\n        \"current_city\": \"from Idaho Falls to Las Vegas\",\n        \"transportation\": \"Self-Driving from Idaho Falls to Las Vegas, Distance: 1,018km, Duration: 8h 47m, Cost: 50\",\n        \"breakfast\": \"Fresh n Frozen, Idaho Falls\",\n        \"attraction\": \"Japanese Friendship Garden, Idaho Falls;\",\n        \"lunch\": \"Giani, Idaho Falls\",\n        \"dinner\": \"Letz Roll, Las Vegas\",\n        \"accommodation\": \"-\"\n    }\n]\n```",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": true
+    },
+    "hard": {
+      "H1": false,
+      "H3": false,
+      "H4": false,
+      "H5": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed"
+}

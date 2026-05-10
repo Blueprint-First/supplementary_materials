@@ -1,0 +1,81 @@
+{
+  "question_id": 378,
+  "query": "Could you please help in creating a 3-day travel plan for a group of 7, departing from Albuquerque and visiting San Diego from March 7th to March 9th, 2022? We have set our budget to $8,900 and we would like to ensure our accommodations provide private rooms.",
+  "question_details": {
+    "id": 378,
+    "query": "Could you please help in creating a 3-day travel plan for a group of 7, departing from Albuquerque and visiting San Diego from March 7th to March 9th, 2022? We have set our budget to $8,900 and we would like to ensure our accommodations provide private rooms.",
+    "level": "medium",
+    "days": 3,
+    "visiting_city_number": 1,
+    "org": "Albuquerque",
+    "dest": "San Diego",
+    "budget": 8900,
+    "local_constraint": "{'house rule': None, 'cuisine': None, 'room type': 'private room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-07', '2022-03-08', '2022-03-09']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-12T20:39:54+00:00",
+  "duration_seconds": 26.39,
+  "tokens_input": 4815,
+  "tokens_output": 888,
+  "tool_calls": 6,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Albuquerque to San Diego\nTransportation: Flight Number: F9999999, from Albuquerque to San Diego, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Birchwood Tavern, Albuquerque\nAttraction: Skyline Observatory, San Diego\nLunch: Sunset Grille, San Diego\nDinner: Sunset Grille, San Diego\nAccommodation: Boutique Inn at San Diego Center, San Diego\n\nDay 2:\nCurrent City: San Diego\nTransportation: -\nBreakfast: Garden Brasserie, San Diego\nAttraction: Skyline Observatory, San Diego\nLunch: Stone Hearth Kitchen, San Diego\nDinner: Sunset Grille, San Diego\nAccommodation: Boutique Inn at San Diego Center, San Diego\n\nDay 3:\nCurrent City: from San Diego to Albuquerque\nTransportation: Flight Number: F9875227, from San Diego to Albuquerque, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Kettle & Fork, San Diego\nAttraction: -\nLunch: The Olive Tree, San Diego\nDinner: Riverside Bistro, San Diego\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": false,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H4": true,
+      "H5": false
+    },
+    "composite_score": 0.1667,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C1",
+      "kind": "commonsense",
+      "description": "Reasonable visiting city (closed loop, valid sequence)"
+    },
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "H4",
+      "kind": "hard",
+      "description": "Room-type match"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "question_id": 972,
+  "query": "Could you help me put together a 7-day travel plan for two, starting from Memphis and covering 3 different cities in Texas, from March 16th to March 22nd, 2022? Our budget is now $6,900. We require accommodations that are entire rooms, and we do not plan on self-driving throughout the trip. For dining, we have a preference for Indian, Mediterranean, American, and Mexican cuisines.",
+  "question_details": {
+    "id": 972,
+    "query": "Could you help me put together a 7-day travel plan for two, starting from Memphis and covering 3 different cities in Texas, from March 16th to March 22nd, 2022? Our budget is now $6,900. We require accommodations that are entire rooms, and we do not plan on self-driving throughout the trip. For dining, we have a preference for Indian, Mediterranean, American, and Mexican cuisines.",
+    "level": "hard",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Memphis",
+    "dest": "Texas",
+    "budget": 6900,
+    "local_constraint": "{'house rule': None, 'cuisine': ['Mexican', 'Indian', 'American', 'Mediterranean'], 'room type': 'entire room', 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-16', '2022-03-17', '2022-03-18', '2022-03-19', '2022-03-20', '2022-03-21', '2022-03-22']"
+  },
+  "method": "codeact_injected",
+  "method_label": "CodeAct + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "CodeAct",
+    "system_prompt": "ablation/injected_prompts/codeact_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (Python wrappers)",
+    "max_code_blocks": 25
+  },
+  "timestamp": "2026-04-13T08:42:36+00:00",
+  "duration_seconds": 77.13,
+  "tokens_input": 14441,
+  "tokens_output": 2473,
+  "tool_calls": 16,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Memphis to Texas\nTransportation: Flight Number: F99999996, from Memphis to Texas, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Memphis\nAttraction: Skyline Observatory, Texas\nLunch: Maple Diner, Texas\nDinner: Kettle & Fork, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 2:\nCurrent City: Texas\nTransportation: -\nBreakfast: Lantern House, Texas\nAttraction: Skyline Observatory, Texas\nLunch: Sunset Grille, Texas\nDinner: Lantern House, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 3:\nCurrent City: Texas\nTransportation: -\nBreakfast: Kettle & Fork, Texas\nAttraction: Heritage Museum, Texas\nLunch: The Olive Tree, Texas\nDinner: Maple Diner, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 4:\nCurrent City: Texas\nTransportation: -\nBreakfast: The Olive Tree, Texas\nAttraction: Riverwalk Park, Texas\nLunch: Stone Hearth Kitchen, Texas\nDinner: Maple Diner, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 5:\nCurrent City: Texas\nTransportation: -\nBreakfast: Maple Diner, Texas\nAttraction: Skyline Observatory, Texas\nLunch: Lantern House, Texas\nDinner: Maple Diner, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 6:\nCurrent City: Texas\nTransportation: -\nBreakfast: Lantern House, Texas\nAttraction: City Botanical Garden, Texas\nLunch: Harbor Cafe, Texas\nDinner: Kettle & Fork, Texas\nAccommodation: Boutique Inn at Texas Center, Texas\n\nDay 7:\nCurrent City: from Texas to Memphis\nTransportation: Flight Number: F1708386, from Texas to Memphis, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Riverside Bistro, Texas\nAttraction: -\nLunch: Garden Brasserie, Texas\nDinner: Riverside Bistro, Texas\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": false,
+      "C2": true,
+      "C3": false,
+      "C4": false,
+      "C5": false,
+      "C6": false,
+      "C7": false,
+      "C8": false
+    },
+    "hard": {
+      "H1": false,
+      "H2": false,
+      "H3": false,
+      "H4": false
+    },
+    "composite_score": 0.0625,
+    "final_pass": false
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C3",
+      "kind": "commonsense",
+      "description": "No attraction repetition across the itinerary"
+    },
+    {
+      "code": "C4",
+      "kind": "commonsense",
+      "description": "Transportation mode consistency"
+    },
+    {
+      "code": "C5",
+      "kind": "commonsense",
+      "description": "Information localized to current city"
+    },
+    {
+      "code": "C6",
+      "kind": "commonsense",
+      "description": "Database existence (no hallucinated entities)"
+    },
+    {
+      "code": "C7",
+      "kind": "commonsense",
+      "description": "Accommodation minimum-nights rule"
+    },
+    {
+      "code": "H4",
+      "kind": "hard",
+      "description": "Room-type match"
+    }
+  ]
+}

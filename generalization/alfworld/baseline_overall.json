@@ -1,0 +1,50 @@
+{
+  "_comment": "Per-baseline aggregate from a single seed run on Claude-Sonnet-4, ALFWorld valid_unseen (134 tasks).",
+  "baselines": {
+    "ReAct": {
+      "total": 134,
+      "success": 122,
+      "failed": 12,
+      "success_rate": 0.9104477611940298,
+      "total_steps": 1872,
+      "avg_steps_all": 13.970149253731343,
+      "avg_steps_success": 12.639344262295081
+    },
+    "Reflexion": {
+      "mode": "reflexion",
+      "split": "valid_unseen",
+      "model": "claude_sonnet4",
+      "max_episodes": 3,
+      "max_step": 50,
+      "total": 134,
+      "success": 128,
+      "failed": 6,
+      "success_rate": 0.9552238805970148,
+      "first_attempt_success": 125,
+      "first_attempt_rate": 0.9328358208955224,
+      "avg_episodes_used": 1.0522388059701493,
+      "avg_steps_all": 15.686567164179104,
+      "avg_steps_success": 14.4765625,
+      "avg_steps_success_final": 13.3671875,
+      "total_steps": 2102
+    },
+    "ReAct+Reflexion": {
+      "mode": "react-reflexion",
+      "split": "valid_unseen",
+      "model": "claude_sonnet4",
+      "max_episodes": 3,
+      "max_step": 50,
+      "total": 134,
+      "success": 128,
+      "failed": 6,
+      "success_rate": 0.9552238805970148,
+      "first_attempt_success": 126,
+      "first_attempt_rate": 0.9402985074626866,
+      "avg_episodes_used": 1.0895522388059702,
+      "avg_steps_all": 16.104477611940297,
+      "avg_steps_success": 12.171875,
+      "avg_steps_success_final": 11.5234375,
+      "total_steps": 2158
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "question_id": 648,
+  "query": "Could you help structure a 7-day travel plan for a group of 4 from Indianapolis, visiting 3 different cities in North Carolina? The travel dates span from March 1st to March 7th, 2022, and we have a budget of $11,900. For our accommodations, our only house rule is that visitors should be allowed.",
+  "question_details": {
+    "id": 648,
+    "query": "Could you help structure a 7-day travel plan for a group of 4 from Indianapolis, visiting 3 different cities in North Carolina? The travel dates span from March 1st to March 7th, 2022, and we have a budget of $11,900. For our accommodations, our only house rule is that visitors should be allowed.",
+    "level": "medium",
+    "days": 7,
+    "visiting_city_number": 3,
+    "org": "Indianapolis",
+    "dest": "North Carolina",
+    "budget": 11900,
+    "local_constraint": "{'house rule': 'visitors', 'cuisine': None, 'room type': None, 'transportation': None}",
+    "people_number": 1,
+    "date": "['2022-03-01', '2022-03-02', '2022-03-03', '2022-03-04', '2022-03-05', '2022-03-06', '2022-03-07']"
+  },
+  "method": "atlas_injected",
+  "method_label": "ATLAS + injected constraints",
+  "model": "claude-sonnet-4",
+  "temperature": 0.0,
+  "experiment_config": {
+    "method": "ATLAS",
+    "system_prompt": "ablation/injected_prompts/atlas_injected.txt",
+    "constraint_injection": true,
+    "tool_set": "TravelPlanner-standard-8 (per-leaf binding)",
+    "max_replans": 2
+  },
+  "timestamp": "2026-04-13T06:08:24+00:00",
+  "duration_seconds": 107.24,
+  "tokens_input": 19996,
+  "tokens_output": 2591,
+  "tool_calls": 20,
+  "parsed_plan_text": "Day 1:\nCurrent City: from Indianapolis to North Carolina\nTransportation: Flight Number: F14185422, from Indianapolis to North Carolina, Departure Time: 08:15, Arrival Time: 11:42\nBreakfast: Cafe Aurora, Indianapolis\nAttraction: City Botanical Garden, North Carolina\nLunch: Sunset Grille, North Carolina\nDinner: Sunset Grille, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 2:\nCurrent City: North Carolina\nTransportation: -\nBreakfast: Garden Brasserie, North Carolina\nAttraction: Liberty Hall, North Carolina\nLunch: Sunset Grille, North Carolina\nDinner: Harbor Cafe, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 3:\nCurrent City: North Carolina\nTransportation: -\nBreakfast: Garden Brasserie, North Carolina\nAttraction: Heritage Museum, North Carolina\nLunch: Riverside Bistro, North Carolina\nDinner: The Olive Tree, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 4:\nCurrent City: North Carolina\nTransportation: -\nBreakfast: Sunset Grille, North Carolina\nAttraction: Heritage Museum, North Carolina\nLunch: Harbor Cafe, North Carolina\nDinner: Maple Diner, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 5:\nCurrent City: North Carolina\nTransportation: -\nBreakfast: Harbor Cafe, North Carolina\nAttraction: Riverwalk Park, North Carolina\nLunch: Kettle & Fork, North Carolina\nDinner: Sunset Grille, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 6:\nCurrent City: North Carolina\nTransportation: -\nBreakfast: Garden Brasserie, North Carolina\nAttraction: Riverwalk Park, North Carolina\nLunch: The Olive Tree, North Carolina\nDinner: Harbor Cafe, North Carolina\nAccommodation: Boutique Inn at North Carolina Center, North Carolina\n\nDay 7:\nCurrent City: from North Carolina to Indianapolis\nTransportation: Flight Number: F4001952, from North Carolina to Indianapolis, Departure Time: 19:30, Arrival Time: 22:48\nBreakfast: Sunset Grille, North Carolina\nAttraction: -\nLunch: Riverside Bistro, North Carolina\nDinner: Stone Hearth Kitchen, North Carolina\nAccommodation: -\n",
+  "constraint_results": {
+    "commonsense": {
+      "C1": true,
+      "C2": true,
+      "C3": true,
+      "C4": true,
+      "C5": true,
+      "C6": true,
+      "C7": true,
+      "C8": true
+    },
+    "hard": {
+      "H1": true,
+      "H3": true,
+      "H4": true
+    },
+    "composite_score": 1.0,
+    "final_pass": true
+  },
+  "status": "completed",
+  "injected_failures": [
+    {
+      "code": "C2",
+      "kind": "commonsense",
+      "description": "No restaurant repetition across the itinerary"
+    },
+    {
+      "code": "H1",
+      "kind": "hard",
+      "description": "Budget cap (total cost \u2264 user budget)"
+    }
+  ]
+}
